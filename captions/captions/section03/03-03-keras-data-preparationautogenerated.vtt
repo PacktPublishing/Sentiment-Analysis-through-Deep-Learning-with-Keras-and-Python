@@ -1,0 +1,448 @@
+WEBVTT
+
+00:00.390 --> 00:06.450
+Now that we've set up our environment we're going to take a look at some implementation of deep learning
+
+00:06.570 --> 00:07.770
+with cameras.
+
+00:07.770 --> 00:14.190
+So we go to our kids folder that we set up earlier in our virtual environment just to see what we have.
+
+00:14.190 --> 00:15.750
+I'm going to say NASA over here.
+
+00:15.750 --> 00:23.040
+You can if you're on Windows you can see desired and you'll see all of these folders in the course page.
+
+00:23.070 --> 00:27.690
+I will upload a zip file which when you extract you get this notebooks folder out.
+
+00:27.810 --> 00:34.560
+If you take a look at the details of this folder Alice notebooks or the notebooks we will see that we
+
+00:34.560 --> 00:36.680
+have some Python notebooks over here.
+
+00:37.110 --> 00:43.950
+So we activate our virtual environment using source Ben slash activate or if you're on Windows we activated
+
+00:44.020 --> 00:45.720
+it scripts slash activate.
+
+00:46.290 --> 00:49.760
+Once this is activated we start our Jupiter notebook.
+
+00:50.160 --> 00:59.030
+So when we start our Jupiter notebook we get the notebook page over here.
+
+00:59.070 --> 01:04.340
+So what we want to do now is by the way you can take a look at 0 0 psychic could introduction.
+
+01:04.350 --> 01:10.130
+This is the same thing that we did on try it on Jupiter dot org in the first video.
+
+01:10.140 --> 01:12.830
+Now you can executed on here as well.
+
+01:13.770 --> 01:20.790
+What we're going to do right now is to start with Qantas and this dash begin the IPA and be the end
+
+01:20.790 --> 01:25.540
+result is in 0 1 get us and this dash instructor not by any.
+
+01:25.620 --> 01:29.310
+Just in case you want to take a look at it but we're going to start from this and this is kind of a
+
+01:29.310 --> 01:30.270
+code along.
+
+01:30.270 --> 01:38.610
+So you might want to start by opening your notebook and coding as we go along.
+
+01:38.610 --> 01:41.290
+So I'll be cutting it in real time right now.
+
+01:41.340 --> 01:45.870
+So if you click on this I buy the notebook.
+
+01:45.870 --> 01:47.580
+It will open up in a new tab.
+
+01:47.790 --> 01:55.060
+And this is what we have at the moment I have some of the gourd filled in already.
+
+01:55.130 --> 01:57.180
+And I'm going to fill in the rest.
+
+01:57.320 --> 02:01.070
+So at the very start we have from future important brain function.
+
+02:01.070 --> 02:03.000
+This is for Python 2 compatibility.
+
+02:03.170 --> 02:04.710
+Since we are in Python 3.
+
+02:04.760 --> 02:08.360
+But we want to make sure that if somebody runs our code on Python do it.
+
+02:08.460 --> 02:10.670
+They can also have it working properly.
+
+02:10.700 --> 02:12.660
+So this is for backwards compatibility.
+
+02:12.680 --> 02:15.230
+The next thing that we want to do is well let's execute that.
+
+02:15.320 --> 02:20.510
+The next thing that we want to do is important on PI and said no not random dot seed.
+
+02:20.540 --> 02:25.120
+This ensures that the random number generation is reproducible.
+
+02:25.130 --> 02:28.660
+So you get the same random numbers every time that you've done this notebook.
+
+02:28.670 --> 02:34.880
+This makes sure that if you got for instance a good result in an experiment down over here and in this
+
+02:34.880 --> 02:39.470
+page it's going to be it's going to give you the same results and the random number generation isn't
+
+02:39.470 --> 02:41.200
+going to mess it up for us.
+
+02:41.240 --> 02:46.700
+So it's always good a good idea to always have from future import print function and then import none
+
+02:46.700 --> 02:48.700
+by an umpire of tiny number of seed.
+
+02:48.800 --> 02:55.030
+You must make sure that you import an umpire and you set the seed before you import quotas or cyclone
+
+02:55.040 --> 03:00.800
+or anything else that imports an umpire because once they do you don't have a guarantee that the seed
+
+03:00.800 --> 03:01.670
+is going to remain the same.
+
+03:02.000 --> 03:02.990
+So let's execute that.
+
+03:03.860 --> 03:09.470
+And now what we're going to do is we're going to import carriers and from get a start date I said we're
+
+03:09.470 --> 03:10.510
+going to import MLS.
+
+03:10.550 --> 03:15.890
+So this is going to be exactly parallel to what we did what we did with Scotland except now we're doing
+
+03:15.890 --> 03:17.060
+it with deep learning.
+
+03:17.060 --> 03:18.990
+So let's execute this.
+
+03:19.100 --> 03:23.480
+We're going to set a couple of variables so our number of classes is going to be 10 because we have
+
+03:23.480 --> 03:28.490
+digits from zero to 10 0 to 9 are back sizes 128.
+
+03:28.490 --> 03:35.040
+So when we have our data points they're going to be fed to the network 128 data points at a time.
+
+03:35.060 --> 03:43.430
+So this makes the computation much more efficient than having to feed all the data points at once e-books
+
+03:43.520 --> 03:49.630
+is going to be do an e-book is when your known neural network has seen or any machine learning algorithm
+
+03:50.050 --> 03:52.570
+has seen all of your data points once.
+
+03:52.720 --> 03:52.970
+Right.
+
+03:53.450 --> 03:55.480
+So that will be one epoch.
+
+03:55.490 --> 04:02.420
+So when you train your machine and you show it the whole training set once that's one bug you can show
+
+04:02.420 --> 04:05.750
+it to the machine again and the machine can learn a bit more.
+
+04:05.770 --> 04:07.240
+That'll be the second epoch.
+
+04:07.240 --> 04:10.190
+So the more e-books you have the more likely the machine is to learn.
+
+04:10.670 --> 04:16.670
+So let's set the epoxy to for this demo run when you're doing it yourself you might want to set it to
+
+04:16.670 --> 04:17.890
+20 or something like that.
+
+04:17.960 --> 04:20.150
+So let's execute this as well.
+
+04:20.210 --> 04:24.690
+At the moment these are just variables we'll be using them later.
+
+04:25.160 --> 04:28.280
+Now what we want to do is we want to do amnesty not load data.
+
+04:28.280 --> 04:33.470
+I mean this is very similar to this I could learn a loading data function we're going to load the data
+
+04:33.830 --> 04:38.530
+and the result that we get is going to be set automatically to exchange by train extents by test.
+
+04:38.780 --> 04:43.700
+If you recall I told you that this is what stumps most of the machine learning implementation details
+
+04:44.420 --> 04:48.260
+when people want to apply machine learning onto their own data.
+
+04:48.260 --> 04:50.020
+This is what gets them down.
+
+04:50.360 --> 04:50.570
+Right.
+
+04:50.660 --> 04:52.560
+We're going to cover this in a later video.
+
+04:52.700 --> 04:55.730
+But for now we're loading the data using this black box function.
+
+04:55.820 --> 04:57.170
+So let's execute that.
+
+04:57.290 --> 05:04.300
+And once the data is loaded let's print out the shape of the extreme my train picks test and whiteness
+
+05:04.760 --> 05:11.450
+and this will tell us that we have six thousand data points in extreme and 60 thousand in wide range.
+
+05:11.450 --> 05:18.150
+Obviously they need both of them need to be the same because the images all are going to have a neighbor.
+
+05:18.170 --> 05:25.400
+The other thing is that the image over here is a 28 across 28 so twenty eight pixels wide and 28 pixels
+
+05:25.910 --> 05:26.740
+high.
+
+05:26.960 --> 05:31.750
+And we want to change this to a flat vector.
+
+05:31.800 --> 05:31.930
+Right.
+
+05:31.980 --> 05:38.270
+So that is going to be 28 into 28 which is equal to seven hundred and eighty four pixels in one large
+
+05:38.270 --> 05:38.530
+row.
+
+05:38.540 --> 05:38.780
+Right.
+
+05:38.780 --> 05:39.680
+So in a single vector.
+
+05:39.680 --> 05:41.570
+So that's the first thing that we want to do.
+
+05:41.600 --> 05:45.470
+So X train is going to equal extremes not appreciate.
+
+05:46.040 --> 05:52.580
+So we get this in 28 across 28 a matrix we want to turn it into a vector so this is going to be sixty
+
+05:52.580 --> 05:55.060
+thousand and seventy four.
+
+05:55.100 --> 06:00.780
+So this is going to be our new shape because 28 x 28 is equal to 74.
+
+06:01.280 --> 06:03.320
+So we've changed this to a flat vector.
+
+06:03.350 --> 06:12.200
+We also want to change the x test to X test dot reshape and this is going to be ten thousand and seven
+
+06:12.460 --> 06:13.900
+eight four.
+
+06:14.090 --> 06:24.070
+So we have that we also want to change the type of extreme extreme is going to be extreme.
+
+06:24.170 --> 06:36.860
+As type float 32 and we also want to change the x test to X test dot as type slope 32 32.
+
+06:36.950 --> 06:39.940
+That's because we don't want them integers wondering floats.
+
+06:40.130 --> 06:48.450
+Now let's go ahead and change x train divide is equal to two fifty five.
+
+06:48.510 --> 06:51.370
+That's because the current range is 0 to 255.
+
+06:51.380 --> 06:54.450
+And what we want them to be is in 0 2 1.
+
+06:54.480 --> 06:58.430
+So within the range you would want that just makes learning a little easier.
+
+06:58.520 --> 07:04.380
+Was generally a good practice to reskill your input data to lie between 0 and 1.
+
+07:04.550 --> 07:15.590
+So we also want to change X test to lie between 0 and 1 so this is called normalizing your data so we're
+
+07:15.640 --> 07:16.680
+normalizing the data.
+
+07:17.170 --> 07:22.060
+And finally what we want to do is we want to output the shapes so that we know what shape we currently
+
+07:22.060 --> 07:22.590
+have.
+
+07:22.750 --> 07:24.950
+So let's execute that.
+
+07:25.810 --> 07:29.620
+So flawed that needs to be in string.
+
+07:33.650 --> 07:34.320
+So there you go.
+
+07:35.200 --> 07:39.640
+So we have sixty thousand training samples and 10000 assembled.
+
+07:39.670 --> 07:40.780
+So that's obvious.
+
+07:40.780 --> 07:42.880
+We also want to offer the shapes again.
+
+07:42.880 --> 07:46.710
+So now you will see that this is now instead of being 28 across 28.
+
+07:46.720 --> 07:49.540
+This is now eight seven eight for a single vector.
+
+07:50.170 --> 07:55.080
+Let's take a look at one particular case off the label so why train 0.
+
+07:55.090 --> 07:57.370
+So the first value is five.
+
+07:57.370 --> 08:03.030
+Now this five and four and three they need to be changed to something else.
+
+08:03.080 --> 08:06.170
+So let's go back to our architecture over here.
+
+08:06.250 --> 08:09.760
+So you'll notice that we have one two three and four classes over here.
+
+08:09.760 --> 08:12.990
+So in an amnesty example we're going to have nine classes all year.
+
+08:13.450 --> 08:15.960
+And what we want to do is to give it the ground truth.
+
+08:15.970 --> 08:18.660
+We're going to say that this is false this is false.
+
+08:18.670 --> 08:19.390
+This is false.
+
+08:19.420 --> 08:20.350
+And this is false.
+
+08:20.650 --> 08:24.570
+But the fifth one is going to be true by 2 0 1 2 3 4.
+
+08:24.610 --> 08:30.040
+And the fifth note overhead is going to get the ground truth of one because this image that we're feeding
+
+08:30.040 --> 08:33.110
+it is one and everything else is going to be a zero.
+
+08:33.610 --> 08:38.050
+So let's take a look over here and you'll see what we mean.
+
+08:38.050 --> 08:51.360
+So 5 needs to turn to a vector which is going to be 0 0 0 0 so that's 0 1 2 3 4 5 6 7 8 and 9.
+
+08:51.880 --> 08:59.170
+So this is what we call a 1 Hot vector so 0 1 2 3 4 and fifth value is going to be 1.
+
+08:59.170 --> 09:01.360
+Everything else is going to be zero.
+
+09:01.360 --> 09:05.790
+This is because the machine finds it much more easy to learn this type of data instead.
+
+09:05.950 --> 09:08.600
+If instead of if we give it a fight.
+
+09:08.860 --> 09:11.920
+So that is typically what we will want to do in multi class classification.
+
+09:11.920 --> 09:17.980
+You want to change your training and test labels to something called one part of a trend according and
+
+09:18.190 --> 09:23.250
+you can do that really easily using get unstuck utilize dot to categorical.
+
+09:23.940 --> 09:24.250
+Right.
+
+09:24.280 --> 09:28.040
+And we're going to give it like paint and we're going to tell it plumbing glasses.
+
+09:28.060 --> 09:34.720
+We have rights we have 10 classes and we're also going to do the same for the test
+
+09:38.520 --> 09:39.550
+data points.
+
+09:39.870 --> 09:40.110
+Right.
+
+09:40.140 --> 09:48.810
+So we do that and this is going to turn white train 0 2 0 0 0 0 0 1 because it's the fifth labor pool
+
+09:48.810 --> 09:49.270
+here.
+
+09:49.530 --> 09:51.030
+And then everything else is also zero right.
+
+09:51.030 --> 09:56.970
+So this is not a one factor in coding and this is how you represent multi class labels and instead of
+
+09:56.970 --> 09:57.770
+saying it's a five.
+
+09:57.780 --> 10:03.270
+You say it's this vegetable in here and this essentially captures the middle class classification.
+
+10:03.270 --> 10:08.220
+Now in the next video we're going to take this data that we have just prepared and we're going to feed
+
+10:08.220 --> 10:10.260
+it to a neural network that we create.

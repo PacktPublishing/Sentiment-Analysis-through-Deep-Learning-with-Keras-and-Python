@@ -1,0 +1,400 @@
+WEBVTT
+
+00:01.010 --> 00:07.580
+So to get started with the code of CNN we want to go to 0 for CNN basic dash begin.
+
+00:07.590 --> 00:11.200
+And as always we have the finished product in dash instructor.
+
+00:11.430 --> 00:14.100
+But we want to start with the beginning so that you can code along.
+
+00:14.580 --> 00:17.560
+So let's get it over here and take a look at this.
+
+00:17.610 --> 00:23.910
+So we have the typical future import print function import num B and and b random dock seat.
+
+00:23.940 --> 00:26.730
+So we have that plus we have a couple of imports over here.
+
+00:26.730 --> 00:31.040
+So we are importing DCF data set.
+
+00:31.110 --> 00:36.570
+We are also importing these sequential model dense layer activation layer and difficult layer.
+
+00:36.690 --> 00:41.440
+Plus we have a new layer overhead which is gone 2D which is far too damaging convolution.
+
+00:41.440 --> 00:45.020
+So we're going to import all of those our backsides is going to be 32.
+
+00:45.030 --> 00:49.390
+We have 10 classes in the CFR dataset and we're going to restrict ourselves to five epochs for now.
+
+00:50.190 --> 00:55.010
+We're going to increase that later on overhead.
+
+00:55.020 --> 01:03.940
+We have the low data so that loads of data for us plus we go ahead and change the type to float and
+
+01:03.940 --> 01:08.440
+we normalize the data as before and then we go ahead and alter the shapes.
+
+01:08.440 --> 01:11.920
+So as you can see the shape is 50 thousand.
+
+01:11.950 --> 01:16.690
+So that is the number of training samples that we have each image is 32 by 32.
+
+01:16.840 --> 01:19.030
+And the number of channels is three.
+
+01:19.030 --> 01:22.950
+So this now as you can see is a very large tensor.
+
+01:22.960 --> 01:28.330
+So 500 data points 32 by 32 image each image being of three channels.
+
+01:28.330 --> 01:32.080
+Right so our GNP and we have 10000 assembles.
+
+01:32.320 --> 01:39.010
+Now what we want to do is we want to change the way train and right as to their 100 micro representations.
+
+01:39.010 --> 01:40.960
+And finally we want to create our model.
+
+01:40.960 --> 01:45.290
+So this is going to be a sequential model and we're going to go ahead and call this up.
+
+01:45.280 --> 01:48.310
+So this is going to be our convolution neural network.
+
+01:48.320 --> 01:49.890
+So we're going to have gone through these.
+
+01:50.560 --> 01:53.880
+And the first thing that we need to tell is is the number of filters.
+
+01:53.890 --> 01:55.620
+So we're going to create 16 filters.
+
+01:55.630 --> 01:58.780
+So if you recall all here we had just two filters.
+
+01:58.780 --> 02:03.770
+Now we're going to create 16 of these and each filter is going to be three across three.
+
+02:03.970 --> 02:07.090
+So that's the basic information that we're going to give it.
+
+02:07.090 --> 02:09.820
+We also want to give it what type of padding we have.
+
+02:09.820 --> 02:12.360
+So here we have a zero padding.
+
+02:12.370 --> 02:15.270
+We can have same bedding and there are other types as well.
+
+02:15.310 --> 02:18.570
+It doesn't really make much of a difference at this moment at this point.
+
+02:18.820 --> 02:24.460
+Also we need to tell you what the input shapes so input shape is going to be essentially the same as
+
+02:24.610 --> 02:26.640
+the X strange shape.
+
+02:26.650 --> 02:31.930
+So this guy over here this will be committed and will tell it what the input shape is and this is going
+
+02:31.930 --> 02:33.540
+to be 32 by 32 by 3.
+
+02:33.550 --> 02:39.990
+We can either do that or we can simply tell it that it's extreme shape and then one color.
+
+02:40.060 --> 02:44.350
+So starting from the first index which is over here up until the end.
+
+02:44.410 --> 02:47.810
+So this is going to be 32 across 32 across three.
+
+02:48.100 --> 02:49.570
+So we can tell you what this shape is.
+
+02:49.600 --> 02:53.530
+So let's go ahead and run this and then take a look at the model summary.
+
+02:53.540 --> 02:59.290
+So as I discussed last time what we want to do is we want to make sure that we build one layer at a
+
+02:59.290 --> 03:00.360
+time.
+
+03:00.460 --> 03:09.260
+So let's go ahead and take a look at the model summary so as you can see after the application of the
+
+03:09.710 --> 03:13.610
+convolution duty we're going to have a 32 by 32 by 16.
+
+03:13.610 --> 03:15.890
+So this is the number of filters that we have.
+
+03:15.890 --> 03:21.140
+So if you go back over here this was going to be the number of filters and because we have 16 filters
+
+03:21.440 --> 03:23.140
+we had this as 16.
+
+03:23.180 --> 03:29.270
+So now what we want to do is add a couple of more layers so we want to add more dot add and we're going
+
+03:29.270 --> 03:35.390
+to say activation and the activation type that we want to use over here is called.
+
+03:35.840 --> 03:37.130
+And let's see what really does.
+
+03:37.820 --> 03:41.360
+If you recall we had sigmoid earlier and this is what it might look like.
+
+03:41.360 --> 03:49.460
+So 1 4 very large values might 0 4 or very small values and for exactly zero we had point five.
+
+03:50.450 --> 03:53.800
+Value is another type of activation function which looks like this.
+
+03:53.840 --> 03:56.250
+So it's 0 4 0 and negative values.
+
+03:56.420 --> 03:58.440
+And anything in the positive range.
+
+03:58.460 --> 04:00.380
+It's exactly linear.
+
+04:00.410 --> 04:03.480
+So that is why it is called a rectified linear unit.
+
+04:03.860 --> 04:07.280
+So this is dealing in part and this is the rectification part right.
+
+04:07.280 --> 04:13.430
+So anything that is less than or equal to zero becomes zero and anything beyond that is very lenient
+
+04:13.690 --> 04:14.540
+is exactly linear.
+
+04:15.080 --> 04:20.150
+So this looks very counterintuitive but really you is one of those things that has really made deep
+
+04:20.150 --> 04:21.140
+learning work.
+
+04:21.140 --> 04:23.790
+So it's a very important squishing function that you can use.
+
+04:23.840 --> 04:28.430
+It's not technically squishing function because it's not squishing the values but it is an activation
+
+04:28.430 --> 04:28.880
+function.
+
+04:29.240 --> 04:34.430
+So let's go back over here and define our layers so we have the activation order here.
+
+04:34.430 --> 04:40.180
+Then what we can do is we can see more of ADD and we can create another con to deliver.
+
+04:40.280 --> 04:45.630
+And this again is going to have eight filters and if its size is again going to be three on the three.
+
+04:45.680 --> 04:48.410
+So that is another complete.
+
+04:48.530 --> 04:50.750
+Then we can do another one dot activation.
+
+04:50.750 --> 04:58.550
+In fact let's go ahead and just copy this over and then we what we want is model dot ad and we want
+
+04:58.550 --> 05:02.070
+to flatten out a little bit let's just go ahead and done this first.
+
+05:02.120 --> 05:03.500
+So take a look at this.
+
+05:03.530 --> 05:05.870
+So we have 32 by 32 by 16.
+
+05:05.870 --> 05:09.410
+And because we are sliding it over We're going to get 30 by 30.
+
+05:09.410 --> 05:11.860
+And then we have the number of murders which is eight.
+
+05:11.900 --> 05:15.260
+Now if you recall this is 30 by 30 by eight.
+
+05:15.290 --> 05:17.760
+So this let's go ahead and see what it looks like.
+
+05:18.040 --> 05:18.220
+Right.
+
+05:18.230 --> 05:23.270
+So over here we have the image which is 32 by 32.
+
+05:23.300 --> 05:28.550
+And if we have the number of filters as at three it's this is going to be 32 by 32 by 3.
+
+05:28.550 --> 05:31.510
+So 32 prostituted across three is going to be the volume.
+
+05:31.520 --> 05:36.470
+So that is where these volumes come from in the convolution and neural network literature.
+
+05:36.470 --> 05:41.870
+So this is going to be a 32 x 32 x 3 and this is going to be our volume.
+
+05:42.170 --> 05:48.230
+So this is going to volume the problem over here is that at the end what we're going to have is a dense
+
+05:48.230 --> 05:48.900
+layer.
+
+05:48.940 --> 05:49.370
+Right.
+
+05:50.990 --> 05:59.900
+So as before we can put a model that had dense and we can turn it into a number of classes but the problem
+
+05:59.900 --> 06:03.140
+is and let's also put an activation order here.
+
+06:03.350 --> 06:05.970
+So this activation is going to be some flex.
+
+06:06.230 --> 06:11.330
+But the problem is dense layer is going to be needing something in 1 dimensions.
+
+06:11.330 --> 06:12.890
+And here we have three dimensions.
+
+06:12.890 --> 06:16.210
+So what we want to do is we want to say model dot and flatten.
+
+06:16.220 --> 06:18.030
+So if you don't recall that.
+
+06:18.150 --> 06:21.490
+Please go back to the case study videos and we covered this over there in detail.
+
+06:21.830 --> 06:28.500
+So let's go ahead and run these and now you can see that after the flattened layer we have 30 multiplied
+
+06:28.520 --> 06:29.560
+by 30 minute ahead.
+
+06:29.570 --> 06:32.270
+So that's 30 30 into page.
+
+06:32.270 --> 06:34.680
+So that is 70 to 100 total nodes.
+
+06:34.730 --> 06:37.800
+And that is simply flattened to 70 200.
+
+06:37.850 --> 06:42.830
+Then we do a dense layer of 10 nodes because that is a number of classes and then we do in activation
+
+06:42.860 --> 06:43.880
+of sigmoid.
+
+06:43.880 --> 06:46.730
+So that is our model that we currently have.
+
+06:46.730 --> 06:52.760
+Then what we can do is we can go ahead and initialize and an optimizer.
+
+06:52.760 --> 06:57.440
+So we use SCADA earlier on now we're using them as props so this is another one that works really well
+
+06:57.440 --> 07:03.070
+for of our data sets and we compile it using the same categorical cross entropy and we give it the optimizer
+
+07:03.110 --> 07:06.500
+that we just created and we tell it that it should report the accuracy.
+
+07:06.860 --> 07:08.870
+So we can go ahead and run this.
+
+07:08.870 --> 07:13.640
+Now since this is a fairly large dataset it's going to take quite a lot of time so I ran it ahead of
+
+07:13.640 --> 07:17.130
+time and the accuracy that we're achieving over here is 51 percent.
+
+07:17.360 --> 07:19.400
+So that's not very impressive.
+
+07:19.400 --> 07:21.860
+The problem is that we need to do a lot more epochs.
+
+07:21.860 --> 07:23.480
+I did just five epochs over here.
+
+07:23.840 --> 07:30.020
+And because it was eating up my system I decided not to go ahead with it for instance like 100 bucks
+
+07:30.560 --> 07:32.140
+I do have an alternative order.
+
+07:32.240 --> 07:36.680
+So I went ahead and ran it on one of the Google machines.
+
+07:36.680 --> 07:45.170
+So I am going to provide a link to a blog post that I have written that will tell you exactly how to
+
+07:45.170 --> 07:46.340
+get access to this.
+
+07:46.380 --> 07:50.370
+This notebook that is on the Google servers and it runs the.
+
+07:50.480 --> 07:57.080
+And the code that is over here using tensor flow back end and on a jib you machine right.
+
+07:57.080 --> 07:58.810
+So this is freely available.
+
+07:58.850 --> 08:03.710
+I have a detailed tutorial that gives you step by step instructions on how you can access this as well.
+
+08:04.070 --> 08:12.080
+So I ran it over here and it achieved a 59 percent accuracy on the other 100 ebooks.
+
+08:12.120 --> 08:12.370
+Right.
+
+08:12.370 --> 08:13.900
+So this is really good.
+
+08:13.900 --> 08:15.700
+So 59 percent isn't all that impressive.
+
+08:15.700 --> 08:20.890
+But the problem is that the model that we have already had is really simple actually if we can go ahead
+
+08:20.920 --> 08:24.070
+and modify this model we can have a lot more power.
+
+08:24.250 --> 08:29.230
+And in the next few videos we're going to go ahead and see what other things we can do with our model
+
+08:29.230 --> 08:30.490
+that will increase our accuracy.

@@ -1,0 +1,277 @@
+WEBVTT
+
+00:00.660 --> 00:06.010
+In this video we're going to take a look at a very powerful but very simple technique.
+
+00:06.120 --> 00:10.430
+This is going to be very useful in your practical machine learning endeavors.
+
+00:10.500 --> 00:14.090
+So we are in 0 9 saving models begin.
+
+00:14.160 --> 00:17.130
+And as always the end product is in dash instructor.
+
+00:17.970 --> 00:24.960
+So let's recall that whenever we train a model we are essentially trying to find out the optimum values
+
+00:24.960 --> 00:28.470
+for these trainable parameters the values that we discussed earlier.
+
+00:28.770 --> 00:35.430
+And once you have these values decided or once you have learned your machine has been trained you don't
+
+00:35.430 --> 00:39.510
+want them to go off given your program finishes you want them to be saved somewhere right.
+
+00:39.600 --> 00:41.860
+And that is the idea of saving what awaits.
+
+00:41.980 --> 00:44.900
+So Chris has this functionality built in.
+
+00:45.040 --> 00:50.060
+We've gone ahead and created this model and we've compiled the model as well.
+
+00:50.620 --> 00:55.760
+Now what we want to do is we want to ensure that Qantas saves the moderates at the end of each book
+
+00:56.160 --> 00:59.050
+for that get us uses a package called S5 by.
+
+00:59.070 --> 01:01.780
+And this is not built into Anaconda.
+
+01:02.110 --> 01:06.490
+So if you tried to run this code over here we should get an ever so no module named S5.
+
+01:07.050 --> 01:08.130
+This is expected.
+
+01:08.160 --> 01:14.550
+So let's go ahead and install it using a run command of notebook so we can say exclamation mark pip
+
+01:14.580 --> 01:15.590
+install 5 by.
+
+01:15.600 --> 01:17.290
+And this will be installed.
+
+01:17.550 --> 01:23.460
+So you will see that disconnecting Phi Phi and it has no successfully installed it except now what we
+
+01:23.460 --> 01:28.770
+want to do is we want to make sure that we restart the kernel so that it is available to the kernel.
+
+01:28.830 --> 01:35.210
+So let's go ahead and restart the kernel and we're going to go ahead and execute all the commands again
+
+01:36.840 --> 01:43.640
+so we're running all of these come ons and we want to get the output quality model again.
+
+01:43.770 --> 01:46.770
+So modern summary and the optimization is done.
+
+01:46.800 --> 01:53.780
+Now what we going to do is we want to import as Phi Phi and let's go ahead and put it in it's online
+
+01:53.850 --> 01:57.170
+so that we are sure that it's working it's working fine now.
+
+01:57.230 --> 02:03.570
+Now what we want to do is we want to import from it get a start callbacks so callbacks are essentially
+
+02:03.570 --> 02:06.960
+functions which will be called at the end of different points.
+
+02:07.020 --> 02:07.290
+Right.
+
+02:07.290 --> 02:12.280
+So we are importing the model checkpoint callbacks.
+
+02:12.300 --> 02:16.800
+So that is a callback that is built to get us and it will help us save the moderates.
+
+02:16.800 --> 02:22.610
+This needs a file box so let's give it a file of checkpoints.
+
+02:22.740 --> 02:25.740
+There's going to be the directory in which all the check points are going to be saved and we're going
+
+02:25.740 --> 02:31.110
+to save rates dash improvement dash and then we going to put a tablet here.
+
+02:31.110 --> 02:34.900
+So this is going to be colon 0 2 D.
+
+02:35.250 --> 02:40.590
+So this is a placeholder for the epoch number in two decimal places.
+
+02:40.590 --> 02:43.420
+And then we are going to have another.
+
+02:43.760 --> 02:47.280
+Then we're going to have a dash and we're going to have another title here which is going to be about
+
+02:47.310 --> 02:48.210
+accuracy.
+
+02:48.420 --> 02:50.990
+And this is going to be point to.
+
+02:51.050 --> 02:54.650
+Right so a decimal place obtuse to two levels of precision.
+
+02:54.660 --> 02:59.790
+And then we are going to have HD has 5 which is the extension for S5 by.
+
+02:59.970 --> 03:00.970
+So that is our final.
+
+03:01.230 --> 03:05.130
+And then what we're going to do is we're going to create a checkpoint object which is going to be a
+
+03:05.130 --> 03:06.310
+model checkpoint.
+
+03:07.320 --> 03:10.260
+And we're going to see if that is going to be defined by that.
+
+03:10.260 --> 03:15.950
+It should say to the monitor should be validation accuracy.
+
+03:16.050 --> 03:21.260
+So it's going to monitor the value of validation accuracy and it's going to report it over here.
+
+03:21.270 --> 03:24.270
+We also wanted to have a lot of verbosity.
+
+03:24.270 --> 03:28.390
+So we wanted to put stuff and modestly will do Max.
+
+03:28.470 --> 03:32.520
+So there is an option that you only want to save the best validation accuracy model.
+
+03:32.520 --> 03:38.340
+But we're going to save all the intermediate models as well finally into the fit.
+
+03:38.370 --> 03:43.350
+You want to go ahead and say callbacks is equal to what we're going to give it a list except this list
+
+03:43.380 --> 03:47.870
+is only going to have the checkpoint object that we just created.
+
+03:47.950 --> 03:55.380
+So in order to visualize this let's go over here and we've put a watch on the checkpoints folder and
+
+03:55.410 --> 04:02.790
+as we execute it we're going to see that while this fitting is going on after each epoch we're going
+
+04:02.790 --> 04:04.800
+to have DVDs being dumped over here.
+
+04:04.800 --> 04:09.980
+So this is the epoch number and this is the current validation accuracy that we're achieving right.
+
+04:09.990 --> 04:13.670
+So we have limited this fitting to just five epochs.
+
+04:13.680 --> 04:18.530
+And at the end of the five epochs we have these five different rates saved over here.
+
+04:18.580 --> 04:18.800
+Right.
+
+04:18.810 --> 04:23.420
+So let's go back over here for a minute and try to evaluate the model.
+
+04:23.430 --> 04:29.850
+So currently the model evaluates to two point zero nine loss and zero point two five validation accuracy.
+
+04:29.850 --> 04:36.780
+Now we have to up the model and now let's say at a later stage when we go ahead and try to load this
+
+04:36.780 --> 04:38.870
+model how are we going to do that.
+
+04:38.880 --> 04:43.120
+So for this again let's go ahead and we struck the model restart the column sorry.
+
+04:43.140 --> 04:46.850
+So that the current parameter rates go away the memory is cleared.
+
+04:46.860 --> 04:51.730
+Everything is fine and we're going to go ahead and run the code again.
+
+04:51.900 --> 04:57.310
+The only difference this time is going to be that we are not going to perform the fitting.
+
+04:57.860 --> 04:59.410
+So we have combined the model.
+
+04:59.730 --> 05:03.690
+But beyond that we are not going to perform this fitting portion of over here.
+
+05:03.750 --> 05:07.380
+So we have done this and we have not done this.
+
+05:07.380 --> 05:08.690
+We have not done the fitting.
+
+05:08.690 --> 05:11.200
+This output is from the previous run.
+
+05:11.310 --> 05:16.140
+And now what we can do is we can go ahead and load the model that we saved in the last run.
+
+05:16.530 --> 05:22.440
+So for that we go over here we get this fine name and we can say that we want to load the weights from
+
+05:22.500 --> 05:24.720
+checkpoints slash this file.
+
+05:25.140 --> 05:26.670
+So this is as simple as that.
+
+05:27.750 --> 05:33.660
+Remember that modern outfit is only responsible for finding the values of the parameters.
+
+05:33.780 --> 05:35.760
+And we have those parameters saved over here.
+
+05:35.790 --> 05:41.580
+So this load weights is going to do the exact same thing as modern outfit except it's going to not learn
+
+05:41.820 --> 05:43.300
+but load from the fight.
+
+05:43.480 --> 05:49.050
+So let's go ahead and run this and then evaluate this model on the same asset and why test it.
+
+05:49.950 --> 05:53.300
+So we get the exact same result all here as we did with deep model.
+
+05:53.310 --> 05:58.470
+The reason is that the model weights are essentially all that capture the models learning and we are
+
+05:58.470 --> 06:01.260
+dumping into a file and loading it at a later stage.
+
+06:01.290 --> 06:06.180
+So these weights you can deploy to another machine for instance if you have access to a very highly
+
+06:06.900 --> 06:12.770
+powerful machine with a lot of use you can run your code on that.
+
+06:12.870 --> 06:18.900
+And once that is running over there and it's fine you can go ahead and move debates to your machine
+
+06:19.320 --> 06:22.140
+and perform predictions on a low end machine.
+
+06:22.140 --> 06:27.090
+So that's a very powerful tool to have under your belt and make sure you keep using it when you're performing
+
+06:27.090 --> 06:30.030
+training so that you can load your weights at a later stage.

@@ -1,0 +1,604 @@
+WEBVTT
+
+00:00.830 --> 00:01.160
+All right.
+
+00:01.180 --> 00:02.660
+So we're back after the break.
+
+00:02.680 --> 00:05.390
+We're going to take a look at the example of regression.
+
+00:05.470 --> 00:10.760
+And we're going to start from the very scratch and look at every detail that we need to know.
+
+00:11.290 --> 00:13.840
+So we're going to have this dataset.
+
+00:13.840 --> 00:16.780
+So this is our data set.
+
+00:16.780 --> 00:18.940
+This over here is our input.
+
+00:18.950 --> 00:19.340
+All right.
+
+00:19.360 --> 00:23.250
+So we're only going to give the machine one input that is going to be area of the house.
+
+00:23.270 --> 00:28.330
+Square feet and we're going to give it a number of examples.
+
+00:28.630 --> 00:35.400
+So these examples are going to be called data points so we have hard data is it hard data points.
+
+00:35.400 --> 00:36.470
+We have our inputs.
+
+00:36.600 --> 00:41.220
+And this over here is our output that the machine is supposed to learn to predict.
+
+00:41.790 --> 00:47.730
+So for instance we have these three examples over here we can take two examples and we can put this
+
+00:47.790 --> 00:48.900
+in the training set
+
+00:51.850 --> 00:57.000
+and take this score here and we're going to put it in the test.
+
+00:57.190 --> 01:02.920
+Obviously if you're going to have a real machine learning algorithm or an example we need to have these
+
+01:02.920 --> 01:06.310
+like 30000 over here and 20000 over here.
+
+01:06.310 --> 01:08.800
+But the concept is going to remain the same.
+
+01:08.800 --> 01:08.970
+Right.
+
+01:09.000 --> 01:15.790
+So we take this dataset over here and we take some of the points at string set and then what we do is
+
+01:16.130 --> 01:24.250
+we go over here and we plot it on the x axis we're going to have are here and on the y axis and we're
+
+01:24.250 --> 01:26.930
+going to have our price.
+
+01:27.010 --> 01:35.410
+So first let's try to think about the machine the machine first does is it takes the price and the area
+
+01:35.530 --> 01:38.140
+and it plots all the data points that we showed it.
+
+01:38.140 --> 01:38.320
+Right.
+
+01:38.320 --> 01:44.540
+So these values you can ignore for the moment it's not really important what the exact values are.
+
+01:44.740 --> 01:50.590
+You can get rid of these and you can plot all of the different values that we have in our data point.
+
+01:50.740 --> 01:50.940
+Right.
+
+01:50.950 --> 01:55.630
+So once we have these different data points over here what we want to do is we want to predict what
+
+01:55.630 --> 02:01.530
+the relationship is between the area and the price if we know what the relationship is.
+
+02:01.540 --> 02:07.220
+What we can do is we can simply plug in the area in that relationship equation and get the price up
+
+02:07.750 --> 02:09.800
+seems freely straightforward.
+
+02:09.860 --> 02:10.090
+Right.
+
+02:10.690 --> 02:14.950
+It's not that straightforward but it's a good enough approximation to start with.
+
+02:14.980 --> 02:21.220
+So let's assume first that the relationship between the area and the price is linear.
+
+02:21.220 --> 02:22.320
+So what does that mean.
+
+02:22.330 --> 02:27.730
+It means that the price is equal to some number.
+
+02:27.730 --> 02:35.560
+A plus B of any so we multiply the area by some number.
+
+02:35.560 --> 02:37.960
+And then we add some number and we get the price.
+
+02:37.990 --> 02:39.820
+So this one a linear relationship.
+
+02:39.920 --> 02:45.820
+Now since this looks a little bit too long look we're going to do is we're going to change this price
+
+02:45.820 --> 02:46.590
+too wide.
+
+02:47.710 --> 02:54.190
+All right we're going to change this area to X and we get the simple equation of.
+
+02:54.190 --> 02:56.650
+Is it wise to A plus B X.
+
+02:56.710 --> 02:59.890
+Now this is the straight line equation
+
+03:04.690 --> 03:07.880
+straight line equation.
+
+03:08.080 --> 03:08.320
+Right.
+
+03:08.740 --> 03:12.500
+And these two things are what we need to figure out.
+
+03:12.520 --> 03:14.150
+We already know all the excess.
+
+03:14.170 --> 03:15.560
+We already know all the whys.
+
+03:15.580 --> 03:15.760
+Right.
+
+03:15.790 --> 03:18.180
+So we got them in the data center we're here.
+
+03:18.430 --> 03:21.610
+Now what we need to do is find out what a and b are.
+
+03:21.700 --> 03:29.590
+So what this does is for instance like let's take two values let's assume that the value of e is equal
+
+03:29.590 --> 03:30.660
+to over here.
+
+03:30.690 --> 03:39.850
+That's in scoreless twenty five and let's say the slope of this line is let's say two point nine.
+
+03:40.450 --> 03:44.620
+So the value of eight is going to be twenty five and the value B's going to be two point nine.
+
+03:44.620 --> 03:49.790
+So this is the slope so me over here is the slope.
+
+03:49.890 --> 03:56.750
+So let's go ahead and take that I turn this over here is the slope.
+
+03:57.580 --> 04:03.020
+So this basically says if we change X how much is y going to change.
+
+04:03.060 --> 04:06.350
+So if we change X by one unit how much is y going to change.
+
+04:06.370 --> 04:12.260
+So let's say if B is 2 and we have is equal to 4.
+
+04:12.520 --> 04:16.150
+So it is going to be four plus two into x.
+
+04:16.240 --> 04:17.860
+So that's an example.
+
+04:17.860 --> 04:19.630
+Why is it good for us to into x.
+
+04:19.750 --> 04:27.460
+So if X was to vote we're going to have Y as two into two is four plus four is eight.
+
+04:27.850 --> 04:33.220
+If we change this to three it's going to be three into two teams going to do which is when the sixth
+
+04:33.240 --> 04:39.270
+before you wouldn't think what they says is if you change X by 1 y changes by 2.
+
+04:39.270 --> 04:44.700
+And that is going to be the slope over here which is B and the value of B is two.
+
+04:44.920 --> 04:51.490
+So I apologize if I'm boring you with all the details but it's it's really helpful if you understand
+
+04:51.490 --> 04:53.190
+this theory a little bit.
+
+04:53.740 --> 04:58.280
+So you can skip ahead if you find this too easy to understand right.
+
+04:59.410 --> 05:00.640
+So anyway let's go ahead.
+
+05:00.790 --> 05:08.230
+So we got the slope over here and we got the gate and this essentially means that if you set X to zero
+
+05:08.260 --> 05:10.250
+then where does the Y stand.
+
+05:10.290 --> 05:13.650
+So if X is equal to zero Y is going to be over here.
+
+05:13.650 --> 05:13.810
+Right.
+
+05:13.840 --> 05:20.140
+So this is the y intercept anyway so let's get back to our line here.
+
+05:20.140 --> 05:21.240
+So we have this line over here.
+
+05:21.250 --> 05:25.440
+And if you look at this line it does not look like it's a good fit for these points.
+
+05:25.570 --> 05:30.940
+The points are going somewhere else and if this was our prediction and we wanted to predict the value
+
+05:30.940 --> 05:35.920
+of y over here this would be our prediction whereas Y is way over here right.
+
+05:36.250 --> 05:38.650
+We'd be wrong for almost all the different points right.
+
+05:38.680 --> 05:44.550
+So these would be our predictions and almost all of the points that we may be far away from our prediction.
+
+05:45.250 --> 05:52.510
+So what we want to do is we want to figure out a way of changing this line from here to let's say over
+
+05:52.510 --> 05:53.170
+here.
+
+05:53.200 --> 05:55.230
+So this looks a lot better still.
+
+05:55.260 --> 06:00.100
+Our prediction is going to be off for this guy over here and it's going to be off for this guy over
+
+06:00.100 --> 06:03.960
+here and this is going to be off a little bit here a little bit here.
+
+06:03.970 --> 06:06.310
+So we still have problems over here.
+
+06:06.610 --> 06:10.280
+But as you can notice the problems aren't all that bad.
+
+06:10.450 --> 06:11.140
+So ahead.
+
+06:11.170 --> 06:14.030
+This individual was all the way wrong here.
+
+06:14.080 --> 06:15.030
+So this is very wrong.
+
+06:15.040 --> 06:16.160
+This is very wrong.
+
+06:16.300 --> 06:19.140
+A lot lot more longer than over here.
+
+06:19.150 --> 06:20.240
+That's not a word.
+
+06:20.240 --> 06:22.770
+But you know what I mean.
+
+06:22.780 --> 06:23.020
+Right.
+
+06:23.860 --> 06:24.610
+So anyway.
+
+06:24.610 --> 06:25.490
+Which one is better.
+
+06:25.570 --> 06:30.400
+You tell me it looks to me like this guy over here is better right.
+
+06:30.490 --> 06:38.260
+So let's go all the way back over here to our definition of machine learning and realize.
+
+06:38.290 --> 06:38.560
+Right.
+
+06:38.560 --> 06:40.710
+So better what is better.
+
+06:40.750 --> 06:45.190
+So he said according to some measure let's go ahead and find out what the measure of what it is.
+
+06:45.190 --> 06:47.170
+Let's formalize our thinking.
+
+06:47.170 --> 06:48.370
+What are we saying.
+
+06:48.640 --> 06:51.280
+Why are we saying that this second line this blue line is better.
+
+06:51.280 --> 06:57.010
+It's better because the these lines over here the error lines the difference between our prediction
+
+06:57.100 --> 06:59.440
+and what the real world data says.
+
+06:59.440 --> 07:00.650
+Those are smaller.
+
+07:00.790 --> 07:03.950
+So the smaller the lines the better the fit.
+
+07:04.000 --> 07:07.330
+So that's why we use the word fit over here so we're fitting the line.
+
+07:07.450 --> 07:12.660
+So let's write that a ill fitting in the line.
+
+07:12.840 --> 07:13.160
+Right.
+
+07:13.410 --> 07:16.480
+So I'm putting the line over the data points.
+
+07:16.480 --> 07:19.450
+Now what we have over here are some errors.
+
+07:19.660 --> 07:23.810
+Let's collect these errors in a specific formula.
+
+07:23.890 --> 07:27.220
+So let's go over here and say let's take this one point over here.
+
+07:27.220 --> 07:28.850
+So this is our prediction over here.
+
+07:28.870 --> 07:31.470
+Let's call this my prime.
+
+07:31.720 --> 07:33.430
+So we have a prime over here.
+
+07:33.800 --> 07:34.560
+All right.
+
+07:34.570 --> 07:37.850
+And what we're trying to do is we're trying to find out the difference between these two.
+
+07:38.120 --> 07:39.760
+So why prime minus the Y.
+
+07:40.600 --> 07:43.000
+So this over here is our white prime.
+
+07:43.000 --> 07:44.790
+So this is our prediction.
+
+07:45.230 --> 07:49.960
+And this over here is our real world value.
+
+07:49.960 --> 07:52.830
+The one that we got from our data set.
+
+07:53.230 --> 07:57.860
+So now we have our prediction and the real world value which is our ground truth.
+
+07:57.910 --> 07:58.720
+The expectation.
+
+07:58.720 --> 08:06.970
+So whatever the difference between these two is now if this Y is more than the real value it's bad.
+
+08:07.000 --> 08:09.180
+If it's less than the real world value it's equally bad.
+
+08:09.360 --> 08:11.440
+So we don't care what the difference between the two is.
+
+08:11.440 --> 08:14.510
+So what we can do is we can go ahead and square it.
+
+08:14.530 --> 08:17.920
+So if you square it if you've got this number to be let's say minus two.
+
+08:18.100 --> 08:22.750
+This way to turn into four and if the number of us to this is also going to turn into four.
+
+08:22.770 --> 08:26.530
+Right so we get rid of the essentially the minus sign over here.
+
+08:26.760 --> 08:28.960
+When we come back to why we need that in a minute.
+
+08:30.310 --> 08:36.100
+So now we have this difference between our prediction and the expectation.
+
+08:36.130 --> 08:39.530
+We also want to consider all of the different points.
+
+08:39.610 --> 08:44.590
+So what we're going to do is we're going to sum over from ICE equal to zero to.
+
+08:44.740 --> 08:55.850
+So this M is going to be the number of data points that we have so number of data points right.
+
+08:56.420 --> 09:01.490
+So this is our number of data points and we're going to some or all of these different things.
+
+09:02.270 --> 09:05.390
+What if we have a million data points this value is going to be quite large.
+
+09:05.390 --> 09:08.990
+If you have only 10000 that's going to add this value is going to be small.
+
+09:08.990 --> 09:14.240
+So what we want to do is we want to take away this and this m effect over here and multiply that by
+
+09:14.420 --> 09:15.130
+one over.
+
+09:15.350 --> 09:15.640
+Right.
+
+09:16.040 --> 09:25.130
+So now we have an equation over here which essentially gives us the specifics of this better.
+
+09:25.130 --> 09:30.840
+So if this value is small we're going to say that the D lines are better.
+
+09:30.940 --> 09:31.190
+Right.
+
+09:31.550 --> 09:36.770
+So if you draw a line and then we compute this whole thing over here and it gives us let's say 20 minus
+
+09:36.770 --> 09:43.470
+20 20 and then we draw another line and that gives us 40 we're going to say that this line is better.
+
+09:43.490 --> 09:44.470
+Why is it better.
+
+09:44.570 --> 09:49.430
+Because the errors are much much smaller and the aggregate of the errors of the average of the errors
+
+09:49.850 --> 09:54.950
+or the mean of the errors which errors squared errors
+
+09:57.820 --> 09:58.120
+right.
+
+09:58.150 --> 10:02.170
+So the mean squared errors are much much smaller.
+
+10:02.170 --> 10:05.200
+And that's that means that it's a better fit right.
+
+10:05.200 --> 10:09.100
+So this is called a root meaning squared error.
+
+10:09.390 --> 10:12.080
+So if you put an untruth over there.
+
+10:13.090 --> 10:17.920
+If you put it under the door then that is when to turn it into a root means where all you're going to
+
+10:17.920 --> 10:19.360
+see mean square.
+
+10:19.510 --> 10:27.370
+Right now that's a lot to take in but that covers a lot of ground in terms of understanding machine
+
+10:27.370 --> 10:30.280
+learning so make sure you go back and understand all of this.
+
+10:30.280 --> 10:36.430
+If you have any questions at all please come back to me asking the questions I'd be happy to help and
+
+10:36.520 --> 10:41.920
+make sure you understand this if you understand these portions or hear machine learning and code and
+
+10:41.920 --> 10:45.410
+everything else is going to be a lot easier for you down the line.
+
+10:47.490 --> 10:51.030
+Let's summarize this and finish off this video.
+
+10:51.480 --> 10:57.530
+So what we're going to do is we're going to change R A's and B's do theta zero and theta one right.
+
+10:57.540 --> 11:00.190
+So these are essentially a and b the same thing right.
+
+11:00.210 --> 11:01.680
+No difference.
+
+11:01.680 --> 11:06.870
+We're just calling them as you know and theta one because we're going to have quite a few and essentially
+
+11:06.870 --> 11:13.290
+they're going to go into a very large number greater than 26 or Alphabet is not going to be enough for
+
+11:13.290 --> 11:13.940
+us.
+
+11:13.950 --> 11:20.720
+So these two things over here these need to be identified this X remember is fixed on here.
+
+11:20.760 --> 11:23.340
+This overhead is what we call my prime right.
+
+11:23.340 --> 11:24.350
+So this is a prediction.
+
+11:24.360 --> 11:28.120
+So let's call it etch teed off.
+
+11:28.260 --> 11:36.780
+So let's call this etch is for hypothesis on hypothesis given the values of theaters which are all here
+
+11:37.620 --> 11:39.820
+for a particular input x.
+
+11:39.840 --> 11:42.150
+So this is going to be equal to my right.
+
+11:42.230 --> 11:44.990
+So this over here.
+
+11:45.000 --> 11:50.260
+This whole thing over here is are what is called a model.
+
+11:50.370 --> 11:51.840
+So this is a model.
+
+11:51.840 --> 11:58.460
+These are the models parameters.
+
+11:58.830 --> 12:01.590
+So this is obviously the input.
+
+12:02.370 --> 12:07.060
+And this is our prediction.
+
+12:07.830 --> 12:15.620
+And what we're trying to do is we're trying to fit the model and what that means is we're trying to
+
+12:15.620 --> 12:23.540
+find the values of these model parameters such that our error is minimized
+
+12:27.170 --> 12:28.880
+points for error is minimized.
+
+12:28.880 --> 12:30.730
+That's what we're trying to do.
+
+12:30.800 --> 12:34.010
+So we have I think we have prediction.
+
+12:34.010 --> 12:36.350
+We have our parameters and we have our model here.
+
+12:36.710 --> 12:41.750
+So that is essentially all the terminology that you need to have in order to understand machine learning
+
+12:41.750 --> 12:50.150
+literature all the other things will come along as we go as we proceed with our course in the next video
+
+12:50.240 --> 12:56.870
+we're going to take a look at how we can change this really valued output into classes and then cover
+
+12:56.990 --> 13:00.770
+the more interesting areas of machine learning such just classifications.

@@ -1,0 +1,148 @@
+WEBVTT
+
+00:01.340 --> 00:06.680
+In this video we're going to take a look at how to set up our environment for get a sentence on Mac
+
+00:06.700 --> 00:11.990
+and the next I'm on the Mac operating system but if you're on Linux the instructions are essentially
+
+00:11.990 --> 00:13.150
+the same.
+
+00:13.250 --> 00:19.700
+So you go ahead to Anaconda distribution and you download it from Anaconda dot com slash download.
+
+00:19.700 --> 00:25.670
+Now if you're on Linux it's highly recommended that you do not use the built in Python interpreter but
+
+00:25.670 --> 00:26.570
+install Anaconda.
+
+00:26.570 --> 00:28.160
+It's going to make your life a lot easier.
+
+00:28.810 --> 00:34.290
+So you'll go to your download page and download Python three point six game two point seven works but
+
+00:34.370 --> 00:39.360
+three point six is the recommended one you download it and install as per the instructions.
+
+00:39.380 --> 00:43.030
+It's a simple process of heading next after next.
+
+00:43.040 --> 00:51.430
+So once you have the anaconda distribution installed you need to go to a terminal and in any folder
+
+00:51.430 --> 00:56.960
+that you want you want to enter the command install virtual in.
+
+00:57.580 --> 01:00.180
+So this is going to install virtually and repackage for you.
+
+01:00.190 --> 01:04.810
+And what you're in these highly recommended if you want to work with machine learning because for a
+
+01:04.810 --> 01:07.960
+lot of prototypes they're going to ask for a specific version of a library.
+
+01:07.960 --> 01:11.350
+And if you install that Virgin is going to mess up the rest of the system.
+
+01:11.380 --> 01:17.100
+So you want to be in a virtual environment which perhaps everything up in a bubble.
+
+01:17.320 --> 01:21.770
+So whatever you do within that virtual environment is going to stay within that which you might like.
+
+01:21.820 --> 01:23.440
+So we need to install what you need me.
+
+01:24.070 --> 01:27.460
+I've already installed which within me so it's going to say a refinement to be satisfied.
+
+01:27.460 --> 01:31.650
+But if you just started by then three point six it's going to set it up for you.
+
+01:31.700 --> 01:35.010
+After that you want to a fortune in wheat and cactus.
+
+01:35.010 --> 01:40.670
+So it is going to create a new virtual environment by the name of of in the current working directory.
+
+01:40.890 --> 01:43.750
+Again I've already created this which would in wheat.
+
+01:43.750 --> 01:45.370
+So you should enter.
+
+01:45.400 --> 01:46.660
+I'm going to hit backspace.
+
+01:46.870 --> 01:51.220
+And then we offer the virtual environment has been set up you need to do this for you.
+
+01:51.730 --> 01:56.890
+Now what you want to do is you want to activate it in order to activate it to see a source then slash
+
+01:56.960 --> 02:02.140
+activate within this gets formed within you watch it and then for that it's going to activate your environment
+
+02:02.170 --> 02:09.060
+and the indication of that is that it's going to be the environment name over here.
+
+02:09.150 --> 02:18.120
+Now we want to install Jupiter tend to flow and get us all three of them to enter and they should be
+
+02:18.120 --> 02:18.510
+installed.
+
+02:18.540 --> 02:22.230
+So I wanted to install them so it's saying all the requirements are satisfied.
+
+02:22.250 --> 02:24.930
+And for you it will go ahead and it started off the Internet.
+
+02:24.930 --> 02:30.360
+Once you have that you want to start to get a notebook and this is going to start up our Jupiter notebook
+
+02:30.400 --> 02:38.050
+and our default problem browser and you will see that we have on the phone over here.
+
+02:38.140 --> 02:46.970
+Now what you want to do is you want to go ahead and download the zip file which includes all the notebooks
+
+02:47.000 --> 02:50.960
+and the courses on here and you want to copy all three of these
+
+02:53.720 --> 02:59.050
+and paste them in your virtual environment that you just created.
+
+02:59.140 --> 03:06.190
+So so that they are available for you over here and then you can go ahead and take a look at this in
+
+03:06.190 --> 03:12.230
+order to test that the environment is working you got a new and Python 3 and simply insert one come
+
+03:12.230 --> 03:12.890
+on over here.
+
+03:12.910 --> 03:18.730
+So you say in import it's important to get us or shift it enter.
+
+03:19.120 --> 03:26.620
+And if it works fine even though it's saying something about it in conflict for I think three point
+
+03:26.620 --> 03:29.320
+sixty three point seventy three point five and three point six.
+
+03:29.920 --> 03:33.220
+It's just a warning and it's it's fine if you get this one.
+
+03:33.520 --> 03:35.560
+So we got this output over here.
+
+03:35.560 --> 03:37.310
+No error that means we're fine.
+
+03:37.460 --> 03:41.110
+Now the environment is setup and we can go ahead and start doing some code.

@@ -1,0 +1,115 @@
+WEBVTT
+
+00:00.270 --> 00:03.080
+Let's quickly recap what we've seen in the past couple of videos.
+
+00:03.210 --> 00:11.590
+So we started with this basic understanding of fitting a line on a model by manipulating the model parameters.
+
+00:11.820 --> 00:18.030
+And the idea was to reduce an error at the end of the final model so that we have the optimum values
+
+00:18.030 --> 00:19.530
+for the model parameters.
+
+00:19.530 --> 00:21.330
+So that essentially gone Fitting the model.
+
+00:21.330 --> 00:27.140
+And that is what we did over here in this basic beauty portion of our code.
+
+00:27.250 --> 00:33.540
+Then we went ahead and decided that we wanted to do classification which is a yes or no answer either
+
+00:33.540 --> 00:39.420
+for one class which is called a classification in binary classification or for multiple classes which
+
+00:39.420 --> 00:41.000
+is multi class classification.
+
+00:41.070 --> 00:46.230
+Then we saw how this classification model simple classification model can be used in conjunction with
+
+00:46.230 --> 00:52.980
+other models to convert it into a deep neural network which is able to make high level decisions as
+
+00:52.980 --> 00:58.140
+opposed to the simple decisions that can be made by a basic classification model.
+
+00:58.140 --> 01:04.470
+Finally we took a look at how we can create deep neural networks by having multiple hidden layers.
+
+01:04.680 --> 01:07.210
+And we took a look at the multi class classification.
+
+01:07.290 --> 01:11.270
+Now as I mentioned again and again this course is only an introductory course.
+
+01:12.090 --> 01:16.620
+And we don't want to go into the theory too much because I have seen again and again that when you're
+
+01:16.710 --> 01:21.870
+just getting an introduction to machine learning going into too much to read without code really hurts
+
+01:21.870 --> 01:23.160
+your progress.
+
+01:23.160 --> 01:28.080
+So in this course we're going to keep the tool to a minimum and that is essentially all the theory that
+
+01:28.080 --> 01:29.030
+we're going to do.
+
+01:29.040 --> 01:34.230
+However when you're done with the course you do want to understand the mathematics behind the machine
+
+01:34.230 --> 01:35.280
+learning models.
+
+01:35.280 --> 01:37.640
+If you really want to get an understanding of that.
+
+01:37.650 --> 01:43.350
+So what I'm going to do is I'm not going to cover the details of the theory within this course but once
+
+01:43.350 --> 01:48.390
+you go through this code and you have gone through all the codes that are necessary for the understanding
+
+01:48.390 --> 01:55.080
+of your networks I want you to go back and take a look at this deep learning talk which was a very applied
+
+01:55.080 --> 01:58.500
+talk that I gave last year.
+
+01:58.500 --> 02:02.070
+This is available completely free of cost.
+
+02:02.280 --> 02:05.660
+If you go to this you are I'll bet at least practice.
+
+02:05.790 --> 02:13.170
+So this is a talk given by me to a university audience and this is a little bit math heavy but it covers
+
+02:13.200 --> 02:19.760
+all the mathematical background that is necessary to go from what we have in this course up to whatever
+
+02:19.770 --> 02:22.400
+is necessary for understanding everything else.
+
+02:22.470 --> 02:28.230
+So I highly recommend that you go over there to this you are and take a look at the approximately one
+
+02:28.230 --> 02:33.300
+and a half hour free dog which takes a look at all the mathematical details that we've missed in this
+
+02:33.300 --> 02:33.850
+course.
+
+02:33.850 --> 02:35.460
+So again it's free.
+
+02:35.460 --> 02:38.790
+You don't have to pay for the video you just go over to the viewer and watch it.
+
+02:38.880 --> 02:43.050
+So I highly recommend you do that after you have gone through this course in detail.

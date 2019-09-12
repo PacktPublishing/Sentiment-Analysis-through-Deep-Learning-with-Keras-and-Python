@@ -1,0 +1,496 @@
+WEBVTT
+
+00:00.610 --> 00:06.490
+Now that we've covered our case study we want to go back to the standard data sets for us so that we
+
+00:06.490 --> 00:08.540
+can look at some advanced models.
+
+00:08.950 --> 00:14.980
+And the first one which is quite bold but is really powerful is convolution neural networks.
+
+00:15.040 --> 00:20.740
+And we're going to start by analyzing the current network that we understand which is these dense or
+
+00:20.740 --> 00:23.080
+fully connected dealer network.
+
+00:23.080 --> 00:29.170
+Recall that in a fully connected or a dense neural network every node in one layer is connected to every
+
+00:29.170 --> 00:30.610
+node in the next layer.
+
+00:30.610 --> 00:33.070
+So this is what makes it dense.
+
+00:33.070 --> 00:39.340
+The problem here is that if you have for instance two thousand nodes in this layer and 100 in this layer
+
+00:39.940 --> 00:43.390
+the number of connections are going to be two thousand multiplied by 100.
+
+00:43.390 --> 00:48.730
+So that's a huge number of connections and each connection essentially means a parameter that has to
+
+00:48.730 --> 00:49.580
+be learned.
+
+00:49.750 --> 00:54.870
+So the number of parameters grows really quickly when you have a dense densely connected here.
+
+00:54.910 --> 01:00.670
+So for instance let's go over here and try to see what this diagram is telling us.
+
+01:01.030 --> 01:07.330
+So this over here is the input image so we'll consider an image of seven.
+
+01:07.330 --> 01:08.500
+This blue portion over here.
+
+01:08.500 --> 01:16.730
+So this is one two three four five pixels wide and five pixels high just concentrate on this blue portion
+
+01:16.730 --> 01:17.520
+for now.
+
+01:17.540 --> 01:25.700
+So imagine that this seven a five by five pixel image is in total twenty five nodes.
+
+01:25.700 --> 01:29.820
+And we want to connect it to the next door which is going to be all here.
+
+01:29.840 --> 01:31.980
+This output volume over here.
+
+01:32.030 --> 01:35.900
+So we want to connect it to nine nodes which makes a three by three image.
+
+01:36.560 --> 01:40.940
+So the way to do that is going to be that we multiply a five into five.
+
+01:40.940 --> 01:44.540
+So that is twenty five nodes on one layer and nine nodes on the other layer.
+
+01:44.540 --> 01:46.640
+So that is going to be twenty five to nine.
+
+01:46.640 --> 01:48.760
+That is two hundred and twenty five nodes.
+
+01:48.770 --> 01:55.230
+Now if you come back over here and this is three such images.
+
+01:55.250 --> 01:59.600
+So essentially this is an R or direct channel of the image.
+
+01:59.600 --> 02:03.500
+This is the green channel of the image and this is the blue channel of the image.
+
+02:03.500 --> 02:06.420
+So now we have twenty five into three.
+
+02:06.530 --> 02:08.140
+So that's five in the final three.
+
+02:08.300 --> 02:10.030
+That is connected with nine.
+
+02:10.570 --> 02:14.780
+So this is now six hundred and seventy five TDA that we need to learn.
+
+02:15.470 --> 02:21.560
+And this is going to grow exponentially as we increase the number of output volume nodes or the pixel
+
+02:21.560 --> 02:22.090
+size.
+
+02:22.610 --> 02:25.640
+So this is going to increase exponentially and we really don't want that.
+
+02:25.730 --> 02:30.530
+What we want is somehow to reduce the number of theaters and this is how we're going to do it.
+
+02:31.040 --> 02:36.160
+Now come back over here and see that this all here this blue portion over here is our original image.
+
+02:36.770 --> 02:42.200
+And what we want to do is we want to create a new vector or a new matrix over here which is going to
+
+02:42.200 --> 02:43.670
+be three by three.
+
+02:43.760 --> 02:47.610
+We'll explain why we're doing that but let's just take a look at the operation for now.
+
+02:48.380 --> 02:51.560
+So what we're going to do is we're going to take this portion over here.
+
+02:51.560 --> 02:56.850
+This three by three matrix and we're going to do element y's multiplication with this vector over here.
+
+02:56.870 --> 02:58.120
+This matrix over here.
+
+02:58.260 --> 03:03.480
+So what this is going to do is 0 multiplied by one zero into minus one but zero into minus one.
+
+03:03.490 --> 03:11.780
+Plus you go into 0 0 2 1 2 into 0 0 0 zero into one and two into zero.
+
+03:11.810 --> 03:16.600
+So all these are going to be multiplied elements twice and they're going to be some together.
+
+03:16.730 --> 03:21.650
+Similarly for the other channel for the green channel we're going to have another three by three matrix
+
+03:21.650 --> 03:24.290
+over here and this these are going to be multiplied together.
+
+03:24.410 --> 03:29.690
+Finally for the blue channel we're going to have this values these this box of any three by three and
+
+03:29.690 --> 03:32.260
+it's going to be multiplied by this over here.
+
+03:32.420 --> 03:38.540
+So what this is going to do is this one thing some together this whole thing multiplied by this sum
+
+03:38.540 --> 03:38.920
+together.
+
+03:38.930 --> 03:42.010
+This one thing multiplied by this sum together plus this bias when you want it.
+
+03:42.500 --> 03:44.630
+So all of these values are going to be some together.
+
+03:44.630 --> 03:49.050
+And what we get over here is the first value for this output value.
+
+03:49.160 --> 03:55.390
+So what this means is now we have a fixed matrix here a three by three matrix in a three by three matrix.
+
+03:55.730 --> 03:56.990
+And a lot of value.
+
+03:57.350 --> 03:59.380
+So this is going to be three to three.
+
+03:59.390 --> 04:02.310
+That's one box multiplied by three the number of boxes.
+
+04:02.420 --> 04:05.270
+And then we're going to have a plus one and that is going to be 28.
+
+04:05.270 --> 04:08.240
+So just twenty two values that we need to fix.
+
+04:08.280 --> 04:10.950
+So and what about the rest of the image.
+
+04:11.000 --> 04:16.320
+So we simply go ahead and slide it into the next portion.
+
+04:16.340 --> 04:18.170
+So this is going to take a stride of two.
+
+04:18.170 --> 04:20.170
+So this is going to jump by two values over here.
+
+04:20.180 --> 04:21.570
+And now we do the same thing.
+
+04:21.740 --> 04:23.570
+These federal values are going to remain the same.
+
+04:23.570 --> 04:25.490
+These matrix values are going to remain the same.
+
+04:26.030 --> 04:31.790
+So it doesn't matter how larger images these values are still going to be 28 no matter how large we
+
+04:31.790 --> 04:36.100
+make our image and the result of these two is going to go over here.
+
+04:36.140 --> 04:41.660
+Similarly you move ahead and the two steps and then the results of the summation and multiplication
+
+04:41.750 --> 04:43.580
+altogether is going to go over here.
+
+04:43.790 --> 04:52.310
+Then we are going to jump to the next four and we're going to do the same operation the values of these
+
+04:52.400 --> 04:53.990
+are going to remain the same again.
+
+04:54.110 --> 04:55.900
+And these values go over here.
+
+04:55.940 --> 05:00.300
+Similarly we're going to go ahead and take another jump and it's going to go what.
+
+05:00.680 --> 05:05.520
+So what we're doing over here is we're taking these same weights.
+
+05:05.600 --> 05:09.270
+These are called weights or we can call them values and model parameters.
+
+05:09.380 --> 05:13.820
+We're taking just these twenty eight and we're sliding our window over the whole image.
+
+05:13.820 --> 05:18.260
+So it doesn't matter how large the images these model parameters that we need to learn are going to
+
+05:18.260 --> 05:19.200
+remain the same.
+
+05:19.370 --> 05:23.400
+And what this is going to do is this is going to give us this three by three value output.
+
+05:23.690 --> 05:29.740
+So this is what is called a finger and the operation that we're doing over here this element is multiplication
+
+05:29.760 --> 05:31.440
+information that is called convolution.
+
+05:31.870 --> 05:36.250
+And because these this neural network is going to based on this convolution OPERATOR We're going to
+
+05:36.250 --> 05:38.770
+call it a convolution in neural network.
+
+05:38.770 --> 05:43.660
+The good thing about the convolution neural network is one which is obvious that introduces the number
+
+05:43.660 --> 05:45.610
+of parameters by unlock.
+
+05:45.670 --> 05:51.430
+The second thing is because this individual is trying to learn a feature if it occurs if that feature
+
+05:51.460 --> 05:57.130
+occurs over here in this box it's going to be identified if it occurs in forms just the lower part of
+
+05:57.140 --> 05:57.480
+it here.
+
+05:57.730 --> 05:59.550
+It's still going to be identified.
+
+05:59.560 --> 06:04.930
+Consider the case where you're trying to identify something as a car a car is going to have a v of it
+
+06:04.930 --> 06:06.330
+can be on the top left corner.
+
+06:06.370 --> 06:09.540
+It can be on the bottom left corner of it as well as we might.
+
+06:09.790 --> 06:15.880
+So as long as a beat is identified by a filter the factor is going to be considered a kind of a real
+
+06:15.880 --> 06:16.270
+dagger.
+
+06:16.270 --> 06:19.380
+So it's a filter that identifies where it really is.
+
+06:19.410 --> 06:19.630
+Right.
+
+06:19.630 --> 06:23.680
+So it doesn't matter where the wheel is as long as it's there in the image.
+
+06:23.680 --> 06:25.140
+If it was going to identify it.
+
+06:25.630 --> 06:30.740
+So that makes it a lot more robust in order to identify features in an image.
+
+06:31.300 --> 06:33.390
+So that's one factor over here.
+
+06:33.400 --> 06:34.760
+What about this other guy would.
+
+06:34.780 --> 06:36.340
+For that we create a separate filter.
+
+06:36.910 --> 06:43.290
+So we're going to go ahead and run this and it's going to go ahead and keep computing the values.
+
+06:43.420 --> 06:51.990
+And once the once the first set of values is done we're going to go ahead and create a new filter over
+
+06:51.990 --> 06:52.200
+here.
+
+06:52.200 --> 06:56.610
+So these are these values for these metrics are going to be different from this one and we're going
+
+06:56.610 --> 07:00.090
+to do the exact same operation except this is not going to lead to another output.
+
+07:00.360 --> 07:03.150
+So one three by three output another three by three output.
+
+07:03.270 --> 07:06.810
+These are 28 ordered parameters that we need to learn and another 28.
+
+07:06.810 --> 07:09.040
+So it's still just 56.
+
+07:09.180 --> 07:11.290
+So it's not that large of a number.
+
+07:11.340 --> 07:14.290
+Now what we can do is we can increase the number of filters.
+
+07:14.460 --> 07:17.310
+We can increase the filter size over here.
+
+07:17.310 --> 07:19.250
+So let's consider the shapes.
+
+07:19.260 --> 07:22.210
+So this is a five by five image.
+
+07:22.310 --> 07:26.210
+And because we need to slide over this we need something outside over here as well.
+
+07:26.210 --> 07:31.590
+So this is called padding rebadged this so that we can consider the edges of the image as well.
+
+07:31.650 --> 07:37.380
+So now that we have this increased in size by one pixel This is a seven to one two three four five six
+
+07:37.380 --> 07:39.000
+seven seven by seven image.
+
+07:39.000 --> 07:41.230
+So that's seven by seven multiplied by three.
+
+07:41.250 --> 07:43.790
+That is the number of channels so are G and B.
+
+07:43.890 --> 07:45.680
+So that turns into a.
+
+07:45.930 --> 07:46.730
+This is a matrix.
+
+07:46.740 --> 07:51.020
+And then this turns into a tensor so that is a seven by seven by three tenths.
+
+07:51.180 --> 07:57.380
+So this is a rank three tensor and that's where the name tensor flow comes from.
+
+07:57.390 --> 08:01.830
+Essentially these dancers are going to be multiplied with each other and they want to be passed around
+
+08:01.830 --> 08:04.500
+and they kind of flow through your architecture.
+
+08:04.500 --> 08:07.590
+So that's where the name tensor flow comes from.
+
+08:07.590 --> 08:08.970
+Over here we have a filter.
+
+08:10.080 --> 08:11.730
+So this is a three by three.
+
+08:11.760 --> 08:14.630
+So that's one two three one two three three by three.
+
+08:14.640 --> 08:16.720
+And we have three filters one for each channel.
+
+08:17.010 --> 08:18.990
+So that is a three by three into three.
+
+08:19.170 --> 08:24.110
+So this three again is corresponding to the channels and because we have two of these filters.
+
+08:24.120 --> 08:29.840
+So this all three multiplied by this filter is going to give rise to one theme three.
+
+08:30.030 --> 08:34.460
+And because we have two filters in total so this whole set is one filter.
+
+08:34.650 --> 08:39.300
+And this whole set is one filter because we have two filters we're going to end up with three two three
+
+08:39.600 --> 08:40.110
+into two.
+
+08:40.200 --> 08:45.060
+So this is going to be three in three that's one box over here and into two because we have two total
+
+08:45.060 --> 08:46.050
+filters.
+
+08:46.260 --> 08:54.000
+So you will get a lot of the understanding after a little bit of experience but it helps really a lot
+
+08:54.390 --> 09:00.270
+if you explore this animation in detail and try to understand what it's doing this by the way is from
+
+09:00.560 --> 09:01.910
+CSI 2 3 1.
+
+09:02.370 --> 09:08.460
+And it's freely available it's of course by Stanford and it has really good explanations it has a lot
+
+09:08.460 --> 09:14.460
+of theoretical background it also has a lot of assignments that you can do but essentially that's what
+
+09:14.460 --> 09:15.720
+we're interested in and at the moment.
+
+09:16.230 --> 09:21.030
+So now that we have this understanding this basic understanding of what a convolution operation is and
+
+09:21.030 --> 09:26.280
+how the convolution network works what we want to do is we want to apply it on a on an example on a
+
+09:26.280 --> 09:27.150
+real dataset.
+
+09:27.150 --> 09:29.610
+So that is going to be our CFR.
+
+09:29.640 --> 09:34.860
+And that said if you remember we did amnesty and amnesty what was handwritten digit but that is very
+
+09:34.870 --> 09:36.290
+simply simplistic.
+
+09:36.300 --> 09:41.700
+Plus it also has just grayscale images what we want to do is work with Ogilvie images with a lot more
+
+09:41.700 --> 09:43.340
+complicated elements.
+
+09:43.920 --> 09:47.900
+So the CFR then is essentially a dataset of 60000 images.
+
+09:47.940 --> 09:53.390
+They are 32 by 30 through 32 and they are colored images which means they are in three channels.
+
+09:53.390 --> 10:00.330
+RG And B the one that we just saw here plus it has 10 classes with 6000 images per class.
+
+10:00.350 --> 10:03.400
+So you can take a look at the C for 10 dataset over here.
+
+10:03.690 --> 10:09.240
+But what we want to do is we want to go ahead and apply convolution neural network to try and classify
+
+10:09.240 --> 10:11.560
+any of these images into one of these classes.
+
+10:11.850 --> 10:13.050
+So we do that in the next video.

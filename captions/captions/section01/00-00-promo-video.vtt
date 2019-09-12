@@ -1,0 +1,205 @@
+WEBVTT
+
+00:00.270 --> 00:04.710
+Hi and welcome to this exciting course on sentiment analysis through deep learning with cactus and python.
+
+00:05.310 --> 00:07.910
+I'm Dr. Norman and I'll be your instructor for this course.
+
+00:07.950 --> 00:12.180
+I have a piece in computer science and a post doc and machine learning for security and privacy from
+
+00:12.180 --> 00:14.130
+Max Planck Institute for Software Systems.
+
+00:14.280 --> 00:18.570
+One of the world's leading research institutes I have more than 15 years of teaching experience and
+
+00:18.570 --> 00:21.000
+about two decades of programming experience.
+
+00:21.060 --> 00:25.230
+This course is about sentiment analysis which is one of those areas of machine learning that have immense
+
+00:25.230 --> 00:27.180
+importance from a business point of view.
+
+00:27.270 --> 00:31.890
+It helps businesses gauge how vending products are doing in the market and whether people liked their
+
+00:31.890 --> 00:33.840
+products and their company or not.
+
+00:33.840 --> 00:38.310
+It's also used by politicians and governments to decide whether their policies and stances have a good
+
+00:38.310 --> 00:39.830
+standing with the masses.
+
+00:40.020 --> 00:41.310
+Doesn't matter who you deal with.
+
+00:41.340 --> 00:46.110
+Everyone needs to know the sentiment of people about something they are doing or making.
+
+00:46.110 --> 00:51.110
+On the flipside Sentiment analysis is one of those ideas which are very poorly understood.
+
+00:51.210 --> 00:56.400
+People who are working on creating sentiment analysis techniques typically don't have a good understanding
+
+00:56.400 --> 00:59.460
+of how to write good sentiment analysis engines.
+
+00:59.550 --> 01:04.320
+They typically rely on outdated techniques and methods for doing sentiment analysis that requires a
+
+01:04.320 --> 01:05.720
+lot of effort.
+
+01:05.760 --> 01:08.490
+Yet it used very poor results.
+
+01:08.490 --> 01:13.470
+I'll give you an example if you search for sentiment analysis courses on any popular online course platform
+
+01:13.740 --> 01:18.700
+you can see that many courses tried to teach you sentiment analysis using techniques that are outdated.
+
+01:18.750 --> 01:24.840
+David tried to teach you about what words have a positive sentiment and how the grammar and center structure
+
+01:24.840 --> 01:27.750
+affects sentiment while all that is true.
+
+01:28.280 --> 01:32.450
+It's also a very inefficient way of doing sentiment analysis in the real world.
+
+01:32.450 --> 01:36.780
+The best way to do sentiment analysis in today's industry is through deep learning.
+
+01:36.920 --> 01:39.190
+You don't do sentiment analysis yourself.
+
+01:39.200 --> 01:44.350
+You train a machine to do it for you and this is the approach that we will take in this course.
+
+01:44.670 --> 01:48.590
+We will use deep learning to create a model that can do sentiment analysis for us.
+
+01:48.600 --> 01:53.740
+This will help us write a sentiment analysis engine in less than 60 lines of code.
+
+01:53.850 --> 01:59.220
+This engine will be able to perform industry grade sentiment analysis and can be scaled up very easily
+
+01:59.520 --> 02:00.970
+for large scale systems.
+
+02:01.050 --> 02:05.130
+In particular we will use Gatiss and Python for our deep learning purposes.
+
+02:05.160 --> 02:10.590
+The reasons are simple get us is by far the easiest deep learning tool gets to get started with it was
+
+02:10.590 --> 02:15.990
+developed independently by a Google engineer but since then it has been adopted by Google as the efficient
+
+02:15.990 --> 02:17.390
+front end defensive floor.
+
+02:17.610 --> 02:21.660
+Get us allows you to use many different backgrounds besides sense of flow as well.
+
+02:22.110 --> 02:27.770
+So if you work with get us you can switch easily between the A.C. anti-gay Amex and any future backing
+
+02:27.810 --> 02:30.480
+that might show potential in this course.
+
+02:30.480 --> 02:32.810
+We take an extremely practical approach.
+
+02:32.880 --> 02:37.580
+We learn everything through code so that you can immediately see how things are applied.
+
+02:37.590 --> 02:40.520
+There are two types of students that can benefit from this course.
+
+02:40.540 --> 02:45.510
+One if you have had some exposure to machine learning and possibly deep learning but aren't comfortable
+
+02:45.510 --> 02:49.520
+with applying the concepts in the word for sentiment analysis.
+
+02:49.520 --> 02:52.560
+At last making deep learning models seemed mystical.
+
+02:52.560 --> 02:54.510
+If so this course is for you.
+
+02:54.510 --> 03:00.030
+Second if you are a complete newbie to sentiment analysis but want to figure out how to learn it and
+
+03:00.030 --> 03:05.460
+then apply it without going through page loads of math then this course is for you as soon as the score
+
+03:05.460 --> 03:09.980
+starts we will immediately get recording a sentiment analysis engine and only come through the duty
+
+03:09.990 --> 03:11.920
+when it's absolutely necessary.
+
+03:12.000 --> 03:17.190
+Then after only the bare essentials a few days we will go back to campus and cover some essential concepts
+
+03:17.190 --> 03:17.880
+to get you started.
+
+03:18.330 --> 03:22.530
+This would include installation of us on Windows Mac and Linux and it will get you up to speed with
+
+03:22.530 --> 03:23.830
+the best practices.
+
+03:23.910 --> 03:29.540
+Then we will come back to our original less than sixty nine sentiment analysis engine and expanded fully.
+
+03:29.610 --> 03:34.200
+That way you get to code your engine first and see results and then understand how it works and how
+
+03:34.200 --> 03:35.200
+to extend it.
+
+03:35.230 --> 03:40.900
+Remember my plan through this course is not to cover all aspects of sentiment analysis or deep learning.
+
+03:40.920 --> 03:45.070
+I'm trying to give you a deeper feeling of why things work the way they do.
+
+03:45.090 --> 03:49.620
+Once you understand the contents of discourse you will be in a much better position to fast track to
+
+03:49.620 --> 03:52.440
+any material that you can find all through the course.
+
+03:52.440 --> 03:57.330
+I will share my experiences and guide you through the common stumbling blocks that faced a lot of time
+
+03:57.330 --> 04:00.150
+for people who are just getting started at the end of this course.
+
+04:00.150 --> 04:04.170
+You will get a certificate of completion that you can use to prove that you have a deep understanding
+
+04:04.170 --> 04:05.610
+of this bar for good.
+
+04:05.760 --> 04:10.560
+And since this course comes with a no questions asked 30 day money back guarantee you've got nothing
+
+04:10.560 --> 04:11.360
+to lose.
+
+04:11.570 --> 04:13.550
+So enroll now and I'll see you on the inside.

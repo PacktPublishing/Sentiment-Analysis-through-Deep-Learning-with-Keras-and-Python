@@ -1,0 +1,172 @@
+WEBVTT
+
+00:00.360 --> 00:03.900
+In this video we're going to take a look at another very important concept.
+
+00:03.930 --> 00:08.780
+It's a very small and simple concept but it is one of the cornerstones of modern deep learning.
+
+00:08.940 --> 00:10.580
+So it's really important that you understand it.
+
+00:11.010 --> 00:14.630
+And it's such a simple concept but it's very counterintuitive.
+
+00:14.640 --> 00:16.920
+So people find it difficult to understand.
+
+00:16.950 --> 00:20.250
+So we're going to motivate this visually.
+
+00:20.250 --> 00:21.690
+Let's take a look at this image over there.
+
+00:21.720 --> 00:26.390
+Let's say we're trying to drain the machine to recognize the images of bananas.
+
+00:26.670 --> 00:27.460
+You may show it.
+
+00:27.480 --> 00:29.070
+Many banana images.
+
+00:29.070 --> 00:31.980
+But the problem is that machines have very good memory.
+
+00:31.980 --> 00:34.140
+They can simply memorize the pixel values.
+
+00:34.260 --> 00:39.630
+And if you show it this image again it can simply recall from memory that this is a banana without having
+
+00:39.630 --> 00:42.420
+to actually what is called learning.
+
+00:42.830 --> 00:46.650
+No learning is going to be performed and the machine can simply memorize this.
+
+00:46.680 --> 00:48.210
+So that is called all fitting.
+
+00:48.540 --> 00:54.300
+What we want to do instead is to reduce this aspect of overweighting by hiding some of the information
+
+00:54.300 --> 00:54.870
+from the machine.
+
+00:54.870 --> 00:58.180
+So for instance we're not going to show the machine this image should.
+
+00:58.290 --> 00:59.990
+We're going to show it this image.
+
+01:00.210 --> 01:03.900
+And so some of the portions have been blocked out lights are blacked out.
+
+01:04.410 --> 01:10.790
+So when the machine gets this piece of information now it must somehow fill in the blanks over here.
+
+01:10.800 --> 01:16.860
+And that would require learning on the machines part if in the future we showed the complete image these
+
+01:16.860 --> 01:22.710
+pixels are going to be new for it and the machine would really had have to learn something in order
+
+01:22.710 --> 01:25.590
+to recognize that this image is the same as this image.
+
+01:25.620 --> 01:32.160
+So this concept of blacking out or blocking out some pieces of information before giving them to some
+
+01:32.160 --> 01:35.270
+layer in the machine is called a dropout rate.
+
+01:35.280 --> 01:41.040
+So we drop out some of the pieces of information and the way we do that is simply when you have one
+
+01:41.040 --> 01:44.630
+layers output coming out you said some of the values to zero.
+
+01:44.730 --> 01:49.530
+So something setting the values to zero essentially turns it into a black portion for the machine.
+
+01:49.560 --> 01:52.160
+So machine cannot learn from those specific pixels.
+
+01:52.320 --> 01:57.480
+And in order to really generalize the learning the machine has to understand the underlying concept
+
+01:57.480 --> 01:59.470
+of what a banana looks like.
+
+01:59.670 --> 02:06.340
+So it has to understand the underlying Ground Truth and tact helps us achieve much better results.
+
+02:06.390 --> 02:09.740
+So drop out is one of those aspects which is really easy to implement.
+
+02:09.780 --> 02:13.060
+It's really easy to understand once you get the intuition behind it.
+
+02:13.200 --> 02:17.140
+And once you do understand it will be a really powerful tool to have on your side.
+
+02:17.640 --> 02:21.060
+And how do you use it as before get us to the rescue.
+
+02:21.060 --> 02:24.150
+We have some catastrophic layers import drop out.
+
+02:24.340 --> 02:25.180
+We've done that.
+
+02:25.260 --> 02:29.700
+And in your existing architecture wherever you want to do the drop out for instance we want to do a
+
+02:29.700 --> 02:36.640
+drop out after this putting layer so we can simply go ahead and say model dot add and we say a dropout
+
+02:39.560 --> 02:44.970
+dropout and then we give it the percentage of the pixels that we need dropped out.
+
+02:44.970 --> 02:47.470
+So for instance we can say point two.
+
+02:47.490 --> 02:53.470
+So for that 20 percent of all the pixels coming out of this layer are going to be set to zero.
+
+02:54.180 --> 03:00.840
+So those are going to be dropped out and simply by that you help your machine generalize the results
+
+03:01.260 --> 03:06.330
+from this to this to the machine would not be learning this portion or here and we can say that the
+
+03:06.330 --> 03:12.330
+machine really is going to learn what the underlying architecture of a banana is before it can go ahead
+
+03:12.330 --> 03:14.770
+and predict the future banana images.
+
+03:14.910 --> 03:22.100
+So we can go ahead and go on this and you will notice then in this layer there is no change.
+
+03:22.110 --> 03:23.970
+There are no parameters to learn.
+
+03:24.330 --> 03:29.430
+So there are no parameters to learn in this droplet because no operation is being performed other than
+
+03:29.430 --> 03:32.390
+simply setting 20 percent of all the values to zero.
+
+03:32.400 --> 03:38.520
+So this is a very fast method of making you a machine really understand the concept by generalizing
+
+03:38.520 --> 03:40.470
+it and reducing overfishing.
+
+03:40.500 --> 03:45.690
+So this city is one of those things that you really want to understand and you really want to make sure
+
+03:45.690 --> 03:50.880
+that you use it in your architecture because it really has to avoid the very general problem of overfishing.

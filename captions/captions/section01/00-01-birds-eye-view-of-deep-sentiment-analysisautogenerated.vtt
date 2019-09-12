@@ -1,0 +1,640 @@
+WEBVTT
+
+00:00.180 --> 00:03.180
+Hi and welcome to the course since this is a practical course.
+
+00:03.180 --> 00:08.250
+We're going to jump right into it and the plan is that we're going to first take a look at how we can
+
+00:08.250 --> 00:11.890
+do sentiment analysis using less than 60 lines of code.
+
+00:11.970 --> 00:17.640
+So just using less than 60 lines of code we're going to do basic sentiment analysis and show you how
+
+00:17.640 --> 00:22.900
+you can use any text to predict the sentiment that is being expressed by that text.
+
+00:23.100 --> 00:24.620
+The court part is really easy.
+
+00:24.660 --> 00:29.630
+The theory and installation of the environment is a different story but we can get to that later on.
+
+00:29.630 --> 00:31.370
+Once we have the concept skier.
+
+00:31.590 --> 00:37.890
+So what we're going to do is we're going to use this web based framework which allows us to start doing
+
+00:37.920 --> 00:41.850
+our code and experimenting with it without having to do any installation.
+
+00:42.210 --> 00:44.850
+So for that we go to try it on Jupiter dot org.
+
+00:45.180 --> 00:52.980
+So Jupiter provides a notebook type environment in which you can input text and code side by side and
+
+00:52.980 --> 00:54.210
+have that code execute it.
+
+00:54.240 --> 00:55.430
+So it's a very useful tool.
+
+00:55.440 --> 00:58.310
+If you haven't used it you should look up Jupiter notebook.
+
+00:58.380 --> 01:02.850
+That is what we're going to be using throughout the course and in one of the future videos which cover
+
+01:02.850 --> 01:05.410
+how to do the installation for this Jupiter notebook.
+
+01:05.730 --> 01:10.390
+But for this video let's jump right into it by using cried Jupiter which is online.
+
+01:10.590 --> 01:14.340
+And we go in here we click on try a classic notebook.
+
+01:14.340 --> 01:19.860
+Once you click on that it's going to open up a window and it's going to set up a random binder for us.
+
+01:19.860 --> 01:23.070
+So once that is done you can see a window that looks like this.
+
+01:23.580 --> 01:27.010
+So what we can do over here is we can double click on this.
+
+01:27.030 --> 01:31.090
+This one thing this gray box that you can see overhead is called a cell.
+
+01:31.140 --> 01:35.230
+We can input model number here or we can input code in this.
+
+01:35.250 --> 01:40.430
+So there are a lot of things that we can do here but this is not a tutorial on Jupiter notebooks or
+
+01:40.450 --> 01:42.520
+let's just zip through this.
+
+01:42.780 --> 01:47.620
+So here we can go ahead and take on cut to get rid of these existing cells and we get a blank.
+
+01:47.670 --> 01:51.240
+And now here we can type some code so this can be any python code.
+
+01:51.240 --> 01:55.500
+So for instance you can say X is equal to five you hold shift and hit enter.
+
+01:55.620 --> 01:57.440
+And that is going to execute this.
+
+01:57.450 --> 02:00.970
+You can say print x and it's going to output X for you.
+
+02:01.350 --> 02:05.180
+So any python code that you can write you can execute over here.
+
+02:05.220 --> 02:08.880
+So that's the basic of Jupiter notebook.
+
+02:08.880 --> 02:13.480
+Write the code in the cell called Shift hit enter and the cell is going to be executed.
+
+02:13.500 --> 02:15.080
+So that's essentially it.
+
+02:15.120 --> 02:22.230
+Now what we want to do is we want to experiment with some code and do sentiment analysis with it.
+
+02:22.230 --> 02:27.180
+I've already written some code for you Don't worry about the complexity of the code.
+
+02:27.240 --> 02:32.610
+We're going to come back to this in one of the future videos within this course and we'll explain every
+
+02:32.610 --> 02:33.430
+part of this.
+
+02:33.510 --> 02:36.880
+But right now what you need to understand is the gist of things.
+
+02:37.020 --> 02:41.580
+The big picture how we are going to approach sentiment analysis that is the objective in this video
+
+02:41.760 --> 02:44.850
+so that you can have an overview of what we're trying to achieve.
+
+02:45.630 --> 02:51.210
+I am providing the complete source code over here and you can type it up in Jupiter notebook in the
+
+02:51.210 --> 02:58.350
+online binder and it will work but I suggest that you go through this and in one of the future videos
+
+02:58.350 --> 03:02.700
+we'll come back to this and you will be able to execute this code line by line and we'll discuss it
+
+03:02.700 --> 03:03.430
+in detail.
+
+03:03.480 --> 03:05.620
+So in any case let's go ahead and jump into this.
+
+03:05.640 --> 03:08.740
+So what we're going to do is we're going to take a data set.
+
+03:08.820 --> 03:12.430
+That is the I am D.B. data set for sentiment analysis.
+
+03:12.600 --> 03:19.890
+The way it works is you have some review given by a user on a movie and some people have labeled these
+
+03:19.890 --> 03:22.200
+reviews as being either positive or negative.
+
+03:22.200 --> 03:25.140
+So each review is going to express a sentiment of the user.
+
+03:25.620 --> 03:30.930
+We are going to feed this data set a part of this data set to the machine and the machine is going to
+
+03:30.930 --> 03:36.440
+learn how to predict whether a sentence is positive sentiment or negative sentiment.
+
+03:36.510 --> 03:41.280
+Once we have done that learning we can give some new text to the machine and the machine will predict
+
+03:41.280 --> 03:44.070
+whether that sentiment is positive or negative.
+
+03:44.070 --> 03:50.400
+Now you can imagine somebody coming up with a new product and that product is getting some reviews from
+
+03:50.400 --> 03:53.290
+people on Twitter or any other social media.
+
+03:53.490 --> 03:57.570
+And what the business people want to know is whether those sentiments are positive or negative.
+
+03:57.570 --> 04:01.150
+How many are positive how many are negative those kinds of things.
+
+04:01.200 --> 04:05.560
+So sentiment analysis is a huge area and it's very useful.
+
+04:05.670 --> 04:08.770
+But you already know that because you search for discourse and you get drawn here.
+
+04:08.820 --> 04:14.220
+So let's go ahead and look at how to approach is technical in how we can actually do sentiment analysis
+
+04:14.250 --> 04:16.650
+using just these less than 60 lines of code.
+
+04:17.100 --> 04:19.140
+So we're going to execute this code one by one.
+
+04:19.140 --> 04:23.300
+So the code is already dead and that's the beauty of Jupiter notebook.
+
+04:23.400 --> 04:26.300
+We can prepare the code beforehand and execute it at runtime.
+
+04:26.360 --> 04:26.510
+Right.
+
+04:26.520 --> 04:31.520
+So let's go ahead and execute the cells one by one so we'll shift it enter.
+
+04:31.590 --> 04:36.330
+This is going to install the required laboratories which is get us intensive row.
+
+04:36.340 --> 04:38.720
+Again we'll come back to this in one of the featured videos.
+
+04:38.940 --> 04:41.300
+But as you can see this has been installed now.
+
+04:41.310 --> 04:47.010
+Now I'm going to import this library which is get us and it's going to use tensor flow in beckoned.
+
+04:47.010 --> 04:50.400
+So we have that we are going to do some imports again.
+
+04:50.430 --> 04:53.620
+You don't have to understand what these things are doing at the moment.
+
+04:53.760 --> 04:58.300
+All you have to understand is that we are creating a model.
+
+04:58.410 --> 05:02.650
+We're going to feed the data to the model and then we're going to test whether that machine has learned
+
+05:02.650 --> 05:03.760
+properly or not.
+
+05:03.760 --> 05:08.330
+So again we are going to set some parameters which are going to be controlling the learning.
+
+05:08.380 --> 05:10.870
+Again do not have to understand what this is doing.
+
+05:10.910 --> 05:16.750
+But we come back to this in one of the future videos and understand each bit in detail very little.
+
+05:17.380 --> 05:20.140
+This is again for the sake of completion.
+
+05:20.140 --> 05:22.910
+This is a bug in the Get Us library.
+
+05:23.110 --> 05:30.280
+So we are going to come back to what this does in one of the featured videos we are going to load the
+
+05:30.330 --> 05:31.000
+data set.
+
+05:31.000 --> 05:37.030
+So this is odd I am dataset which is provided by get us we're going to load this and we are going to
+
+05:37.330 --> 05:39.870
+split them into training and testing.
+
+05:39.870 --> 05:40.060
+Right.
+
+05:40.060 --> 05:41.810
+So that's already done for us by at.
+
+05:41.820 --> 05:46.180
+So this is the important line over here which is loading the data set for training and testing.
+
+05:46.270 --> 05:49.280
+So we execute that and it's going to load the data.
+
+05:49.300 --> 05:54.010
+This might take a little bit of time the first time you run it but after that you should have this output
+
+05:54.050 --> 05:55.380
+in here.
+
+05:55.390 --> 06:01.570
+Now what we want to do is we want to create some helper functions which are going to allow us to convert
+
+06:01.600 --> 06:07.690
+the information that is available in the data set into a human readable format and convert the human
+
+06:07.690 --> 06:10.890
+readable sentences into the format that the machine can understand.
+
+06:11.260 --> 06:13.660
+Let's go ahead and take a look at one of the sentences.
+
+06:13.690 --> 06:16.340
+So we take that training data points.
+
+06:16.390 --> 06:23.590
+So one sentence or one review and we decode that into a sentence because currently the way it's saved
+
+06:23.590 --> 06:25.590
+in the dataset is going to be a bunch of numbers.
+
+06:25.900 --> 06:27.430
+And we want to read it.
+
+06:27.490 --> 06:30.150
+So once we do that you can see that this is the review.
+
+06:30.190 --> 06:37.030
+So this film was just brilliant casting location scenery stories so it's kind of a positive view and
+
+06:37.030 --> 06:43.930
+to ensure that we print the label and the label is one which means positive if the sentiment was negative
+
+06:44.200 --> 06:46.050
+then it would have been a zero.
+
+06:46.080 --> 06:53.050
+So again in the in the very next video we're going to see how this 0 and 1 plays into the classification.
+
+06:53.050 --> 06:58.930
+But for now let's go ahead and see how you can take a sentence and then convert it into the format that
+
+06:58.930 --> 07:00.520
+the machine understands.
+
+07:00.520 --> 07:06.700
+So again that's a helper function and we take these couple of words and we translate them into this
+
+07:06.700 --> 07:07.030
+format.
+
+07:07.060 --> 07:11.770
+So this is the format that the machine sees the sentence in but we don't understand this format.
+
+07:11.890 --> 07:16.570
+So we write code in this format and have these helper functions convert them into the format that the
+
+07:16.570 --> 07:24.520
+machine understands again we have some more pieces which are going to massage the data into a format
+
+07:24.520 --> 07:27.820
+that can be easily fed to the actual learning model.
+
+07:28.360 --> 07:29.600
+So that's done.
+
+07:29.710 --> 07:32.470
+And this portion of it here is our model.
+
+07:32.470 --> 07:38.410
+Again we explain each and every bit of this model here and what we're trying to achieve is a sense of
+
+07:38.410 --> 07:40.000
+the flow.
+
+07:40.090 --> 07:45.640
+So we loaded the data we massaged it into a format that the machine can understand and we can understand
+
+07:45.640 --> 07:47.730
+so we can go from one format to the other.
+
+07:47.890 --> 07:51.660
+And then we are loading this into this model over here.
+
+07:51.670 --> 07:52.860
+So this is the brain.
+
+07:52.860 --> 07:55.900
+We're defining what the brain is how the machine is going to think.
+
+07:56.290 --> 08:00.100
+So we have that we get a couple of warnings but that's fine.
+
+08:00.160 --> 08:05.050
+And this portion of it had this very last line this fit function is essentially the learning portion
+
+08:05.470 --> 08:08.210
+and what it's going to do is it's going to take all of that data.
+
+08:08.480 --> 08:14.680
+So twenty five thousand different reviews with the sentiment label it's going to go through all of them.
+
+08:14.680 --> 08:16.030
+So the machine is learning right now.
+
+08:16.480 --> 08:20.380
+So once that learning has been done we are going to take some testing data.
+
+08:20.650 --> 08:26.470
+So this is going to be our testing data which is going to be used to evaluate whether the machine has
+
+08:26.470 --> 08:28.090
+learned proper new or not.
+
+08:28.090 --> 08:31.950
+So we'll have to wait a little while until all of this learning is done.
+
+08:32.050 --> 08:38.050
+So it's going to do to pass it so one pass is done it has gone through the whole reviews had once and
+
+08:38.050 --> 08:39.840
+now it's going through it again.
+
+08:40.000 --> 08:46.870
+Again the buy of it is going to in one of the future videos right now for recap we loaded the data we
+
+08:46.870 --> 08:51.620
+fed it to a model we defined what the model is and now we are doing the learning.
+
+08:51.730 --> 08:57.370
+After this we are going to do some predictions and see whether the machine has actually learned to predict
+
+08:57.370 --> 08:59.110
+from reviews or not.
+
+08:59.110 --> 09:01.590
+So these are the movie reviews.
+
+09:01.690 --> 09:07.690
+So this is important to note over here that all of the reviews are related to movies and they are not
+
+09:07.690 --> 09:09.260
+general sentences.
+
+09:09.310 --> 09:11.290
+We'll come back to this point in just a little while.
+
+09:11.290 --> 09:12.430
+In this video.
+
+09:12.430 --> 09:15.100
+So now we have these testing data points.
+
+09:15.120 --> 09:21.760
+So we're going to run this again we are going to take all the predictions and we're going to ensure
+
+09:21.760 --> 09:29.690
+that we get a negative and e.g. if the prediction made by the model for the review is negative sentiment.
+
+09:29.690 --> 09:29.860
+Right.
+
+09:30.370 --> 09:34.670
+So for instance if you take the first data point from this testing data.
+
+09:34.740 --> 09:38.580
+So if you take this data point you want to show what the sentence is.
+
+09:38.710 --> 09:42.310
+And we want to see what the sentiment has been predicted by the machine.
+
+09:42.310 --> 09:46.360
+Now remember the machine has not seen this data point during its learning.
+
+09:46.360 --> 09:48.370
+This is the testing dataset.
+
+09:48.430 --> 09:54.790
+So we run this and you can see that this film requires a lot of something this you end game means something
+
+09:55.270 --> 09:57.540
+because it focuses on mood and character development.
+
+09:57.540 --> 10:01.290
+The plot is very simple yada yada yada.
+
+10:01.300 --> 10:02.110
+So that's a review.
+
+10:02.110 --> 10:04.980
+And the machine thinks this is a positive review.
+
+10:04.990 --> 10:06.060
+We're not really sure.
+
+10:06.130 --> 10:10.000
+Maybe you can go through the whole review and see whether the machine made a mistake or not.
+
+10:10.000 --> 10:16.720
+What I want to do is I want to focus on another very very important aspect of doing any sort of machine
+
+10:16.720 --> 10:21.360
+learning the way people do machine learning is they get to this point.
+
+10:21.490 --> 10:28.090
+They take the learning of the model they take the data set they do the predictions and they're done.
+
+10:28.390 --> 10:36.250
+The gap means of taking this understanding and taking it to a point where you can solve your own problems
+
+10:36.250 --> 10:37.780
+using this learning.
+
+10:37.940 --> 10:39.810
+Now that is a very important aspect.
+
+10:39.860 --> 10:44.300
+Whenever you're doing any sort of machine learning what you want to do is take this information to a
+
+10:44.300 --> 10:49.340
+business and have that business on a real world problem.
+
+10:49.340 --> 10:52.500
+Utilize this to solve their own issues.
+
+10:52.510 --> 10:52.760
+Right.
+
+10:53.000 --> 10:57.830
+But people skip that one very important step and that is why machine learning is not achieving its true
+
+10:57.830 --> 10:59.870
+potential in the business domain.
+
+10:59.870 --> 11:04.760
+Now I want to cover this in this very first video so that you understand that in this course we are
+
+11:04.760 --> 11:08.570
+taking this practical approach and we are going to solve real world issues.
+
+11:08.870 --> 11:13.520
+So what I'm going to do is I'm going to take some very simple sentences so these sentences have not
+
+11:13.520 --> 11:15.650
+been seen by the machine at all.
+
+11:15.650 --> 11:20.180
+They are completely new they are not related to movies even but since they are English language the
+
+11:20.180 --> 11:26.450
+machine having learned the sentiment prediction should be able to predict whether these sentences are
+
+11:26.450 --> 11:28.570
+positive sentiment of negative sentiment.
+
+11:28.580 --> 11:30.920
+So what I'm going to do is I'm going to take three sentences.
+
+11:30.950 --> 11:33.270
+So the first one is I do not like this at all.
+
+11:33.380 --> 11:35.980
+So that is obviously a negative sentiment.
+
+11:36.020 --> 11:37.820
+The second sentence is loved it.
+
+11:37.910 --> 11:40.340
+And the third one is I did not love it.
+
+11:40.460 --> 11:42.840
+So we're going to take all three of these sentences.
+
+11:42.890 --> 11:49.490
+We're going to put them together in one variable and we are going to essentially massage this this new
+
+11:49.490 --> 11:53.030
+data into the format that the machine can use.
+
+11:53.030 --> 11:57.680
+So if you recall over here we had modeled on predict excessive and we are going to do a very similar
+
+11:57.680 --> 12:03.230
+thing over here model not predict death sentences which are these sentences that we just got up and
+
+12:03.230 --> 12:05.890
+we are going to see what the machine does with these.
+
+12:06.140 --> 12:12.760
+So let's go ahead and run this if we do the predictions you can see that this first sentence.
+
+12:12.840 --> 12:16.040
+I do not like this at all is a negative sentiment.
+
+12:16.260 --> 12:19.500
+Loved it is positive and did not love it is negative.
+
+12:19.530 --> 12:24.600
+Now you can see that the machine has indeed learned how to predict the sentiment.
+
+12:24.970 --> 12:26.250
+And this is very important.
+
+12:26.280 --> 12:30.420
+Must you arrive at this point and as you can see this is less than 60 lines of code.
+
+12:30.420 --> 12:36.930
+You can now take any social media sentences for instance a tweet you can put this over here and you
+
+12:36.930 --> 12:40.110
+can see whether these sentiments are positive or negative.
+
+12:40.110 --> 12:47.220
+You can set up a pipeline which reads a Twitter hashtag about your product and feeds it into this machine
+
+12:47.490 --> 12:53.100
+and the machine can predict in real time whether the reviews about your product are positive or negative.
+
+12:53.100 --> 12:58.340
+And you can do all sorts of things with this and this is just using less than 60 lines of code.
+
+12:58.350 --> 13:02.060
+Now of course these 60 lines of code back a lot of information.
+
+13:02.070 --> 13:05.690
+So there is a lot to cover over here but that's what this course is for.
+
+13:05.700 --> 13:09.670
+So this is kind of an outline for the whole course.
+
+13:09.760 --> 13:15.840
+Nobody going to step back and see the pipeline of how to approach machine learning using a very simple
+
+13:15.840 --> 13:16.290
+case study.
+
+13:16.320 --> 13:21.270
+And for that we're going to use another tool kit which is I could learn what I'm going to use I could
+
+13:21.270 --> 13:26.930
+learn to predict the digits in an image because that's a basic case study and it's very easy to understand.
+
+13:27.240 --> 13:31.530
+Once we are done with that we're going to take yet another step backwards and we're going to have a
+
+13:31.530 --> 13:36.120
+little bit of fury and then we are going to do the installation of get a stencil for an all the required
+
+13:36.120 --> 13:37.050
+tools.
+
+13:37.050 --> 13:42.860
+And we are going to go back after that to this code over again and explain every bit of it in detail.
+
+13:43.230 --> 13:48.870
+So stay tuned for the next video where we take I could learn and apply a very basic machine learning
+
+13:48.870 --> 13:49.250
+pipeline.

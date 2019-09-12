@@ -1,0 +1,211 @@
+WEBVTT
+
+00:00.230 --> 00:04.560
+All right so let's continue from where we left off in the previous video and what we're trying to do
+
+00:04.560 --> 00:10.920
+is we're trying to write another function which takes a sentence which is sent and encodes it into a
+
+00:11.310 --> 00:12.800
+list of ideas.
+
+00:12.810 --> 00:19.410
+So essentially take a sentence such as phone Sonja or whatever and translate it into something that
+
+00:19.410 --> 00:20.680
+looks like this guy here.
+
+00:20.720 --> 00:24.140
+So now we are trying to go into the forward direction.
+
+00:24.360 --> 00:24.660
+Right.
+
+00:24.900 --> 00:32.070
+So what this does is it simply gets that same dictionary which goes from word to ideas and then it splits
+
+00:32.580 --> 00:36.300
+the sentence that is given to us and gets each word out.
+
+00:36.450 --> 00:42.530
+And for each word it's going to appended to this encoded list right.
+
+00:42.570 --> 00:44.040
+So we had this list.
+
+00:44.040 --> 00:49.200
+Each word gets appended into this list if it is found in the dictionary if it's not found in the dictionary
+
+00:49.230 --> 00:50.460
+then it's an unknown word.
+
+00:50.820 --> 00:55.670
+And you would recall that we used to for unknown up above over here here.
+
+00:56.090 --> 00:58.740
+So we can do if an unknown is found.
+
+00:58.740 --> 00:59.400
+Right.
+
+00:59.420 --> 01:03.020
+So that is the ENCODE function and we simply take down the list.
+
+01:03.020 --> 01:10.750
+So if you use this function and take the sentence you will remember that this was the mapping so fun
+
+01:10.750 --> 01:13.340
+was 3 4 7 0 1 and so on.
+
+01:13.420 --> 01:18.580
+So if you tried to encode this sentence this sentence does not make any sense but we just want to see
+
+01:18.580 --> 01:19.560
+what it is.
+
+01:19.600 --> 01:19.830
+Right.
+
+01:19.830 --> 01:22.990
+So this would be fonts on your money et cetera.
+
+01:23.110 --> 01:30.220
+And this other sentence this does not look good translates to 14 1 2 7 24 168 and 52.
+
+01:30.700 --> 01:37.450
+So now that we have this what we want to do is we want to input this data into the model and there is
+
+01:37.450 --> 01:38.510
+a problem with that.
+
+01:38.530 --> 01:40.540
+Now the reviews can be variable length.
+
+01:40.600 --> 01:42.370
+You can have a review which is very short.
+
+01:42.370 --> 01:45.860
+You can have a review which can be very long and that poses a problem.
+
+01:45.970 --> 01:52.990
+How can we create the input layer which has a fixed number of nodes and give it a variable sequence.
+
+01:52.990 --> 01:58.540
+There are many ways to handle this but the way we are going to do this is simply by ensuring that all
+
+01:58.540 --> 02:00.380
+the sequences are the same length.
+
+02:00.400 --> 02:01.840
+There are three possibilities.
+
+02:01.840 --> 02:06.700
+For instance if we decide that on maximum length that we are going to feed into the machine is going
+
+02:06.700 --> 02:07.450
+to be maximum.
+
+02:07.480 --> 02:13.270
+So if we go up what it on maximum is 400 so we can only have 400 worldviews.
+
+02:13.600 --> 02:19.270
+What if we have a shorter review for instance a 200 word review.
+
+02:19.270 --> 02:27.190
+What we're going to do is we are going to pad them and we're batting does is essentially inserts zeros
+
+02:27.580 --> 02:28.280
+at the beginning.
+
+02:28.480 --> 02:36.550
+So if you're Max and is 400 as we have now and a review has 200 words then it's going to have 200 spaces
+
+02:37.060 --> 02:41.460
+added to the beginning and then 200 words review to make it a total of 400.
+
+02:41.470 --> 02:46.890
+So if you have a 400 word review that looks perfectly fine if you have a shorter review that gets padded
+
+02:46.900 --> 02:52.300
+with spaces in the beginning and if you have a review that is longer than 400 words then those are simply
+
+02:52.300 --> 02:53.480
+clipped away.
+
+02:53.500 --> 03:00.970
+So if 100 words is a sufficient length we decided that maybe you want to do a review on a larger set.
+
+03:01.030 --> 03:03.580
+So you might want to increase the max.
+
+03:03.970 --> 03:06.070
+Now where does this maximum come from.
+
+03:06.070 --> 03:10.000
+Sometimes you just know this for instance does it already has a limit.
+
+03:10.030 --> 03:15.610
+And if you're doing that analysis you can simply set this maximum to the maximum total and get us already
+
+03:15.610 --> 03:18.850
+has a function which does this batting for us.
+
+03:19.510 --> 03:24.100
+So if you go up a bit again and you would see that from catastrophic pre processing we have imported
+
+03:24.100 --> 03:27.580
+sequence and in the sequence we have a function which is called back sequence.
+
+03:27.820 --> 03:36.170
+So we can simply go ahead and use that so extra in is not going to be extreme padded up to this maximum
+
+03:36.170 --> 03:39.240
+length and expressed is also going to be the same thing.
+
+03:39.240 --> 03:39.460
+Right.
+
+03:39.470 --> 03:45.320
+So once we do that we are going to pad them and now we have twenty five thousand comma four hundred.
+
+03:45.620 --> 03:50.930
+So now this four hundred is the maximum that we have now if we take a look at extreme zero again you
+
+03:50.930 --> 03:57.660
+will see over here that is essentially the same thing except it has all of these zeros battered upfront.
+
+03:57.740 --> 04:04.560
+So after that it has the same one 14 22 et cetera but because it was shorter than 400 it is now better
+
+04:04.590 --> 04:07.430
+with a couple of zeros upfront.
+
+04:07.430 --> 04:09.340
+Now that we have the understanding of the data.
+
+04:09.380 --> 04:14.840
+Please make sure that you understand all of these concepts that we have seen because the actual machine
+
+04:14.840 --> 04:16.340
+learning portion is really easy.
+
+04:16.400 --> 04:16.570
+Right.
+
+04:16.580 --> 04:20.540
+So all we have to do for that is go ahead and create this model.
+
+04:20.990 --> 04:23.000
+And that's fairly easy.
+
+04:23.000 --> 04:28.130
+What's really complicated when you go into the real world and try to apply these concepts to your problems
+
+04:28.190 --> 04:31.030
+is this portion over here that you've covered up until now.
+
+04:31.100 --> 04:35.690
+So it's very important that you understand this if you have any questions please do ask and get through
+
+04:35.690 --> 04:37.660
+this as much as you can before you proceed.

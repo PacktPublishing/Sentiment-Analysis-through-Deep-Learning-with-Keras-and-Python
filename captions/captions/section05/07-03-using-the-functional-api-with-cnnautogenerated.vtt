@@ -1,0 +1,205 @@
+WEBVTT
+
+00:00.300 --> 00:05.370
+So the last thing that we want to do in this portion of the course is to convert our current convolution
+
+00:05.370 --> 00:09.900
+neural network architecture with pulling and drop out to the functional API.
+
+00:09.900 --> 00:14.940
+This is very important because we need to be comfortable with the functional API so that in the later
+
+00:15.030 --> 00:19.770
+part of the course in the coming few videos we're going to use the functional API to create much more
+
+00:19.770 --> 00:21.010
+complicated models.
+
+00:21.030 --> 00:22.590
+So we need to make sure that we understand it.
+
+00:22.590 --> 00:24.580
+So let's go ahead and routine care.
+
+00:24.750 --> 00:31.470
+So our inputs is going to be an input layer and the shape is going to be 32 by 32 by three channels.
+
+00:31.470 --> 00:31.610
+Right.
+
+00:31.620 --> 00:35.660
+So that is going to be up in 48 and we have imported all the layers over here.
+
+00:35.670 --> 00:40.930
+So we have the dance activation flat on input Max pulling duty and troubled all out here.
+
+00:40.980 --> 00:48.330
+The model is over here and everything that we need is already available and now we're going to create
+
+00:48.330 --> 00:48.930
+the architecture.
+
+00:48.930 --> 00:51.680
+So the first layer that we have is a contradiction layer.
+
+00:52.050 --> 00:59.040
+So X is you could do on 2D and we're going to have 64 designs before and the fungicide is going to be
+
+00:59.040 --> 01:02.630
+three plus three and the fighting is going to be same.
+
+01:02.700 --> 01:08.910
+So that is going to be on layer and we're going to posit the inputs as the input in the next layer we're
+
+01:08.910 --> 01:10.160
+going to set activation.
+
+01:10.170 --> 01:15.900
+So that is going to be X if you could do activation and the activation type is linked to the value that
+
+01:15.900 --> 01:22.110
+we covered earlier and we posit the input from the the output of the previous layer right then you go
+
+01:22.110 --> 01:23.730
+ahead and create an adequate solution.
+
+01:23.760 --> 01:28.410
+So there's going to be called 2D and this time we're going to have eight filters and this is going to
+
+01:28.410 --> 01:33.790
+be difficult three and I mean the petting zoo is going to be the same right.
+
+01:33.830 --> 01:39.760
+All or we can simply go ahead and skip the painting for now and the positive input again similarly the
+
+01:39.790 --> 01:41.000
+to have the activation again.
+
+01:41.610 --> 01:45.550
+So these are two convolution layers then we go ahead and add a filling there.
+
+01:45.540 --> 01:53.650
+So that is going to be Max pulling duty and this is going to be a pool size of cross 2.
+
+01:53.750 --> 01:53.990
+Right.
+
+01:54.000 --> 01:55.820
+And we're going to pass the exact input.
+
+01:55.980 --> 02:02.950
+So let's go ahead and try and output the the current model up until this point.
+
+02:03.000 --> 02:07.560
+So if you recall we can open the model at any time because but because this isn't a sequence in the
+
+02:07.560 --> 02:10.800
+model we can simply say a model or somebody we have to construct the model.
+
+02:11.220 --> 02:15.600
+So we have to say a model is equal to the inputs go here and the output should be here.
+
+02:15.600 --> 02:17.710
+Now we don't have an output over here.
+
+02:17.760 --> 02:21.780
+So what we can do is simply go ahead and say output is equal to x.
+
+02:21.960 --> 02:26.700
+So this is essentially going to be a temporary variables so that we can output model.
+
+02:27.060 --> 02:31.480
+So let's go ahead and run that sort of let's fix this.
+
+02:31.490 --> 02:32.640
+The comma is missing.
+
+02:32.790 --> 02:37.170
+So let's go ahead and run model dot model is the model inputs and outputs and the model or somebody
+
+02:37.170 --> 02:39.670
+shows us that currently we are at this stage.
+
+02:39.690 --> 02:40.850
+So we have an input layer.
+
+02:40.860 --> 02:47.200
+We have a commentary in activation and other come through these and other activation and executing pooling.
+
+02:47.280 --> 02:50.890
+So we have this up until now.
+
+02:50.990 --> 02:52.700
+OK let's go ahead and add our drop.
+
+02:52.740 --> 02:53.100
+Okay.
+
+02:53.130 --> 02:59.760
+So X is equal to drop out of zero point two and then deposit deep previous year input so we can go ahead
+
+02:59.760 --> 03:02.760
+and run this and see that the drop out has appeared a lot here.
+
+03:02.820 --> 03:09.310
+So as before it's really useful if you create the model one year at a time it helps you reduce these
+
+03:09.420 --> 03:09.840
+errors.
+
+03:10.320 --> 03:13.190
+So once we have the drop out we want to flatten it.
+
+03:13.470 --> 03:19.290
+So we're going to have a better layer and deposit the output the output of the previous Labor layer
+
+03:19.320 --> 03:20.730
+as in right.
+
+03:21.300 --> 03:27.390
+And finally what we want is exiting to dance and we're going to have some classes and we're going to
+
+03:27.390 --> 03:29.240
+pass X to it.
+
+03:29.400 --> 03:33.340
+So this is going to be our dense layer over here.
+
+03:33.990 --> 03:38.240
+And after the death we're going to have X is equal to activation.
+
+03:38.250 --> 03:42.740
+The final activation as the phone is going to be a soft Max and deposit x.
+
+03:42.780 --> 03:48.000
+Now we can either keep this or we're here to facilitate with the experimentation or we can get rid of
+
+03:48.000 --> 03:49.790
+this and simply call this the output.
+
+03:50.250 --> 03:50.810
+So same thing.
+
+03:51.360 --> 03:57.660
+So let's go ahead and take a look at our model of sort somebody so this over here we have the detailed
+
+03:57.690 --> 04:02.740
+architecture of it here and we can see everything that is going on and on.
+
+04:02.860 --> 04:08.940
+Actually you can go ahead and compile it and then fit but this is the same model and should produce
+
+04:08.940 --> 04:14.040
+the same results in the next few videos we're going to take a look at how we can use this functional
+
+04:14.070 --> 04:21.780
+API to create much more complicated models such as those which involve non sequential inputs and which
+
+04:22.530 --> 04:25.880
+can use merging concatenation and all the different operations.
+
+04:25.890 --> 04:26.570
+Right.
+
+04:26.610 --> 04:27.260
+So see you there.

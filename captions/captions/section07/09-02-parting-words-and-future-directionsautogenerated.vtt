@@ -1,0 +1,160 @@
+WEBVTT
+
+00:00.110 --> 00:06.110
+We've covered a lot of the tools that are provided by us to aid us in implementing deep learning models.
+
+00:06.660 --> 00:10.010
+However tennis is a very very powerful tool.
+
+00:10.140 --> 00:15.870
+It has a very simple front end and that makes people think that it doesn't have too much to offer.
+
+00:15.870 --> 00:20.730
+That's not true and I would like to bust this myth by pointing you to some resources that would really
+
+00:20.730 --> 00:26.130
+help you out in learning the intricacies of the Get Us architecture.
+
+00:26.160 --> 00:30.900
+So the first go to site for Qantas learning is to get us sufficient documentation.
+
+00:30.900 --> 00:37.200
+So I have opened this earlier as well but we have to get a start I over page which details to get us
+
+00:37.200 --> 00:39.780
+documentation in excruciating detail.
+
+00:40.050 --> 00:41.910
+So you have all the different things here.
+
+00:41.910 --> 00:46.540
+You have the code layers convolution layers pulling layers and you have different types of other lasers
+
+00:46.560 --> 00:49.940
+when it's so you can go ahead and take a look at these.
+
+00:50.000 --> 00:52.420
+Another very good resource is the get us blog.
+
+00:52.740 --> 00:55.280
+So it has quite a lot of technical details.
+
+00:55.290 --> 01:01.830
+And once you have gone through the course discourse that we are coming you should be able to understand
+
+01:01.860 --> 01:05.250
+almost all of the blog posts that are on here.
+
+01:05.280 --> 01:11.790
+So these are really good and they give you real life examples of how you can apply Deep Learning Deep
+
+01:11.790 --> 01:13.540
+Learning to your models.
+
+01:13.560 --> 01:21.330
+So this is the official blog written by the developer of kind of some self and it has quite a lot of
+
+01:21.720 --> 01:22.920
+very interesting articles.
+
+01:22.920 --> 01:28.270
+I'd like to really point out to a couple of those which can really help you understand the idea.
+
+01:28.270 --> 01:33.660
+So this article over here building powerful image classification models using very little data.
+
+01:33.690 --> 01:38.860
+This is a very useful model if you want to really understand how you can bring everything together.
+
+01:38.880 --> 01:45.570
+For instance you might want to load some bits that were saved by the Qantas people and then you bring
+
+01:45.570 --> 01:51.300
+together some models that were created by Qantas and you write a couple of lines of code and you get
+
+01:51.300 --> 01:53.820
+the power that Google machines can provide you.
+
+01:54.730 --> 01:57.090
+So that's a very good resource.
+
+01:57.240 --> 02:02.630
+Again since this was an introductory introductory course we have only covered the bare minimum of math.
+
+02:02.640 --> 02:08.820
+But if you do want to make machine learning your area of expertise or if you want to really make sure
+
+02:08.820 --> 02:13.640
+that you exploit its true potential you really do need to understand the math behind it.
+
+02:13.650 --> 02:17.260
+And I have a really good resource for that.
+
+02:17.370 --> 02:23.370
+This is Prof Nando freighters and he's a professor of computer science at Oxford University.
+
+02:23.370 --> 02:29.250
+He has two undergraduate courses and a graduate course on machine learning and those two are the best
+
+02:29.250 --> 02:31.470
+courses that you can find on the Internet for free.
+
+02:31.890 --> 02:37.800
+And they take you from scratch in terms of mathematical theory and they bring you to the State of the
+
+02:37.800 --> 02:38.570
+art.
+
+02:38.640 --> 02:47.130
+This is the guy who was a major contributor in torch the game changing framework in deep learning and
+
+02:47.130 --> 02:50.640
+many of his students have gone on to great heights.
+
+02:50.790 --> 02:54.630
+So we should really check out the courses by profit energy freighters and that would really help you
+
+02:54.630 --> 02:58.380
+out if you want to understand the state of the art.
+
+02:58.410 --> 03:00.960
+There are two conferences that you really should follow.
+
+03:00.960 --> 03:02.060
+One is nips.
+
+03:02.070 --> 03:08.130
+So you might want to go in here and take a look at the recent papers for for instance nips 2017 and
+
+03:08.130 --> 03:13.430
+you would realize that there are many things that you can apply to your own domains and a lot of codes
+
+03:13.440 --> 03:15.510
+for these are available so you can use them.
+
+03:15.570 --> 03:18.520
+And another very good conference is ICM in 2017.
+
+03:18.660 --> 03:23.910
+So you can take a look at the proceedings for that and you can look at the accepted papers and obviously
+
+03:23.910 --> 03:25.860
+the tutorials are very helpful too.
+
+03:25.920 --> 03:27.990
+So we'll keep exploring keep going back.
+
+03:27.990 --> 03:35.730
+Between back and forth between theory and code and hopefully you learn a lot to keep in touch with me
+
+03:35.790 --> 03:37.480
+through the real time check system again.
+
+03:37.500 --> 03:44.650
+I'll post a link on the course page to that and make sure that you share your experiences with us and
+
+03:44.650 --> 03:45.510
+do provide feedback.
+
+03:45.690 --> 03:46.010
+Thank you.

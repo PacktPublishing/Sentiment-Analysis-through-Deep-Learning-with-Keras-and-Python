@@ -1,0 +1,220 @@
+WEBVTT
+
+00:00.550 --> 00:06.280
+In this video we're going to take a look at a simple concept which has been used extensively in deep
+
+00:06.280 --> 00:08.080
+learning for a while now.
+
+00:08.100 --> 00:14.140
+Now recent research has shown that it's not that useful but it still comes up a lot in older architectures
+
+00:14.140 --> 00:15.160
+and people do use it.
+
+00:15.160 --> 00:18.240
+So it's worth getting used to it.
+
+00:18.280 --> 00:25.660
+So let's go ahead and start our code with CNN extra dash begin as always the end product is in slash
+
+00:25.750 --> 00:27.710
+dash instructor taught by me.
+
+00:27.880 --> 00:28.830
+But let's go over here.
+
+00:28.840 --> 00:33.250
+This is the same architecture that we created last time except we want to add a new type of layer over
+
+00:33.250 --> 00:33.910
+here.
+
+00:34.240 --> 00:37.720
+And let's go ahead and first take a look at it visually.
+
+00:37.750 --> 00:42.230
+So this is our image that we have currently constructed.
+
+00:42.250 --> 00:45.110
+So this might be the end of a convolution layer.
+
+00:45.190 --> 00:49.690
+This might be the input that we have any output that you might have from any layer.
+
+00:49.690 --> 00:51.340
+So this is an example of that.
+
+00:51.550 --> 00:55.130
+What we want to do is we want to reduce the size of this image.
+
+00:55.180 --> 01:01.020
+It helps in reducing the number of parameters that we have to multiply with the image.
+
+01:01.120 --> 01:04.750
+So it helps us speed up our training if we reduce this size.
+
+01:05.110 --> 01:06.910
+So how do we reduce US reduce it.
+
+01:06.910 --> 01:14.320
+There are multiple ways but the easiest is to take a block let's say two by two over here and find out
+
+01:14.620 --> 01:17.360
+whatever the maximum is within this two by two.
+
+01:17.380 --> 01:22.380
+So let's take this big portion over here and the maximum in this is the six.
+
+01:22.450 --> 01:26.710
+So instead of writing all four of these numbers we write just the max.
+
+01:27.010 --> 01:32.920
+Then we jump by two blocks of it here and then we arrive at this green block and we have 2 4 7 and 8
+
+01:32.980 --> 01:37.080
+the max of these is 8 and we like this 8 over.
+
+01:37.510 --> 01:43.000
+Then we jump two rows down and to the start and the maximum overhead is three.
+
+01:43.000 --> 01:48.370
+So for the yellow blocks we get one block of three and four the blue blocks we get four.
+
+01:48.490 --> 01:52.810
+Now the first thing that you should notice is that we are doing a two by two pulling.
+
+01:52.810 --> 01:55.240
+So this is called pulling the operation is concluding.
+
+01:55.240 --> 02:01.120
+So we create a pool of these and from these we somehow reduce them to one number.
+
+02:01.150 --> 02:02.610
+So here we're doing Max pooling.
+
+02:02.620 --> 02:05.940
+So we pick simply the maximum of the four.
+
+02:06.130 --> 02:11.610
+We can also do average putting in which we can take an average of all these four and put that overhead
+
+02:11.620 --> 02:12.320
+instead.
+
+02:12.500 --> 02:14.480
+So you can have different types of pulling.
+
+02:14.560 --> 02:16.260
+Now what's the inclusion behind this.
+
+02:16.270 --> 02:21.970
+The conclusion is that all these four numbers combined are going to have some effect in our decision
+
+02:21.970 --> 02:26.510
+making and instead of taking these four numbers we pick just one.
+
+02:26.650 --> 02:33.700
+So that helps us achieve what is called translation in radians but if you're not aware of that it simply
+
+02:33.790 --> 02:40.090
+it simply means that if this 6 was here or here or here or here the end result would still be six.
+
+02:40.090 --> 02:43.630
+So it lets us move the features of the image around a little bit.
+
+02:43.630 --> 02:43.840
+Right.
+
+02:43.840 --> 02:50.230
+So you don't really have to understand what that means essentially because the latest research has shown
+
+02:50.230 --> 02:57.330
+that the max pulling doesn't really do anything helpful but it had been used quite a lot in the past.
+
+02:57.330 --> 03:03.710
+So we should understand it at least anyway so we create a pool and from that we pick a number.
+
+03:03.730 --> 03:04.270
+All right.
+
+03:04.270 --> 03:08.830
+So this is Max willing we could have had average pooling we could have had any other type of flooding
+
+03:08.830 --> 03:09.180
+as well.
+
+03:09.230 --> 03:12.740
+So I mean putting is also possible depends on your use case.
+
+03:12.850 --> 03:13.990
+How do we use this.
+
+03:13.990 --> 03:17.110
+So this is simply a matter of going ahead and importing a new layer.
+
+03:17.140 --> 03:19.480
+So this is going to be Max Boot 2D.
+
+03:20.080 --> 03:21.630
+So Max pulling duty.
+
+03:21.760 --> 03:22.710
+Sorry.
+
+03:23.110 --> 03:25.510
+And then we're going to go ahead and use it already.
+
+03:25.600 --> 03:31.630
+So that's the beauty of colors that begin simply go ahead and add model dot add Max pulling duty and
+
+03:31.630 --> 03:35.150
+then we say pool size is equal to to commit to.
+
+03:35.200 --> 03:37.100
+So this is a two plus two max pooling.
+
+03:37.540 --> 03:38.650
+So that's it.
+
+03:38.650 --> 03:44.860
+When we run that you will notice that in autumn monitor somebody nothing has changed except that this
+
+03:44.860 --> 03:50.690
+new layer has been added and everything else remains the same except before exploding we had the size
+
+03:50.710 --> 03:51.870
+and 30 by 30.
+
+03:51.870 --> 03:54.330
+And now it has grown to 15 by 15.
+
+03:54.330 --> 03:54.500
+Right.
+
+03:54.670 --> 03:57.040
+Because we had a pool size of two by two.
+
+03:57.070 --> 04:01.000
+So this four by four went to two by two and are 30 by 30.
+
+04:01.000 --> 04:02.460
+When do 15 by 15 right.
+
+04:02.470 --> 04:04.470
+So that's as simple as that.
+
+04:04.570 --> 04:10.750
+You simply add a new Max pooling to deliver and you give me the pool size whichever you want if you
+
+04:10.750 --> 04:10.950
+want.
+
+04:10.950 --> 04:13.710
+Average pooling you can import have equally.
+
+04:14.520 --> 04:20.770
+But we're going to stick with Max but you know you can run this and see whether it makes any improvements
+
+04:20.770 --> 04:24.890
+in your accuracy but we're going to leave it at here for now.

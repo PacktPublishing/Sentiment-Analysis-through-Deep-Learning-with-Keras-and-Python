@@ -1,0 +1,469 @@
+WEBVTT
+
+00:00.570 --> 00:05.780
+All right so we have our data now what we want to do is we want to create a model So recall that our
+
+00:05.780 --> 00:07.640
+model looks something like this.
+
+00:07.700 --> 00:09.260
+So we're going to have some inputs.
+
+00:09.260 --> 00:12.860
+We're going to have some hidden layers and then we're going to have an output layer over here over which
+
+00:12.920 --> 00:14.580
+we put a soft Max.
+
+00:14.870 --> 00:19.240
+So get us defining a model is really easy and that is where Qantas shines.
+
+00:19.400 --> 00:25.190
+If you tried to go with something like dance floor or piano or torch or any other celebrity it's going
+
+00:25.190 --> 00:27.930
+to be extremely difficult and painful to set up a model.
+
+00:28.070 --> 00:29.210
+You just want to get started.
+
+00:29.210 --> 00:32.380
+You just want to make sure that you get experiment with your data.
+
+00:32.450 --> 00:37.400
+Take a look at your inputs outputs see what kind of models give you best results.
+
+00:37.400 --> 00:38.950
+And that is where gets changed.
+
+00:38.990 --> 00:44.180
+So we're going to create a really really small model really quickly and you'll see that even if you
+
+00:44.240 --> 00:49.060
+convert these two really complicated models it's going to take time if you're working with Qantas.
+
+00:49.070 --> 00:51.440
+So what we want to do is we want to create a sequential model.
+
+00:51.800 --> 00:55.590
+So this sequentially comes from the get US DOT models.
+
+00:55.590 --> 01:07.130
+So what we want to do is we want to go out here and say from the start models import sequence and execute
+
+01:07.130 --> 01:10.630
+that we're going to incorporate some other stuff forward here as well.
+
+01:10.640 --> 01:17.030
+So let's do that at the moment from Qantas dot layers import we're going to import a dense layer.
+
+01:17.090 --> 01:21.760
+So overhead this is a dense layer as you can see everything is attached to everything.
+
+01:21.760 --> 01:26.970
+So this kind of density we're going to have some other types of flares later on in the course.
+
+01:27.110 --> 01:36.800
+We also need to have from a start up in my users import as G.D..
+
+01:36.920 --> 01:42.910
+So this guy optimizer this SCADA optimizes optimizer is essentially what takes a look at all the ti
+
+01:42.920 --> 01:48.650
+does and decides how to change them so that your inputs can be used to predict the outputs correctly.
+
+01:48.660 --> 01:48.750
+Right.
+
+01:48.860 --> 01:57.980
+So if you remember we're all here we had some line which was all ahead because of the t does and through
+
+01:57.980 --> 02:02.600
+some process we change it to this line over here because we were changing the data.
+
+02:02.870 --> 02:05.150
+So essentially that's what Steed's going to do for us.
+
+02:05.180 --> 02:08.810
+It's going to change the model parameters so that the model predicts better.
+
+02:09.200 --> 02:11.450
+So that's all we need to understand at the moment.
+
+02:11.450 --> 02:17.270
+So let's go ahead and go ahead over here and add a layer to model so that may get us works as you say
+
+02:17.300 --> 02:22.580
+model is equal to sequential order another type of model we take a look at that later on then we add
+
+02:22.580 --> 02:23.170
+layers.
+
+02:23.180 --> 02:28.040
+So we have model that add and now we're going to say we want to add a dense layer so we want to add
+
+02:28.040 --> 02:30.410
+a layer of 512 nodes.
+
+02:30.440 --> 02:33.170
+So this is going to be a lot here.
+
+02:33.170 --> 02:35.600
+So how many nodes we need in this layer.
+
+02:35.610 --> 02:35.820
+Right.
+
+02:35.840 --> 02:41.690
+So we're adding layer on the nodes do we need to network and what's the type of this.
+
+02:41.690 --> 02:44.700
+It's a dense layer so dense 512.
+
+02:45.560 --> 02:48.780
+Let's close this over here and we're going to say that the activation.
+
+02:49.040 --> 02:50.550
+So this is a switching function.
+
+02:50.630 --> 02:52.280
+This is going to be segment.
+
+02:52.850 --> 02:55.610
+And we also have to it what the input shape is going to be.
+
+02:55.910 --> 02:58.900
+So the input shape is going to be and we have to tell it to build.
+
+02:59.330 --> 03:04.970
+So we say seven eighty four and we have to put a comma because unless you if you don't put a column
+
+03:04.970 --> 03:09.080
+over here this is not going to be treated as a tuple so we have to put a column over here.
+
+03:09.080 --> 03:10.710
+That's just Python syntax.
+
+03:10.880 --> 03:17.600
+So this is a tuple we're saying that I'm going to be inputting a single vector of seven hundred and
+
+03:17.600 --> 03:19.250
+eighty four different values.
+
+03:19.270 --> 03:19.490
+Right.
+
+03:19.700 --> 03:20.680
+That's our input shape.
+
+03:20.690 --> 03:25.020
+This whole thing becomes dense layer and that is an added to the model.
+
+03:25.040 --> 03:28.400
+Now what we're going to do is we're going to add another layer over here.
+
+03:28.400 --> 03:30.830
+So this is going to correspond to this in there too.
+
+03:31.250 --> 03:37.700
+And we also are going to set this to 512 the way to set the activation to sigmoid and we're not going
+
+03:37.700 --> 03:43.190
+to tell what the input shape is because we have the data in here and get us going automatically decide
+
+03:43.220 --> 03:44.630
+what this layer is going to get.
+
+03:44.660 --> 03:45.900
+As you put it.
+
+03:46.280 --> 03:54.530
+Finally what we want to do is we want to add a dense layer right so dense layer of num classes.
+
+03:54.580 --> 03:54.840
+Right.
+
+03:55.090 --> 04:00.890
+So let's go back over here at the last layer the number of nodes is going to correspond to our classes.
+
+04:00.890 --> 04:07.310
+So we have 10 classes over here so we have to set it to classes which we earlier set to 10 right.
+
+04:08.240 --> 04:14.390
+So let's go in here so we have nine classes and we're going to see that the activation activation is
+
+04:14.390 --> 04:18.190
+going to be Max because this is our last year.
+
+04:18.210 --> 04:18.370
+Right.
+
+04:18.950 --> 04:22.580
+So let's go ahead and execute this and this and hope that nothing is wrong.
+
+04:22.580 --> 04:28.490
+So dense is not defined it is from catastrophic layers importance
+
+04:30.910 --> 04:33.510
+and there you go.
+
+04:34.410 --> 04:35.740
+So now we have the model.
+
+04:35.790 --> 04:37.590
+But what does the model look like.
+
+04:37.590 --> 04:46.440
+We can go ahead and say model to somebody and we get a model of somebody and we get this a succinct
+
+04:47.010 --> 04:49.860
+description of the model so that they are going to be three layers.
+
+04:49.890 --> 04:55.770
+The first is going to have 500 Internal inputs this nun basically says that you can feed it to any number
+
+04:55.770 --> 04:56.700
+of data points.
+
+04:57.020 --> 05:03.630
+And this is going to be the size of the the number of nodes in this layer and is going to be the number
+
+05:03.630 --> 05:06.600
+of nodes in the second layer and the number of nodes in the last year is 10.
+
+05:07.110 --> 05:12.460
+So the total number of parameters for this whole network is going to be this huge number of potatoes.
+
+05:12.540 --> 05:12.750
+Right.
+
+05:12.750 --> 05:16.160
+So obviously a and b and c are not going to work.
+
+05:16.320 --> 05:21.960
+Now what we need to do is we need to tell caterers to compile the model so that the underlying code
+
+05:21.990 --> 05:23.170
+is generated fine.
+
+05:23.260 --> 05:31.360
+Let's say Mondo compile and we're going to give it the loss is equal to categorical cross entropy.
+
+05:31.350 --> 05:35.310
+Now you don't need to understand what categorical across entropy is essentially what it's saying is
+
+05:35.640 --> 05:40.380
+we're going to take a look at the outputs predicted by this model and then we're going to compare it
+
+05:40.380 --> 05:42.890
+to the one vector encoding that we created earlier on.
+
+05:43.440 --> 05:45.450
+If they match we're happy.
+
+05:45.450 --> 05:48.480
+If they don't match we want to change our theta so that they do match.
+
+05:48.510 --> 05:48.770
+Right.
+
+05:48.810 --> 05:50.990
+That's essentially what category the comparison to be is.
+
+05:51.420 --> 05:55.700
+And we also want to say that the optimizer that you want to use this as D.
+
+05:55.770 --> 05:57.090
+Right.
+
+05:57.780 --> 05:59.850
+So that's our implementation.
+
+05:59.850 --> 06:03.820
+Finally if you want to have some matrix that should be reported to us.
+
+06:03.840 --> 06:09.340
+So we want the model to report the accuracy when it's running right.
+
+06:09.360 --> 06:16.350
+So we're going to see model dot compile and once the model is compiled we can say that we need to model
+
+06:16.350 --> 06:21.810
+dot fit so the fit is going to need some parameters.
+
+06:21.890 --> 06:24.830
+First we're going to let X train and my train.
+
+06:24.990 --> 06:27.440
+So these are the training data.
+
+06:27.990 --> 06:30.140
+Then we say that are that size.
+
+06:30.180 --> 06:33.640
+How many data points should be read at one time.
+
+06:33.660 --> 06:36.370
+So that is going to be like size meets at the bedside.
+
+06:36.390 --> 06:41.820
+Earlier on over here to 128 and the epochs was to we're going to use that as well.
+
+06:42.720 --> 06:49.320
+So we have our bad size then we have a box is equal to e-books.
+
+06:49.350 --> 06:52.170
+So that's going to be a number of people.
+
+06:52.830 --> 06:55.110
+We also want to say that wearables is equal to one.
+
+06:55.110 --> 07:02.530
+So that all the different to progress is output to us so that we can see and finally we can say validation
+
+07:02.530 --> 07:02.830
+data.
+
+07:02.830 --> 07:07.320
+So this is our this data that is going to be accessed and financed.
+
+07:07.840 --> 07:12.970
+So this call validation for a certain reason we don't want to go into the details right now but this
+
+07:12.970 --> 07:14.770
+is essentially our test data.
+
+07:14.770 --> 07:20.080
+So when we see a model not fit it's going to go ahead and perform the learning just as kids learn.
+
+07:20.200 --> 07:22.910
+This is going to take a little bit of time because this is a default.
+
+07:23.620 --> 07:29.140
+Also what we want to do is we want to store the results in a in an object history so that we can take
+
+07:29.140 --> 07:30.370
+a look at it later on.
+
+07:30.560 --> 07:34.690
+We're not going to use that right now but it's a good practice to have this variable.
+
+07:35.290 --> 07:40.800
+So as you can see now it has started learning and it is taking all these data points in the first epoch.
+
+07:40.810 --> 07:43.990
+We're going to go ahead and take a look at all the data points.
+
+07:44.020 --> 07:49.600
+So as you can see it's going ahead and reading everything and reporting the loss how much you're getting
+
+07:49.600 --> 07:56.500
+wrong and accuracy what's the percentage of the correct vs. the incorrect results to the accuracy right
+
+07:56.530 --> 08:00.540
+now is really low.
+
+08:00.900 --> 08:05.820
+Now it is after the first e-book it performed a little bit of testing and reported that we only had
+
+08:05.820 --> 08:08.210
+twenty nine percent correct results.
+
+08:08.220 --> 08:09.960
+That's not really good.
+
+08:10.170 --> 08:17.900
+That's because our model over here is really simple so we're going to wait a minute and once this training
+
+08:17.900 --> 08:21.690
+is done completely we're going to evaluate the model again.
+
+08:21.710 --> 08:22.320
+Right.
+
+08:22.430 --> 08:27.560
+So that's why I kept these two boxes equal to two because we want to finish up really quickly so you
+
+08:27.560 --> 08:32.360
+can see that we've gone from 29 percent correct results to 2 2 percent correct results in just two epochs.
+
+08:32.630 --> 08:36.810
+So if you set it to 20 bucks this is going to get better.
+
+08:36.920 --> 08:40.810
+Now finally what do you want to do is we want to evaluate the model.
+
+08:41.180 --> 08:46.030
+So we say the score is equal to model not evaluate.
+
+08:46.760 --> 08:50.740
+And we're going to say extensive and wide test why test.
+
+08:50.960 --> 08:55.340
+So we wanted to evaluate on this and this evaluation goes on.
+
+08:55.340 --> 08:57.020
+So this only doing testing.
+
+08:57.020 --> 08:57.200
+Right.
+
+08:57.200 --> 09:04.540
+So at the end we can see a score of zero and we get the value over here.
+
+09:04.600 --> 09:04.820
+Right.
+
+09:05.840 --> 09:10.520
+This is our loss and our accuracy is 32 percent.
+
+09:10.550 --> 09:12.160
+So this is really bad right.
+
+09:12.530 --> 09:18.230
+But what we can do is we can go ahead and change the epochs and it should run a lot longer.
+
+09:18.230 --> 09:19.910
+So we're going to fit it again.
+
+09:20.600 --> 09:26.690
+Let's let it run for a while and we're going to go ahead and take a look at some of the great results
+
+09:26.720 --> 09:31.430
+that have been achieved on this data set so you can click on this you want to know we're here and you
+
+09:31.430 --> 09:34.990
+can go ahead and see what results have been achieved.
+
+09:35.330 --> 09:43.940
+So based on these do these different models the results have been improved up to an error of just zero
+
+09:43.940 --> 09:44.870
+point 2 1.
+
+09:45.440 --> 09:51.840
+So that means that the value over here is going to end up being ninety nine point eight.
+
+09:51.860 --> 09:53.410
+So this is really good.
+
+09:54.880 --> 10:00.070
+We're a little far away from this as you can see we are at point 5 2 right now.
+
+10:00.410 --> 10:01.980
+So we're at 52.
+
+10:02.000 --> 10:06.990
+But once we get a little bit of e-books now we're going to get a lot of improvement.
+
+10:07.010 --> 10:12.380
+We're not going to get up to the state of art with this particular model but after we do a little bit
+
+10:12.380 --> 10:19.310
+of more fury we should be able to improve this model a lot and we should get really close to the State
+
+10:19.310 --> 10:26.130
+of the art on a very low end machine such as the one I'm departing on our normal digital she right.
+
+10:26.220 --> 10:31.940
+So he's running and we're going to Metatron and we're going to see how much we can achieve.

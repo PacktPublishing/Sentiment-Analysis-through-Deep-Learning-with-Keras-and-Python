@@ -1,0 +1,418 @@
+WEBVTT
+
+00:00.360 --> 00:01.640
+Hi and welcome back.
+
+00:01.650 --> 00:04.610
+Please make sure you've covered the good that we did in the last section.
+
+00:04.650 --> 00:05.960
+So this is a practical course.
+
+00:05.960 --> 00:07.820
+It will benefit you the most if you do the good.
+
+00:07.830 --> 00:11.160
+As we go along instead of waiting till the end of the course.
+
+00:11.190 --> 00:15.160
+So anyway let's start with a little bit of definition of machine learning.
+
+00:15.240 --> 00:20.310
+We're going to skirt away from the philosophical aspects of what learning is and where the machines
+
+00:20.310 --> 00:21.390
+can learn or not.
+
+00:21.390 --> 00:24.870
+We're going to define machine learning in a much much more practical way.
+
+00:24.870 --> 00:31.530
+So we'll define it as adapting to perform a task in a better way with expedients so better is going
+
+00:31.530 --> 00:33.940
+to be according to some measures we'll come to that in a minute.
+
+00:33.990 --> 00:39.240
+Also we're going to have some experiences because of which the machine is going to perform the task
+
+00:39.420 --> 00:40.500
+better.
+
+00:40.530 --> 00:46.740
+So that's going to be our working definition and essentially that is what's going to help us do a lot
+
+00:46.740 --> 00:48.270
+of things now.
+
+00:48.600 --> 00:52.720
+It should come to your mind what deep learning is if you're not really familiar with deep learning.
+
+00:52.950 --> 00:57.720
+It's an algorithm in machine learning so the general aspect is machine learning and the specific concept
+
+00:57.720 --> 01:00.020
+is the algorithm of deep learning.
+
+01:00.180 --> 01:03.390
+And this algorithm has shown immense levels of success.
+
+01:03.390 --> 01:06.850
+So in a couple of minutes we'll get to deep learning really quickly.
+
+01:06.990 --> 01:12.400
+But the essence to understand is that it's not as difficult as people make it out to be.
+
+01:12.420 --> 01:16.020
+It's a very simple concept to get started with.
+
+01:16.020 --> 01:18.070
+It's a lot easier than other models.
+
+01:18.120 --> 01:22.950
+It's a little difficult to understand why it works but we don't have to understand the why for it to
+
+01:22.950 --> 01:25.220
+start working for us in real life.
+
+01:25.260 --> 01:30.600
+So keep that in mind that even though nobody really understands how deep learning works.
+
+01:30.780 --> 01:33.370
+That's not stopping us from getting benefit from it.
+
+01:33.420 --> 01:35.210
+So what can you do.
+
+01:35.210 --> 01:39.230
+What kind of benefits can you get from deep learning and machine learning in general.
+
+01:39.270 --> 01:44.020
+So for instance you can expect a you can predict the expected selling price of a house.
+
+01:44.040 --> 01:48.580
+So this is going to be predicting a real value.
+
+01:49.500 --> 01:50.760
+So real no value.
+
+01:52.050 --> 02:00.270
+So by the way I use this pen tablet because it has the it has been shown that doing annotations on screen
+
+02:00.360 --> 02:01.740
+helps students learn.
+
+02:02.040 --> 02:07.320
+So this is not me trying to get away from animating my slides.
+
+02:07.470 --> 02:12.060
+It really does benefit the students a lot more if we do annotations as we speak.
+
+02:12.060 --> 02:17.760
+We can also predict whether a patient has cancer given the information that we have about the patient
+
+02:17.760 --> 02:19.660
+for instance their C.T. scans.
+
+02:19.680 --> 02:23.380
+So this is going to be predicting a discrete value.
+
+02:23.390 --> 02:23.600
+Right.
+
+02:23.610 --> 02:27.940
+So a discrete value meaning it's either going to be yes or no.
+
+02:27.940 --> 02:30.390
+Right so there's nothing in between.
+
+02:30.390 --> 02:36.540
+We can also predict whether the image that we're seeing is of an aeroplane or a car.
+
+02:36.570 --> 02:41.670
+So this essentially is going to be discrete as well except we're going to have car or plane.
+
+02:41.850 --> 02:42.200
+Right.
+
+02:42.690 --> 02:48.210
+So we can also predict what is on the top flight of a scenic image that we're seeing whether it's a
+
+02:48.210 --> 02:53.390
+tree or a bird or a cloudy sky.
+
+02:53.460 --> 02:55.400
+So we can predict different things.
+
+02:55.470 --> 03:00.540
+We can also predict how many topics we can categorize or document in things we can predict what the
+
+03:00.540 --> 03:01.920
+user wants to read next.
+
+03:01.920 --> 03:06.870
+So all of these different types of things we can predict and essentially they all fall into a couple
+
+03:06.870 --> 03:07.770
+of different areas.
+
+03:07.770 --> 03:11.420
+For instance we can have a regression.
+
+03:11.910 --> 03:18.720
+So regression is going to be the idea of predicting real values.
+
+03:18.800 --> 03:18.990
+Right.
+
+03:19.020 --> 03:25.340
+So continuous values and we can have classification
+
+03:27.940 --> 03:32.110
+so classification essentially means that we're going to have discrete values
+
+03:37.510 --> 03:43.390
+and we're going to start with regression in general regression and classification fall into the general
+
+03:43.390 --> 03:45.940
+category of supervised learning.
+
+03:46.420 --> 03:51.460
+So we're going to what we're going to do is we're going to take some sort of data and we're going to
+
+03:51.460 --> 03:57.610
+teach the machine what it means is that the machine is going to have a teacher and the machine is going
+
+03:57.610 --> 03:58.800
+to act as a student.
+
+03:58.810 --> 04:04.420
+So this is the easiest machine learning algorithm to get started with or the paradigm to get started
+
+04:04.420 --> 04:10.330
+with unsupervised learning has shown a lot of potential but that's not going to be covered in this particular
+
+04:10.330 --> 04:11.740
+course anyway.
+
+04:12.010 --> 04:17.460
+So let's start with the learning process what happens in supervised learning as I mentioned.
+
+04:17.500 --> 04:21.670
+Because it's supervised we're going to have some sort of data through which we're going to teach the
+
+04:21.680 --> 04:27.660
+machine what we do is we take the data and we split it in two portions.
+
+04:27.730 --> 04:33.710
+So we take one of those portions and we essentially create a training set.
+
+04:33.760 --> 04:39.190
+So this is going to be called a training set a training set essentially means that this is a set of
+
+04:39.370 --> 04:40.470
+data points right.
+
+04:40.480 --> 04:45.700
+So let's say we have 100 data points in our data set.
+
+04:46.000 --> 04:50.070
+So we take 70 of these and the set of these is going to be called a training set.
+
+04:50.760 --> 04:55.150
+Now what we do is we take this training set and we feed it to some process.
+
+04:55.150 --> 04:58.150
+So we're going to treat this as a black box at the moment.
+
+04:58.180 --> 05:04.580
+And so this is a black box which means we're not going to concern ourselves with how this works.
+
+05:04.620 --> 05:04.800
+Right.
+
+05:04.810 --> 05:08.880
+So there's going to be some process and that process is going to give us an H.
+
+05:08.890 --> 05:09.100
+Right.
+
+05:09.100 --> 05:15.280
+So this H is a function function in the sense you can think of it as a programming function for the
+
+05:15.280 --> 05:21.490
+moment and what it does is it takes an input and it produces an output.
+
+05:21.610 --> 05:23.730
+Remember this portion over here that we left out.
+
+05:23.740 --> 05:27.220
+Now we're going to take this portion over here and treat that as a test set.
+
+05:27.220 --> 05:30.130
+So this is going to be the exam that we give to the machine.
+
+05:30.130 --> 05:38.440
+So the this portion or here and was straining the machine in order to help it predict the outputs given
+
+05:38.440 --> 05:39.270
+the inputs.
+
+05:39.340 --> 05:41.080
+Now we take some of the inputs.
+
+05:41.080 --> 05:45.020
+These are the test set data points.
+
+05:45.040 --> 05:50.800
+What this means is we never showed the answer to these data points to the machine and now we feed it
+
+05:50.800 --> 05:55.140
+to this edge function and this edge function is going to make a prediction.
+
+05:55.210 --> 06:01.610
+Now if this prediction matches with are real values over here the values that we know are true.
+
+06:01.950 --> 06:05.900
+So the values that we know are true those are called crown jewels.
+
+06:06.070 --> 06:10.500
+So a ground truth is the value that we know to be true.
+
+06:10.510 --> 06:22.990
+So for instance I can say that a house that has five bedrooms goes far ten thousand dollars.
+
+06:23.080 --> 06:23.380
+Right.
+
+06:23.440 --> 06:24.400
+So that's not realistic.
+
+06:24.400 --> 06:32.250
+But let's assume I'm in some cheaper market so I should this number over here.
+
+06:32.290 --> 06:41.680
+So five goes in and this edge produces let's say nine hundred and eighty nine thousand eight hundred
+
+06:42.460 --> 06:43.080
+dollars.
+
+06:43.080 --> 06:43.320
+Right.
+
+06:43.330 --> 06:45.420
+So it's not accurate.
+
+06:45.450 --> 06:47.680
+It's not correct but it's good enough.
+
+06:47.710 --> 06:48.490
+Right.
+
+06:48.520 --> 06:52.960
+So what we're going to do is we're going to take this prediction and compare it with our ground truth.
+
+06:53.070 --> 06:57.940
+So this over here 10000 is our ground truth and we're going to predict and compare it with the prediction
+
+06:58.480 --> 07:07.820
+if the prediction and then round truth are close together so if the output is close to the prediction
+
+07:10.110 --> 07:12.350
+we say that the machine has learned right.
+
+07:12.810 --> 07:18.840
+So if not then we need to train the machine a bit more or reaching in need to change our process over
+
+07:18.840 --> 07:21.000
+here take another process.
+
+07:21.000 --> 07:23.340
+So that's essentially what happens now.
+
+07:24.320 --> 07:31.460
+Once you have this edge over here you no longer need the training set and the process because we have
+
+07:31.460 --> 07:32.640
+the edge.
+
+07:32.710 --> 07:39.290
+So now this edge of that function and we can take our test set and we give it to edge and it can make
+
+07:39.290 --> 07:39.860
+the predictions.
+
+07:39.860 --> 07:42.100
+We don't need the whole portion over here.
+
+07:42.110 --> 07:46.280
+Now this is going to be really important when you do practical machine learning because this portion
+
+07:46.290 --> 07:49.400
+over here is going to be computer intensive.
+
+07:49.400 --> 07:53.640
+You need heavy machinery to carry out this portion of that here.
+
+07:53.680 --> 07:54.110
+Right.
+
+07:54.380 --> 07:58.730
+So this is going to be very very very difficult on a mobile for instance.
+
+07:58.730 --> 07:59.990
+But once you have etch.
+
+08:00.110 --> 08:01.520
+This is a very lightweight function
+
+08:04.560 --> 08:09.050
+and this lightweight function can be deployed on an FPGA.
+
+08:09.060 --> 08:12.890
+You can deploy it on a mobile device you can deploy it on Raspberry Pi.
+
+08:13.080 --> 08:14.710
+Any machine that you can think of really.
+
+08:16.080 --> 08:18.270
+So you don't even need the dataset anymore.
+
+08:18.350 --> 08:24.010
+So all you're going to have is an edge over here and eventually you even get rid of
+
+08:27.160 --> 08:28.180
+the desert.
+
+08:28.510 --> 08:29.970
+And your predictions.
+
+08:30.140 --> 08:30.640
+Right.
+
+08:30.730 --> 08:35.160
+So all you have is an edge and you can deploy that edge to another machine.
+
+08:35.170 --> 08:40.360
+So now this looks a little bit intensive but we're going to do is what we're going to do is we're going
+
+08:40.360 --> 08:44.130
+to move ahead and give you an example of regression.
+
+08:44.200 --> 08:47.260
+So we're trying to predict a real valued output.
+
+08:47.890 --> 08:53.950
+And in this real valued output problem we're going to have a continuous output and we're going to take
+
+08:53.950 --> 08:59.350
+the example of housing prices so this is a very common example in machine learning and it's very easy
+
+08:59.350 --> 09:04.210
+to understand because it has only one type of input that we give to the machine.
+
+09:04.240 --> 09:09.340
+So in the next video we're going to take a look at regression and how we can apply this process over
+
+09:09.340 --> 09:13.330
+here that we just saw in a local media statement.

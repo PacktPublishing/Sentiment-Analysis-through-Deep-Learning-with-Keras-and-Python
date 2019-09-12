@@ -1,0 +1,499 @@
+WEBVTT
+
+00:00.180 --> 00:05.970
+Now that we have an understanding of the machine learning pipeline and we have looked at the basics
+
+00:06.000 --> 00:11.440
+of working with us we can move on to oppositional sentiment analysis case study.
+
+00:11.490 --> 00:12.780
+So we are in 0 2.
+
+00:12.780 --> 00:18.690
+That sentiment analysis does begin file and we are going to revisit the code that we did in the very
+
+00:18.690 --> 00:19.800
+first video of this course.
+
+00:20.500 --> 00:22.920
+So as before we are going to begin by important get us.
+
+00:24.000 --> 00:30.650
+And then we are going to import some layers some models and the IDB data set right.
+
+00:30.680 --> 00:36.750
+So this is as we did earlier on some of these things are new but we will cover them as they come along
+
+00:36.750 --> 00:37.470
+in the actual code.
+
+00:37.470 --> 00:39.510
+So these are just the imports.
+
+00:39.990 --> 00:44.490
+Now we have some parameters for the models here.
+
+00:44.580 --> 00:47.780
+For instance in the previous videos we had a number of layers.
+
+00:47.820 --> 00:51.110
+So here we are going to have some detailed models.
+
+00:51.150 --> 00:55.650
+And in those we are going to use all these different parameters and we'll explain each of these parameters
+
+00:56.010 --> 00:58.020
+in this video as they come along.
+
+00:58.770 --> 01:00.560
+So that's done.
+
+01:00.560 --> 01:03.480
+Now we are going to try and load the IDB dataset.
+
+01:03.480 --> 01:07.660
+Now this set over here the one that has been selected this guy in here.
+
+01:07.830 --> 01:11.380
+This is kind of a hack because there is a bug in the.
+
+01:11.400 --> 01:12.530
+Get us to.
+
+01:12.780 --> 01:15.090
+And it's not going to load the data.
+
+01:15.120 --> 01:15.960
+If you don't do this.
+
+01:15.990 --> 01:16.170
+Right.
+
+01:16.170 --> 01:17.670
+So this line over here.
+
+01:17.820 --> 01:23.960
+This should work fine but because there is a bug in get us because they updated num by and get us has
+
+01:23.960 --> 01:25.240
+not been updated yet.
+
+01:25.320 --> 01:31.320
+So if you try to execute this load data file so you would recall that we were able to load the amnesty
+
+01:31.320 --> 01:34.690
+data set very easy using a similar syntax.
+
+01:34.890 --> 01:38.180
+We should be able to do this but because of the bug it's not going to work.
+
+01:38.190 --> 01:41.560
+So this code over here we don't really have to understand this.
+
+01:41.790 --> 01:43.370
+I found this off the Internet.
+
+01:43.500 --> 01:50.730
+What it essentially does is it patches the low data function of num by and gets rid of the bug that
+
+01:50.730 --> 01:52.410
+is causing us to fail.
+
+01:52.400 --> 01:52.630
+Right.
+
+01:52.640 --> 01:56.580
+So essentially what it does is you don't have to understand this but just for the sake of completeness
+
+01:56.850 --> 01:57.510
+I'd explain it.
+
+01:57.840 --> 02:04.230
+So it saves the end brought load function the numbers load function into an old pointer and then it
+
+02:04.230 --> 02:13.040
+goes ahead and defines a different function which calls the older load function and then saves that
+
+02:13.070 --> 02:17.100
+as and beat out load so that minimal and we don't load it's called it works properly.
+
+02:17.180 --> 02:21.920
+So you don't have to understand this but this is just a hack to make sure that Qantas can load the MTV
+
+02:21.920 --> 02:23.960
+data set until they fix Qantas right.
+
+02:24.030 --> 02:25.760
+So it escalated on this.
+
+02:26.300 --> 02:27.560
+Then we load the actual data.
+
+02:27.590 --> 02:29.850
+So this is what we were interested in in the first place.
+
+02:29.870 --> 02:35.600
+So we are going to load the MTV data and again this data might have to be downloaded the first time
+
+02:35.600 --> 02:38.530
+so might take a little bit of time depending on your internet connection.
+
+02:38.600 --> 02:41.620
+But once you have that we are going to be able to work with this.
+
+02:41.780 --> 02:46.420
+And now it's extremely important that we understand what this data is and how it is structured.
+
+02:46.580 --> 02:51.830
+Because when you go into the real world and tried to implement algorithms machine learning tools to
+
+02:51.830 --> 02:58.040
+solve your problems you need to understand your data and how to map that into the learning that you
+
+02:58.040 --> 02:59.870
+have done in courses such as this one.
+
+03:00.080 --> 03:05.420
+So you understand the importance to the model by understanding the data and then when you have your
+
+03:05.420 --> 03:07.260
+own data you should be able to maybe delay it.
+
+03:07.320 --> 03:08.690
+So that's the idea.
+
+03:08.690 --> 03:13.610
+So we are going to move to the discussion of the actual data and for that one of the most important
+
+03:13.610 --> 03:16.070
+things is that you have to understand the shape.
+
+03:16.160 --> 03:20.330
+Now this X underscore train is an array and we have to understand what it looks like right.
+
+03:20.360 --> 03:23.540
+So we saw a similar thing in the previous videos as well.
+
+03:23.540 --> 03:25.040
+So we are going to take a look at this.
+
+03:25.040 --> 03:27.360
+So extra and our shape is twenty five thousand common.
+
+03:27.410 --> 03:30.290
+So it has twenty five thousand symbols right.
+
+03:30.290 --> 03:32.900
+So that's our training data.
+
+03:33.380 --> 03:38.260
+So we're also going to have the labels so obviously that is also going to have twenty five thousand.
+
+03:38.260 --> 03:43.180
+Now if we want to take a look at the actual labels you can say why train 0.
+
+03:43.190 --> 03:48.700
+So give me the actual structure of the first data points labeled and that is a one.
+
+03:48.710 --> 03:51.490
+So that's a positive sentiment and zero is a negative sentiment.
+
+03:51.830 --> 03:54.080
+Extreme zero the first data point.
+
+03:54.080 --> 03:56.300
+The actual review is important already.
+
+03:56.420 --> 04:00.520
+So if you see that you will see that it has all these numbers.
+
+04:00.560 --> 04:01.620
+So what are these numbers.
+
+04:01.640 --> 04:02.570
+We have to understand them.
+
+04:03.230 --> 04:07.160
+So one would correspond to a word 14 would correspond to another word and so on.
+
+04:07.730 --> 04:10.480
+So whenever you see 14 that is going to be that particular word.
+
+04:10.490 --> 04:15.230
+Now what we want to do is we want to take a look at what the correspondence is.
+
+04:15.230 --> 04:18.040
+So for instance we want to see what this 14 corresponds to right.
+
+04:18.050 --> 04:22.820
+So in order to do that we have to understand what is going on in the actual data set.
+
+04:23.210 --> 04:28.970
+So for that we are going to call a function so get a start date data sets don't and we don't get word
+
+04:28.970 --> 04:34.910
+index that is going to return to us a dictionary which we are going to save in this word i.e. variable
+
+04:35.390 --> 04:41.300
+and then we are going to take a look at the key value pairs which are in this dictionary and we just
+
+04:41.420 --> 04:42.740
+want to see the first 10.
+
+04:42.760 --> 04:42.960
+Right.
+
+04:42.970 --> 04:48.420
+So starting from the beginning and just the 10 so that we have an understanding of what it looks like.
+
+04:48.460 --> 04:48.640
+Right.
+
+04:48.650 --> 04:55.140
+So if you do that you will see that fun has the number three for 70 to 1.
+
+04:55.310 --> 04:58.930
+And these are all these words towards has 14 0 8 and so on and so forth.
+
+04:58.940 --> 04:59.150
+Right.
+
+04:59.600 --> 05:07.070
+So if you want to see the numbers corresponding to particular words we can use the dictionary indexing
+
+05:07.170 --> 05:07.890
+index.
+
+05:08.000 --> 05:14.100
+So all of these so love would be 116 like would be thirty seven boring would be 350 for an interest
+
+05:14.110 --> 05:15.790
+interesting would be two hundred and eighty.
+
+05:15.890 --> 05:20.880
+So that is essentially the mapping from words to numbers.
+
+05:20.910 --> 05:27.140
+Now please remember that in order to do the actual learning we don't have to concern ourself with this
+
+05:27.140 --> 05:27.650
+mapping.
+
+05:27.650 --> 05:31.970
+We already have this data set over here and we can just go ahead and do the learning.
+
+05:31.970 --> 05:36.260
+But the problem is that we don't want to do the learning just on the to data set in the future.
+
+05:36.260 --> 05:42.080
+Our goal is to be able to do sentiment analysis for X that we download off the Internet for instance
+
+05:42.080 --> 05:43.250
+about our products.
+
+05:43.280 --> 05:46.590
+So we have to understand how we go from words to these numbers.
+
+05:46.610 --> 05:48.060
+So that is what we're doing.
+
+05:48.230 --> 05:53.380
+Remember the goal is to be able to map our own problems onto this machine learning pipeline.
+
+05:53.480 --> 05:53.650
+Right.
+
+05:53.660 --> 05:56.830
+So let's go ahead and take a look at how we can do that.
+
+05:56.930 --> 06:04.090
+So we are going to define a couple of helper functions I'll first explain what this first function does
+
+06:04.150 --> 06:06.580
+and then we move onto the other two functions.
+
+06:06.580 --> 06:14.770
+So our goal is to be able to go from a sentence for instance I love this product to a sequence of numbers
+
+06:14.890 --> 06:16.170
+which looks like this.
+
+06:16.240 --> 06:17.510
+So that is our goal.
+
+06:17.510 --> 06:22.750
+Another goal is given these list of numbers we should be able to go to a sentence.
+
+06:22.750 --> 06:25.550
+So we want to see what this review actually is.
+
+06:25.600 --> 06:30.910
+And the other objective is when we have our own sentence we want to be able to translate it into this
+
+06:30.910 --> 06:31.390
+index right.
+
+06:31.390 --> 06:35.770
+So those are the two things that we want to do and both of them are essentially going to use the dictionary.
+
+06:35.770 --> 06:40.710
+So we first write this helper function so get fixed word to I.D. dictionary.
+
+06:40.750 --> 06:46.270
+So what this is going to do is it's going to create a dictionary which is going to translate a fixed
+
+06:46.270 --> 06:50.640
+word any word to the idea that is this number.
+
+06:50.710 --> 06:54.730
+So that is essentially the purpose of this function.
+
+06:54.840 --> 06:58.470
+For that we are going to reserve three functions so a space is going to be a zero.
+
+06:58.810 --> 07:04.120
+Whenever we start a sentence we are going to tag it with these stock tag and whenever we have a word
+
+07:04.180 --> 07:05.230
+which is unknown.
+
+07:05.230 --> 07:09.970
+So for instance we have a limited dictionary here because we cannot have the whole English language
+
+07:09.970 --> 07:15.710
+dictionary because it's very organic and exchanging every day.
+
+07:15.770 --> 07:21.260
+So we want to be able to ensure that anybody of an unknown word RE market does too.
+
+07:21.290 --> 07:22.600
+So these three are important.
+
+07:22.850 --> 07:28.610
+And what we're going to do is we're going to start from the number three and onwards.
+
+07:28.610 --> 07:35.560
+So what we do is we again get this dictionary into word lady as we did up over here.
+
+07:36.240 --> 07:43.180
+Then we go ahead and create a mapping so far Kagan of the N word to ideas or items.
+
+07:43.590 --> 07:49.380
+So all the key value pairs what we do is we assign the plus index forms.
+
+07:49.460 --> 07:53.250
+So whenever the order number was 0 it's going to be now free.
+
+07:53.450 --> 07:56.950
+And so on and so forth because we need to accommodate all of these as well.
+
+07:57.290 --> 08:04.460
+So that's just so that we can have the start unknown and the space in order mapping so variable essentially
+
+08:04.490 --> 08:05.300
+for this function.
+
+08:05.330 --> 08:10.370
+All you need to understand is it's creating that dictionary and incorporating these three domains as
+
+08:10.370 --> 08:10.910
+well.
+
+08:10.920 --> 08:14.870
+Right now we have another function which we give it a data point.
+
+08:14.930 --> 08:23.300
+So essentially this is a list of integers and we are going to convert them into an English sentence
+
+08:23.860 --> 08:25.390
+so we don't need that.
+
+08:25.640 --> 08:27.370
+Let's get rid of that.
+
+08:28.160 --> 08:30.550
+So what we want to do is we want to get a dictionary.
+
+08:30.680 --> 08:37.180
+And in this dictionary we are going to have all the key value pairs what we want to flip them.
+
+08:37.190 --> 08:39.750
+So that given the value we have the key.
+
+08:39.770 --> 08:44.660
+So for instance if we have the number 14 we want to know what key it corresponds to.
+
+08:44.660 --> 08:49.970
+So essentially we are creating a diverse mapping which instead of going from word to number we are going
+
+08:49.970 --> 08:51.630
+from number to what.
+
+08:51.950 --> 08:56.770
+And we essentially take all the items in this data point.
+
+08:56.840 --> 08:57.980
+So on the ideas.
+
+08:58.000 --> 09:07.480
+So for instance 15 17 19 or if we go up over here we are going to take this one 14 22 16 and so forth.
+
+09:07.480 --> 09:15.070
+We are going to take that and we are going to look up into this idea to the word dictionary so that
+
+09:15.070 --> 09:19.620
+we get the actual word out and then we are going to join all those words using a space.
+
+09:19.690 --> 09:24.790
+So essentially take a number look up the word corresponding to that number.
+
+09:24.790 --> 09:28.230
+Collect all of those words and join them using a space right.
+
+09:28.240 --> 09:32.470
+That's a very frightening way of doing things very compact but you can write loops for this as well.
+
+09:32.950 --> 09:39.310
+So again the purpose is take the data point which is a list of ideas and convert it into an accurate
+
+09:39.340 --> 09:41.630
+sentence that we as humans can see.
+
+09:41.650 --> 09:46.900
+So now what we're going to do is we're going to take a data point that we want to show and for instance
+
+09:46.960 --> 09:49.960
+that data point is this one 14 22 16 and so on.
+
+09:50.200 --> 09:56.350
+What we want to do is we want to decode this thing to a sentence and we print that and you can see that
+
+09:56.640 --> 10:01.770
+that if you starts and then we have this film was just brilliant casting location et cetera et cetera.
+
+10:02.050 --> 10:06.340
+And we want to see the actual sentiment as well which is a one.
+
+10:06.430 --> 10:07.980
+So the first part is done.
+
+10:08.020 --> 10:13.080
+Now we have the ability to work from the ideas to sentences.
+
+10:13.300 --> 10:20.170
+Remember that we do not really need to do this if we are just doing the training but that is what I
+
+10:20.170 --> 10:22.860
+feel is lacking in all of the machine learning courses.
+
+10:22.870 --> 10:28.360
+They don't teach you this portion and that is why people suffer when they tried to match them onto their
+
+10:28.360 --> 10:29.220
+own problems.
+
+10:29.230 --> 10:34.660
+So in the next video we are going to go ahead and do the other part which is taking a sentence and translating
+
+10:34.660 --> 10:35.860
+it into the ideas.

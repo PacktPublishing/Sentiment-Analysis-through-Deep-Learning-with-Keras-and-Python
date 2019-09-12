@@ -1,0 +1,289 @@
+WEBVTT
+
+00:01.180 --> 00:07.180
+In this video and the next we're covering the installation of Paris with the dance floor beckoned so
+
+00:07.180 --> 00:10.490
+that we can get started with our code.
+
+00:10.580 --> 00:15.470
+First we'll take a look at windows and in the next videos we're going to take a look at the installation
+
+00:15.470 --> 00:17.180
+for Mac and Linux.
+
+00:17.180 --> 00:21.790
+Now I must warn you that I'm going to give you step by step instructions on installation of getters
+
+00:21.830 --> 00:24.190
+with denser flow back and on Windows.
+
+00:24.260 --> 00:29.510
+But if you're serious about pursuing machine learning I strongly recommend that you get access to a
+
+00:29.510 --> 00:34.790
+Linux or a Mac machine because Windows doesn't seem to have to go to full support.
+
+00:34.790 --> 00:39.980
+There are many restrictions that you need to follow and the community simply doesn't support Windows
+
+00:40.010 --> 00:44.370
+as much as it does on Linux and Mac so and said that.
+
+00:44.570 --> 00:48.910
+Let's start with the installation of Windows and right off the bat.
+
+00:48.920 --> 00:51.420
+There are some limitations.
+
+00:51.530 --> 00:57.860
+So first you must have a 64 bit operating system so you should have a 64 bit processor and a 64 bit
+
+00:57.860 --> 01:03.620
+operating system installed Windows 10 is recommended but you can also go with Windows 8.
+
+01:04.720 --> 01:06.140
+And that should work.
+
+01:06.140 --> 01:11.760
+So once you have ensured that you are on a 64 bit operating system 32 bit will not work next.
+
+01:11.810 --> 01:14.740
+I've spent a lot of time trying to make it work on 32 bit.
+
+01:14.750 --> 01:16.320
+And it's it's a huge headache.
+
+01:16.700 --> 01:22.350
+So make sure you have a 64 bit operating system and then go ahead and download the anaconda distribution.
+
+01:22.550 --> 01:28.400
+So if you work with Python before you might be wondering if the deformed Python dot org distribution
+
+01:28.400 --> 01:32.630
+is OK so it's ok but Anaconda makes your life a lot easier.
+
+01:32.630 --> 01:37.880
+So I strongly recommend that you go with Anaconda so you can go ahead and download Anaconda for Windows
+
+01:38.120 --> 01:43.250
+and what you want is the python three point six version again you need the python three point six million
+
+01:43.280 --> 01:48.490
+two point seven would not be sufficient to install any airflow so you need to download this.
+
+01:48.570 --> 01:53.240
+And and it's a simple wizard it installs very easily.
+
+01:53.240 --> 01:55.600
+You just need to head next next next.
+
+01:55.610 --> 02:01.330
+So once you have Anaconda installed you go to your start menu and you start the anaconda.
+
+02:01.490 --> 02:03.780
+Not even those come on point but the anaconda prompt.
+
+02:05.390 --> 02:10.190
+So once you're in the anaconda prompt the first thing that you need to do is install virtual enemy.
+
+02:10.220 --> 02:16.940
+So you say they've installed virtual and we now what this virtual in WI does is it creates a virtual
+
+02:16.940 --> 02:21.440
+environment for you and you work within this virtual environment.
+
+02:21.440 --> 02:26.780
+The reason for recommending virtual environment is that there are going to be a lot of laboratory incompatibilities
+
+02:26.810 --> 02:31.490
+when you work with machine learning code for instance you might download a piece of code from the Internet
+
+02:31.520 --> 02:35.890
+that works really well but requires a specific vision of a library which conflicts with everything else
+
+02:35.900 --> 02:42.080
+you have to watch you'll envy is going to help you wrap it up in a bubble and keep it in its place.
+
+02:42.080 --> 02:43.620
+So we need to install virtual indeed.
+
+02:43.640 --> 02:48.390
+If you've just started which an can not be installed and you can install it with on which I mean we
+
+02:48.890 --> 02:50.770
+as you can see I have already installed it.
+
+02:51.080 --> 02:57.590
+So it's going to say that the requirement is already satisfied notable but for you it will install it
+
+02:57.790 --> 02:59.000
+for the Internet.
+
+02:59.010 --> 03:04.930
+Now the thing that we need to do is create a virtual environment so that's what you're in we get us.
+
+03:04.970 --> 03:09.950
+You can give it any name but we want you to give it a name of get us or get a Steve forget test.
+
+03:10.130 --> 03:14.630
+You hit enter and it's going to create a virtual environment for you and put a python executable in
+
+03:14.630 --> 03:15.070
+there.
+
+03:15.170 --> 03:20.560
+Again I've done this before so I'm not going to hit enter I'm going to simply assume that you hit enter
+
+03:20.570 --> 03:26.930
+and now you have a get a Steve hold it installed here by virtually and then you need to going to get
+
+03:26.930 --> 03:34.730
+a steep and you can do the eye out over here and you will see that there is a scripts folder here within
+
+03:34.730 --> 03:40.160
+the scripts folder is and activate the script once you hit that you will notice that this Kristie has
+
+03:40.160 --> 03:40.980
+not appeared a lot here.
+
+03:41.000 --> 03:45.860
+This means that you have no debug in within the virtual environment get a steep and anything that you
+
+03:45.860 --> 03:50.900
+do any installation that you do any python uses that you do is going to be built in this virtual environment.
+
+03:50.900 --> 03:53.950
+So now you are in your bubble.
+
+03:54.290 --> 04:03.830
+So let's go ahead and install install get us into flow and Jupiter which we need all three of these
+
+04:04.330 --> 04:05.020
+again.
+
+04:05.150 --> 04:06.870
+This is going to install quite a few packages.
+
+04:06.880 --> 04:08.030
+What I've done this before.
+
+04:08.180 --> 04:14.060
+So you hit enter and it's going to make the installations and I've already done that once you have that
+
+04:14.120 --> 04:16.500
+you can go ahead and say Jupiter notebook.
+
+04:17.210 --> 04:22.310
+So when you hit Jupiter notebook enter this is going to open up a new environment for you within your
+
+04:22.310 --> 04:23.450
+browser.
+
+04:23.450 --> 04:28.910
+Now if you haven't worked with Jupiter notebook and it's a very very useful tool to have under your
+
+04:28.910 --> 04:33.440
+belt if you're working in data science or machine learning it lets you experiment with Betancourt really
+
+04:33.440 --> 04:34.140
+easily.
+
+04:34.280 --> 04:36.290
+And it's a very user friendly environment.
+
+04:36.290 --> 04:42.050
+So once you enter the command it's going to automatically open up the spot for you and you can interact
+
+04:42.050 --> 04:45.230
+with your scripts through this browser environment.
+
+04:45.230 --> 04:48.070
+So the first thing that we need to do is make sure our case is working.
+
+04:48.110 --> 04:50.550
+We go to Neal and we had Python 3.
+
+04:50.570 --> 04:55.230
+So it is going to create a new blank notebook for us untitled notebook.
+
+04:55.250 --> 04:59.050
+We can call it get a test or anything that you want.
+
+04:59.120 --> 05:07.490
+This is just for testing purposes so we can say import Qantas hold down shift and hit enter and there
+
+05:07.490 --> 05:12.020
+you go using tons of low back end and it star right now.
+
+05:12.050 --> 05:18.370
+Let's wait until this becomes a one so that we can be sure that Qantas has been installed properly intensive
+
+05:18.370 --> 05:20.450
+principle is working correctly.
+
+05:20.900 --> 05:29.340
+So any minute now so once we have this working We sure that get us has been installed and supply is
+
+05:29.340 --> 05:31.420
+installed and everything is working properly.
+
+05:31.440 --> 05:41.760
+Now you go ahead and download the zip file from the core speech and this is going to be it is going
+
+05:41.760 --> 05:48.150
+to give you these three folders right so notebooks has all the notebooks that we want to work with and
+
+05:48.630 --> 05:52.060
+we have some data scripts and we have an empty Data folder.
+
+05:52.140 --> 05:53.550
+So this supposed to be empty.
+
+05:53.610 --> 05:56.090
+So we extracted our zip file and you got this.
+
+05:56.160 --> 06:00.930
+And now what we want to do is we want to open our get a Steve folder on order here.
+
+06:00.960 --> 06:03.870
+So this is simple end users no one get a Steve.
+
+06:04.320 --> 06:06.940
+So we don't hear Steve or end user someone get a Steve.
+
+06:06.960 --> 06:10.070
+And we want to copy all three of these.
+
+06:11.520 --> 06:13.050
+We want to copy all three of these
+
+06:15.800 --> 06:21.430
+and based them over here so that they're available in our Jupiter environment.
+
+06:21.440 --> 06:24.910
+So we close this page you go ahead.
+
+06:24.950 --> 06:26.450
+And now these are available.
+
+06:26.450 --> 06:31.570
+You can go ahead and do the notebooks and open our second notebook and execute it.
+
+06:31.610 --> 06:38.810
+So this means that our environment is ready and we can go ahead and use our system for working with
+
+06:38.920 --> 06:39.650
+us.
+
+06:39.710 --> 06:44.580
+Now in my videos that follow I'm going to be working on a Mac.
+
+06:44.600 --> 06:51.290
+But as long as you have followed these instructions the notebooks should be working well just as it
+
+06:51.290 --> 06:54.380
+is on windows as they are working on a Mac.
+
+06:54.410 --> 06:54.860
+See you there.

@@ -1,0 +1,301 @@
+WEBVTT
+
+00:01.020 --> 00:01.380
+All right.
+
+00:01.380 --> 00:02.610
+So welcome back.
+
+00:02.610 --> 00:07.620
+Now what we're going to do is we're going to take this data that we loaded earlier on like five minutes
+
+00:07.620 --> 00:11.110
+ago and then we're going to train declassified.
+
+00:11.250 --> 00:18.300
+So first let's get a classified from a scale learned so declassified that we're going to use its SVM
+
+00:18.300 --> 00:18.420
+now.
+
+00:18.450 --> 00:24.090
+This is not deep learning classified but we start with the basics because it's much easier to explain
+
+00:24.090 --> 00:28.830
+it at this point later on when we start with get us we're going to cover a deeper and classified as
+
+00:28.830 --> 00:29.290
+well.
+
+00:29.400 --> 00:32.940
+We're in fact quite a lot of detail is going to be spent on that.
+
+00:32.940 --> 00:41.000
+So for now let's just import SVM and let's create a classified object classified as equal to SVM not
+
+00:41.040 --> 00:43.540
+as we see now.
+
+00:43.770 --> 00:48.510
+Gamma is equal to zero point zero zero one c is equal to one hundred.
+
+00:48.520 --> 00:53.240
+Now don't worry about the specific values over here or what the parameters are what they mean.
+
+00:53.240 --> 00:54.550
+They're not really a concern here.
+
+00:54.600 --> 01:01.170
+What you need to understand is that we have classified all that here and we have told it some parameters.
+
+01:01.170 --> 01:06.140
+So the classified is going to modify its learning based on these two values later on when we move on
+
+01:06.140 --> 01:08.990
+to deep learning we're going to take this whole thing out.
+
+01:08.990 --> 01:13.380
+We're going to throw it away and we're going to start with our own classified and then we'll explain
+
+01:13.380 --> 01:19.230
+what the classifier how you can modify the classifier how your decisions that went to affected those
+
+01:19.230 --> 01:27.280
+are going to become a literal and for now let's just take this on face value and use it for now to learn.
+
+01:27.370 --> 01:27.520
+Right.
+
+01:27.660 --> 01:29.520
+So now we have this classified all here.
+
+01:29.910 --> 01:33.270
+And it's supposed to learn from the data.
+
+01:33.300 --> 01:39.900
+So what we're going to do is we're going to call the fifth function which essentially means learn right.
+
+01:39.920 --> 01:45.960
+So Fred again the terminology will be later on but for now understand that it essentially means that
+
+01:46.080 --> 01:47.600
+take this data learn from it.
+
+01:48.060 --> 01:53.930
+So we're going to give it digit stock data and we're going to give it everything except the last one.
+
+01:54.050 --> 01:54.350
+Right.
+
+01:54.360 --> 01:57.150
+So that is going to be our input data.
+
+01:57.150 --> 02:03.750
+So colon up until minus one so we're going to skip the last data point because that is going to be used
+
+02:03.750 --> 02:06.210
+for testing the machine once it claims that it has learned it.
+
+02:06.600 --> 02:11.250
+Similarly we're going to give it did it stop target and we're going to give it all the targets except
+
+02:11.250 --> 02:11.790
+the last one.
+
+02:12.330 --> 02:17.790
+So we know that and this doesn't take much time because this is a very simple algorithm and we have
+
+02:17.910 --> 02:22.890
+a very small amount of data and so it outputs some stuff over here but not really concerned with what
+
+02:22.890 --> 02:26.560
+those values are or what what it's saying it's nothing important at this point.
+
+02:26.640 --> 02:30.190
+The important point is that the machine claims that it has now learned.
+
+02:30.300 --> 02:32.440
+So let's test whether it really has learned.
+
+02:32.460 --> 02:34.630
+So we going to say yet I've got to predict.
+
+02:35.010 --> 02:36.120
+So essentially we're saying.
+
+02:36.150 --> 02:36.630
+All right.
+
+02:36.630 --> 02:38.520
+You claim that you understand everything.
+
+02:38.580 --> 02:41.830
+Now take this one data point and predict what it is right.
+
+02:41.850 --> 02:49.500
+So we're going to give it digit store data and now we're going to give it the last value that we held
+
+02:49.500 --> 02:50.560
+back earlier on.
+
+02:50.880 --> 02:54.510
+And let's see whether it predicts the output correctly or not.
+
+02:54.540 --> 02:57.200
+So what it's saying is that it's an eight.
+
+02:57.210 --> 02:58.150
+Right.
+
+02:58.170 --> 02:59.920
+So how do we know whether it is an eight.
+
+02:59.940 --> 03:06.810
+So we can go here and see that it is indeed and it is very important that you go back over here and
+
+03:06.840 --> 03:11.680
+understand that the actual learning has happened in these two lines.
+
+03:11.700 --> 03:16.200
+So here we specified how the learner should learn.
+
+03:16.260 --> 03:19.310
+So essentially we set it up.
+
+03:19.310 --> 03:23.210
+We told it how it should do learning and then we showed it some examples.
+
+03:23.230 --> 03:29.610
+Now if you change any of these values for instance if you change it to 0.01 and then ran it again it's
+
+03:29.610 --> 03:31.740
+going to predict something.
+
+03:31.880 --> 03:37.110
+No it doesn't predict something else for these specific values but let's say maybe we can go ahead and
+
+03:37.110 --> 03:40.480
+call it point nine and see these four to 10.
+
+03:40.560 --> 03:44.370
+It might predict something else tonight is predicting a three.
+
+03:44.700 --> 03:48.960
+So obviously this has some effect on the final predictions.
+
+03:48.970 --> 03:56.210
+And in essence the learning so the differences in models are going to affect our predictions sometimes
+
+03:56.220 --> 04:00.990
+we'll be right sometimes we'll be wrong and essentially in this course what we're going to do is we're
+
+04:00.990 --> 04:05.910
+not going to cover SVM we're going to cover deep learning and we're going to see how our decisions are
+
+04:05.910 --> 04:07.970
+going to affect the output.
+
+04:08.370 --> 04:12.830
+So let's take this back to our original values and make sure we get an update.
+
+04:12.870 --> 04:14.430
+So yes we're getting an eight.
+
+04:14.500 --> 04:16.810
+But how do we take a look at the image.
+
+04:16.860 --> 04:23.550
+So let's go ahead and say match live in line so that Buffalo is the laboratory for plotting.
+
+04:23.940 --> 04:32.640
+And by then we're going to import an empire and b this is our numeric computation library from that.
+
+04:32.930 --> 04:36.170
+We're going to import by block party.
+
+04:36.180 --> 04:42.720
+So this is going to be our plotting library and we're going to be a little bigger fake size is equal
+
+04:42.720 --> 04:50.120
+to to to commit to and finding legal going to say and sure.
+
+04:50.130 --> 04:55.800
+So this is short for Mitchell and we're going to say digits dot images minus one.
+
+04:56.340 --> 05:04.190
+So this is the last image that we had back and was predicted by the has an eight over them to say interpolation
+
+05:04.730 --> 05:11.200
+is equal to the rest and see map is equal to p and t see in my area.
+
+05:11.510 --> 05:15.510
+So this is simply to block the image so that we can see what it looks like.
+
+05:15.520 --> 05:20.840
+Now this doesn't look like anything at the moment but if you squint a little bit you can see that it
+
+05:20.840 --> 05:23.210
+looks like an H with this edge missing over here.
+
+05:23.570 --> 05:25.340
+So let me help you squint.
+
+05:25.340 --> 05:31.820
+So let's reduce the image size to zero point four and you will see that it kind of looks like an eight.
+
+05:31.880 --> 05:37.190
+So it's difficult for us to understand what it looks like but the machine has really done a good job
+
+05:37.190 --> 05:39.250
+of predicting that it really is any.
+
+05:39.470 --> 05:45.030
+And we know it's an eight because in our dataset we can actually see that this is an eight.
+
+05:45.060 --> 05:51.740
+So let's go back and take a look at this over here so these two lines are what did the actual learning.
+
+05:52.030 --> 05:54.000
+So we're reloading the data.
+
+05:54.290 --> 06:00.710
+We started to classify the short term data to the classifier and then we made some predictions to test
+
+06:00.710 --> 06:02.840
+whether it really hasn't done this stuff.
+
+06:02.900 --> 06:08.630
+This is going to be our workflow throughout the course we're going to take a look at what kind of models
+
+06:08.660 --> 06:14.670
+we can have How to Train data and how to give it data and create it and then how to test it out.
+
+06:14.720 --> 06:21.230
+Now this portion is typically the most left out portion in all machine learning coaches.
+
+06:21.270 --> 06:27.980
+They simply tell you just as we did right now datasets double digits datasets not load Iris.
+
+06:28.650 --> 06:33.800
+And the problem that you face and newbies typically face people who just dart into what you're learning
+
+06:33.830 --> 06:37.520
+even if they're really really good at machine learning and they understand all the models they don't
+
+06:37.520 --> 06:44.990
+really don't know how to turn this into their own or apply this to their own problems because this is
+
+06:44.990 --> 06:45.530
+a black box.
+
+06:45.530 --> 06:49.910
+We don't know how to do something loaded and this is what we're going to cover in our case study in
+
+06:49.910 --> 06:50.990
+this course.
+
+06:51.020 --> 06:56.690
+So we're going to move ahead with a little bit of theory in the next week or so that we understand what
+
+06:56.780 --> 07:01.640
+specifically is happening over here and then we go right back to our implementations to get us.

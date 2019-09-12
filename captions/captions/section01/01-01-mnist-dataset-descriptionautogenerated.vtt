@@ -1,0 +1,355 @@
+WEBVTT
+
+00:00.120 --> 00:07.920
+We're going to cover a case study for recognizing that it's right.
+
+00:07.950 --> 00:10.840
+So a hundred digits.
+
+00:11.820 --> 00:14.790
+This is one of those examples.
+
+00:14.850 --> 00:20.870
+Those which are thought for machine learning and it's a very interesting example because it lets us
+
+00:20.880 --> 00:26.430
+see the whole pipeline without having to understand the intricacies of a specific dataset.
+
+00:26.430 --> 00:31.490
+So what we're going to do is we're going to start with so I could learn by importing from SCA learn
+
+00:31.930 --> 00:39.630
+import data sets so that imports the data sets module for us and we're what we're going to do is we're
+
+00:39.630 --> 00:45.740
+going to load up the digital data set using datasets daughter load digits.
+
+00:45.740 --> 00:51.240
+Now this is going to loan the whole dataset in this variable it's a slightly smaller dataset and you
+
+00:51.240 --> 00:54.370
+can take a look at what it houses.
+
+00:54.510 --> 01:01.130
+So you can say digits and on data and it shows you what it has.
+
+01:01.140 --> 01:03.500
+So it's really important that you understand your data.
+
+01:03.600 --> 01:09.330
+If you look at it over here it's not very clear what this data is how many digits we have.
+
+01:09.330 --> 01:10.770
+What does that look like.
+
+01:10.770 --> 01:14.990
+So what we're going to do is we're going to take a look at a different type of representation for this.
+
+01:15.030 --> 01:18.690
+Now this is the image representation of the digit.
+
+01:18.690 --> 01:21.440
+So where do these zeros come from.
+
+01:21.450 --> 01:25.080
+So these are the pixel values for this image.
+
+01:25.440 --> 01:27.830
+So the top left corner is going to be all that here.
+
+01:27.900 --> 01:30.280
+And this is a zero because this is completely white.
+
+01:30.300 --> 01:34.920
+So as it gets closer and closer to black it gets closer and closer to a one value.
+
+01:35.430 --> 01:40.530
+So that is essentially what your image gets translated to in terms of mathematics.
+
+01:40.530 --> 01:43.960
+So this is what your image looks like when it is turned into a matrix.
+
+01:44.070 --> 01:48.090
+And this is what it's trying to show you except it doesn't look like that.
+
+01:48.090 --> 01:54.060
+And it's really important that when you're learning machine learning and you're trying to corded you
+
+01:54.060 --> 01:58.500
+should be very comfortable with your data at least your input data.
+
+01:58.530 --> 02:04.770
+So what you want to do is you want to go ahead and say a print digits dot data zero so that you can
+
+02:04.770 --> 02:11.070
+see what the what the individual data point or one digit looks like.
+
+02:11.070 --> 02:12.550
+So this is what it looks like.
+
+02:12.690 --> 02:17.420
+Now this is really weird because this is a one dimensional vector.
+
+02:17.730 --> 02:22.350
+So here what we had was that we have a matrix.
+
+02:22.380 --> 02:23.710
+So this should be two dimensional.
+
+02:23.730 --> 02:25.580
+But this overhead is one dimension.
+
+02:25.830 --> 02:29.220
+So the point of that is that this is going to be reshaped.
+
+02:29.400 --> 02:30.480
+So what does reshape mean.
+
+02:30.480 --> 02:35.280
+So currently this has a particular shape and that is the other thing that you must understand when you're
+
+02:35.280 --> 02:36.490
+trying to apply machine learning.
+
+02:36.490 --> 02:39.750
+You need to understand the shapes of your matrices.
+
+02:39.750 --> 02:42.930
+So for instance are digits dot data.
+
+02:42.930 --> 02:44.920
+Zero dot shape.
+
+02:44.940 --> 02:46.550
+That is how you take a look at the shape.
+
+02:46.650 --> 02:49.070
+It has a shape of 64 comma.
+
+02:49.140 --> 02:51.750
+So that means that it's essentially returning a tuple.
+
+02:51.750 --> 02:55.830
+So it only has one dimension and it has 64 numbers.
+
+02:55.830 --> 02:59.140
+So it's essentially an eight by eight matrix.
+
+02:59.240 --> 03:01.680
+So eight pixels by eight pixels matrix.
+
+03:01.830 --> 03:03.720
+And that turns it into a sixty four.
+
+03:03.720 --> 03:07.210
+Right so you can go ahead and reshape it but we don't really want to do that right now.
+
+03:07.620 --> 03:12.420
+The second thing that you need to take a look at is the target of your data.
+
+03:12.420 --> 03:15.650
+So remember this digit stored data zero.
+
+03:15.660 --> 03:18.260
+We're going to take a look at did it start Target Zero.
+
+03:18.270 --> 03:21.600
+So what is the zero elements target.
+
+03:21.770 --> 03:23.010
+So its target is zero.
+
+03:23.010 --> 03:28.670
+Essentially what we're saying is that this whole thing corresponds to the hundredth year 0 zero.
+
+03:28.710 --> 03:33.080
+So what we have here is a data zero which is one hundred and digit.
+
+03:33.090 --> 03:38.450
+And this is the target which is the known value of the digits.
+
+03:38.460 --> 03:42.920
+So we know that this all pixel combination when it combines gives us physical shape.
+
+03:42.940 --> 03:48.790
+For instance this one over here gives us a one because of these specific values.
+
+03:49.020 --> 03:54.910
+So make sure you understand this part before you proceed ahead with these other stuff.
+
+03:55.420 --> 03:59.270
+Now let's take we'll take a look at the digits.
+
+03:59.400 --> 04:03.870
+Target the last 10 on the Boston targets.
+
+04:03.900 --> 04:11.640
+So we have a 5 4 2 8 4 9 0 8 9 and 8 this 8 is going to be special in a little while.
+
+04:12.150 --> 04:17.880
+But what you want to do is you want to make sure that you understand digits dot target star shape so
+
+04:17.880 --> 04:20.640
+it has a shape of seventeen ninety seven.
+
+04:20.970 --> 04:25.890
+So you have one hundred one thousand seven hundred and ninety seven targets.
+
+04:25.980 --> 04:27.150
+So we better have
+
+04:31.320 --> 04:33.040
+the same number of digits.
+
+04:33.090 --> 04:38.250
+So we have this number of projects with each digit has sixty four values.
+
+04:38.250 --> 04:40.560
+So make sure you understand this.
+
+04:40.620 --> 04:43.960
+Let's expand this again so that we're sure we understand it.
+
+04:44.010 --> 04:47.780
+So we have one hundred and 7 1 7 9 7 data points.
+
+04:48.480 --> 04:52.620
+So these are images and these are their corresponding targets.
+
+04:52.680 --> 04:54.130
+So they need to be equal.
+
+04:54.260 --> 04:57.540
+Now within one image we have 64 pixel values.
+
+04:57.540 --> 04:59.850
+That is eight across eight right.
+
+04:59.850 --> 05:02.080
+So that is what our data looks like.
+
+05:02.110 --> 05:09.540
+Now what we want to do is essentially learn to predict the class.
+
+05:09.870 --> 05:15.970
+What is it class a class is essentially data set divided into different groups.
+
+05:16.020 --> 05:19.080
+So because we have digital world we have classes from 0 to 9.
+
+05:19.110 --> 05:26.150
+So an image of of a digit may belong to class 0 if it has a zero in it or to one up to 9.
+
+05:26.190 --> 05:27.810
+So that's what we want to learn.
+
+05:27.810 --> 05:36.450
+We want to do is train the machine using some data some of the data that we have and then hold some
+
+05:36.450 --> 05:43.260
+of the data back so that later on when the machine claims that it has learned to predict data predict
+
+05:43.290 --> 05:48.480
+what the image corresponds to we show it some image that it has not previously seen.
+
+05:48.630 --> 05:52.080
+Because as you know the machines machines are really good at memorizing stuff.
+
+05:52.080 --> 05:56.910
+So if you show it all the data points then it's going to simply learn what the exact pixel values correspond
+
+05:56.910 --> 06:00.870
+to what we want to do is show it some pixels right.
+
+06:00.870 --> 06:04.940
+In a way we show it and we tell it what the image is.
+
+06:05.010 --> 06:09.510
+For instance we show it the image of a zero antenna that this is a zero then we show it to one and tell
+
+06:09.510 --> 06:11.850
+it that this is a one so on and so forth.
+
+06:11.850 --> 06:15.630
+So we're going to show it 1 7 9 6 values.
+
+06:15.640 --> 06:21.540
+We're going to hold one back and then we're going to teach it what each of the image corresponds to
+
+06:22.080 --> 06:23.090
+once we have that.
+
+06:23.160 --> 06:29.760
+We're going to take out one image that we have held back and then present it as an example to the machine
+
+06:30.150 --> 06:32.440
+to understand whether it has learned it.
+
+06:32.460 --> 06:37.500
+So if the machine really has learned to predicted losses it should be able to predict this new this
+
+06:37.500 --> 06:40.730
+new image that it has not previously seen.
+
+06:41.670 --> 06:43.200
+So that's our.
+
+06:43.210 --> 06:46.730
+And that's what our model is going to be what our pipeline is going to be.
+
+06:46.740 --> 06:54.450
+So we're going to train on most of our data right then the machine is going to claim that it has learned
+
+06:55.860 --> 07:01.760
+the the task of predicting the images and then what we're going to do is we're going to test it out.
+
+07:01.840 --> 07:06.510
+So we're going to give it an exam to make sure that it has not just memorized the data that clearly
+
+07:06.540 --> 07:07.720
+has learned it.
+
+07:07.770 --> 07:14.250
+So what we're going to do is we're going to create a classified not a classifier is let's call it a
+
+07:14.250 --> 07:20.300
+piece of code for now a classifier is going to be a model or a piece of code that essentially learns.
+
+07:20.300 --> 07:21.000
+Right.
+
+07:21.030 --> 07:24.530
+So the first train the classifier.
+
+07:24.750 --> 07:28.290
+So what we have been calling machine up until now that is now going to be classified.
+
+07:28.680 --> 07:32.040
+So classifier has to come from an algorithm.
+
+07:32.070 --> 07:36.140
+So we're going to pick one and then we showed some example images.
+
+07:36.330 --> 07:44.070
+And then finally what we do is we go ahead and we test it once it claims that it has learned to predict
+
+07:44.070 --> 07:44.440
+stuff.
+
+07:45.270 --> 07:48.540
+So in the next video we're going to learn to predict the classes.
+
+07:48.730 --> 07:52.950
+For now we need to make sure that we understand the shapes of the data.
+
+07:52.950 --> 07:58.170
+Now this is going to come back again and again and again and this is one of the main stumbling points
+
+07:58.170 --> 08:01.700
+for newbies when they want to start with machine learning code.
+
+08:01.890 --> 08:06.330
+Understanding the shapes is very important so make sure you understand these five lines of code.
+
+08:06.330 --> 08:10.740
+This is not a large piece of code but make sure you understand it really well before you proceed ahead.

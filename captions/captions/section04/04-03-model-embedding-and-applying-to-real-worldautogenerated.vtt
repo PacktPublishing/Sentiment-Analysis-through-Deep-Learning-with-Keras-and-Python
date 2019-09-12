@@ -1,0 +1,496 @@
+WEBVTT
+
+00:00.070 --> 00:05.460
+So now that we have the data all prepared and we understand what the data is we are going to create
+
+00:05.460 --> 00:05.940
+a model.
+
+00:06.030 --> 00:07.750
+And we're going to feed the data to it.
+
+00:07.980 --> 00:11.940
+This is the part of this core that we are not going to go into the detail right now.
+
+00:12.240 --> 00:18.390
+So just as we came back to the code up top we are going to come back to this model after we have done
+
+00:18.450 --> 00:23.760
+a little bit more on the theory side but at the moment all you need to understand is we have a sequential
+
+00:23.760 --> 00:26.070
+model as we did in the previous videos.
+
+00:26.070 --> 00:29.610
+We are adding a couple of layers over here and this first layer is very important.
+
+00:29.610 --> 00:35.130
+I'm going to cover this in detail in this video but all of the other layers such as drop out on one
+
+00:35.130 --> 00:37.890
+the max booting drop out.
+
+00:37.890 --> 00:45.480
+We wanted to seem dense and we've seen activation but all of these Max pooling drop out and then a couple
+
+00:45.480 --> 00:46.980
+of others as well.
+
+00:47.010 --> 00:51.150
+They are going to be covered after we do a little bit of security but all you need to understand is
+
+00:51.450 --> 00:55.540
+that we have a certain type of architecture over here that we've created.
+
+00:55.830 --> 01:01.470
+And after that we have the same architecture of compiling and then fitting and evaluating to make sure
+
+01:01.740 --> 01:03.600
+that we get the statistics out.
+
+01:03.600 --> 01:08.340
+I'm going to run this in a minute but there is one layer that is extremely important and that we want
+
+01:08.340 --> 01:11.260
+to cover lot here hit this video and that is the embedding layer.
+
+01:11.760 --> 01:17.930
+So let's go back over here and see that in our data in this format that we have that we're trying to
+
+01:17.930 --> 01:19.380
+feed through the model.
+
+01:19.700 --> 01:22.360
+It has a couple of numbers already here.
+
+01:22.390 --> 01:29.390
+So each number represents a word for instance let's pick this word over here 14 and this word over here
+
+01:29.410 --> 01:30.340
+Twenty 22.
+
+01:30.350 --> 01:33.340
+So as you can see these are two different words.
+
+01:33.530 --> 01:40.410
+You cannot say that this word 14 is somehow smaller or greater than this word 22.
+
+01:40.460 --> 01:47.090
+So the words that are corresponding to these numbers for instance if you go up over here and you see
+
+01:47.360 --> 01:51.000
+that this does not look good translates to 14 127.
+
+01:51.110 --> 02:00.880
+So this 14 is this and does is 127 but we know as humans that just because 40 is more than 127 it does
+
+02:00.880 --> 02:05.080
+not mean that some other word this is smaller than the word does.
+
+02:05.080 --> 02:07.870
+They do not have a compatible relationship with each other.
+
+02:07.870 --> 02:12.110
+You cannot say that this is smaller than does or does smaller than this.
+
+02:12.160 --> 02:13.510
+They are not compatible.
+
+02:13.510 --> 02:18.000
+They are not ordered but because we are translating them into numbers.
+
+02:18.100 --> 02:24.990
+The machine might be tempted to learn that a smaller number occurs more frequently because this the
+
+02:25.000 --> 02:27.700
+word this occurs more frequently.
+
+02:27.700 --> 02:34.540
+This is called the problem of fake ordering or incorrectly assumed ordering something like that and
+
+02:34.540 --> 02:35.310
+we want to break that.
+
+02:35.740 --> 02:38.550
+So we want to break the ordering between the different words.
+
+02:38.800 --> 02:39.920
+How can we do that.
+
+02:39.940 --> 02:43.760
+We are going to need some sort of a numerical representation for the machine to work with it.
+
+02:43.780 --> 02:47.640
+So we cannot give it this and does it so we cannot use those words.
+
+02:47.650 --> 02:54.160
+We have to use numbers but somehow we need to break these and one way to break those order rings is
+
+02:54.160 --> 03:00.730
+by converting this word 14 into a vector as soon as you have a vector which is 2D and you represent
+
+03:00.760 --> 03:07.780
+each number using a vector for instance you represent this word is not as 14 but as affected you can
+
+03:07.780 --> 03:11.590
+break the ordering between these two because two vectors cannot be compared to each other.
+
+03:11.590 --> 03:15.370
+You can compare the magnitude of vectors but you cannot compare the vectors themselves.
+
+03:15.370 --> 03:18.280
+So anything that has to pass cannot be compared.
+
+03:18.280 --> 03:19.930
+So there is a lot of tuning world over here.
+
+03:19.930 --> 03:24.370
+We don't want to go into the detail of that but I'll give you a resource that you can read up if you
+
+03:24.370 --> 03:26.650
+want to go into the details of this.
+
+03:26.740 --> 03:33.250
+So if you want to take a look at the details of this you can search for love vectors for word representation.
+
+03:33.280 --> 03:35.740
+So this is essentially what we're trying to do over here.
+
+03:35.740 --> 03:39.100
+But using the neutral architecture instead of the glove model.
+
+03:39.640 --> 03:44.950
+So you can download the code you can take a look at the paper or what here you can see the details in
+
+03:44.950 --> 03:50.920
+your own time but all you need to understand is we are going from a single number to a vector.
+
+03:50.920 --> 03:58.240
+And the idea is to break the ordering between the different numbers and to ensure that the vectors that
+
+03:58.240 --> 04:01.870
+we get out have some sort of a semantic meaning related to the word.
+
+04:02.140 --> 04:03.940
+So this 14 is arbitrary.
+
+04:04.030 --> 04:09.070
+It does not have anything to do with this but once we can work this 14 into a vector it's going to have
+
+04:09.640 --> 04:11.130
+some sort of a relationship.
+
+04:11.260 --> 04:15.130
+For instance things that are related together are going to have similar vectors.
+
+04:15.160 --> 04:15.370
+Right.
+
+04:15.370 --> 04:17.170
+So that's essentially all you need to understand.
+
+04:17.650 --> 04:24.610
+So what we want to do is create an embedding layer and embedding is essentially the representation of
+
+04:24.760 --> 04:27.460
+a discrete value into a vector.
+
+04:27.460 --> 04:31.690
+So this layer is going to create an embedding for us which is going to be a vector representation for
+
+04:31.690 --> 04:32.280
+each word.
+
+04:32.770 --> 04:37.220
+And after that we have a simple neural network that goes ahead and does its thing.
+
+04:37.240 --> 04:37.440
+Right.
+
+04:37.450 --> 04:40.660
+So this this layer is all you need to understand at the moment.
+
+04:40.900 --> 04:43.170
+And the whole idea is quite simple.
+
+04:43.240 --> 04:49.120
+The beauty is a little bit involved but the idea is simple and that's that we want to save the individual
+
+04:49.120 --> 04:51.520
+world as a vector and not as an integer.
+
+04:51.550 --> 04:51.680
+Right.
+
+04:51.880 --> 04:54.640
+So once we have that we can go ahead and run this.
+
+04:54.790 --> 05:01.090
+And this is going to execute and go ahead and run for two epochs or this might take a little bit of
+
+05:01.090 --> 05:01.590
+time.
+
+05:01.660 --> 05:05.630
+I'll jump ahead in time and come back as soon as this is done.
+
+05:05.650 --> 05:10.380
+All right so another model is trained with a test accuracy of point 8 7 9 8.
+
+05:10.450 --> 05:16.210
+Now what we want to do is we want to take the testing dataset and do a bit of analysis of what the results
+
+05:16.210 --> 05:17.190
+look like.
+
+05:17.230 --> 05:21.350
+So if we take a look at the first data point in the desert.
+
+05:21.360 --> 05:22.560
+So that is what it looks like.
+
+05:22.560 --> 05:29.880
+It's a fairly short review and we are going to essentially pass all of the testing data into the monitoring
+
+05:29.940 --> 05:33.310
+function and it's going to give us some predictions for each review.
+
+05:33.380 --> 05:38.790
+Now each prediction is going to be in the form of a number or a probability which is between zero and
+
+05:38.790 --> 05:45.300
+one one being very confident that it's a positive review and zero being very confident that it's a negative
+
+05:45.300 --> 05:47.460
+review and anything in between is a shade of gray.
+
+05:47.970 --> 05:52.680
+So what we want to do is we want to convert them into either end e.g. or repeal us for negative and
+
+05:52.680 --> 05:53.580
+positive.
+
+05:53.580 --> 06:00.390
+So for all the predictions that we get out we are going to say neg if that prediction is less than zero
+
+06:00.390 --> 06:01.000
+point five.
+
+06:01.020 --> 06:02.490
+Otherwise we're going to say it's positive.
+
+06:02.490 --> 06:02.700
+Right.
+
+06:02.700 --> 06:04.340
+So let's get on that.
+
+06:04.350 --> 06:09.690
+So this essentially going to run the predictions for all the different data points in the desert and
+
+06:09.720 --> 06:12.150
+it's going to give us back the predictions.
+
+06:12.660 --> 06:14.390
+Now take a look at some of these.
+
+06:14.400 --> 06:18.590
+So what people typically do is they come over here.
+
+06:18.600 --> 06:23.510
+They run the model and they do the learning and then they get this accuracy out and then they're done
+
+06:24.390 --> 06:25.500
+and they stopped it.
+
+06:25.530 --> 06:30.810
+Now it's very important to not stop there but go ahead and understand what you've gotten and take a
+
+06:30.810 --> 06:34.120
+look at the results in a lot more detail and that is what we're doing here.
+
+06:34.470 --> 06:38.890
+We're looking at the prediction for the test and we're going to take a look at the review.
+
+06:38.910 --> 06:41.710
+So we're going to take this data point.
+
+06:41.730 --> 06:46.800
+So the first data point in our test said we are going to decode it and do it an actual sentence using
+
+06:46.800 --> 06:50.970
+our function helper function that we defined in the previous video and we are going to take a look at
+
+06:50.970 --> 06:55.280
+the prediction that has been made for this specific review.
+
+06:55.920 --> 07:00.390
+So this one requires a lot of something because it focuses on mood and character.
+
+07:00.390 --> 07:03.190
+The plot is very simple et cetera et cetera.
+
+07:03.210 --> 07:06.430
+It's definitely one of our target characters and so on and so forth.
+
+07:06.600 --> 07:11.940
+The machine decided that this is a positive review so you can read the whole thing and decide whether
+
+07:11.940 --> 07:13.320
+the machine was right or not.
+
+07:13.320 --> 07:16.940
+But we're not interested in the actual accuracy at this point.
+
+07:16.950 --> 07:23.910
+What we want to do is we want to go ahead and create some of our own sentences now and take a look at
+
+07:23.910 --> 07:27.810
+how the machine does for these new sentences that it has never seen.
+
+07:28.260 --> 07:34.980
+So for instance once you have done the model training on I am DV data set now you can go ahead and use
+
+07:34.980 --> 07:39.810
+this same sentiment analysis model that you have now trained and saved some of it.
+
+07:39.810 --> 07:41.760
+We'll cover that in one of the future videos.
+
+07:41.820 --> 07:47.370
+You can load the model and you can give it tweets that are made by your users for your product that
+
+07:47.370 --> 07:48.420
+you have just launched.
+
+07:48.660 --> 07:53.540
+And without having to do any more training you can decide whether the sentiment is positive or negative.
+
+07:53.550 --> 07:57.310
+So for instance imagine that these are some tweets I do not like it at all.
+
+07:57.420 --> 07:59.850
+LOVEDAY did not love it and so on and so forth.
+
+07:59.880 --> 08:02.640
+You take these you encode the sentence.
+
+08:02.640 --> 08:07.020
+So this death sentence you encoded and what you get you would recall that encode sentence is going to
+
+08:07.030 --> 08:13.590
+return a sequence of ideas corresponding to the different words in the sentence and b appendix into
+
+08:13.590 --> 08:14.430
+this list.
+
+08:14.430 --> 08:14.630
+Right.
+
+08:14.640 --> 08:18.330
+So we take all three or four sentences and append them all in here.
+
+08:18.360 --> 08:23.060
+This can be a large number of tweets or just one tweet one at a time anywhere you want to do it.
+
+08:23.310 --> 08:28.940
+So now we have all the tweets all your sentences that you want to analyze in your last sentence is really
+
+08:28.940 --> 08:33.420
+what we are going to pad them as before because that is what the model requires.
+
+08:33.420 --> 08:35.220
+And now we have better things.
+
+08:35.250 --> 08:40.190
+And if we take a look at the shape it's going to be for comma 400 because that was our max length.
+
+08:40.200 --> 08:45.570
+So now we have a data that can be fed into the model and just as you did with the test set we are going
+
+08:45.570 --> 08:51.240
+to use model predict and we are going to pass this test sentences to it then we are going to do the
+
+08:51.240 --> 08:52.340
+same thing for sentiment.
+
+08:52.360 --> 08:58.060
+We're going to get a negative or pass out based on the prediction made by the model and this overhead
+
+08:58.130 --> 09:03.740
+we are simply trying to output these different sentences that we have and sentiments that the has computers.
+
+09:03.750 --> 09:09.180
+So if you run that you will see that I do not like this at all has been decided as a negative which
+
+09:09.180 --> 09:13.350
+is correct I would say loved it is positive.
+
+09:13.350 --> 09:18.390
+You can be you can get more positive than that did not limit is negative.
+
+09:18.390 --> 09:19.830
+These three look fine.
+
+09:19.830 --> 09:21.170
+The problem is with the fourth one.
+
+09:21.390 --> 09:23.220
+So cannot say that I loved it.
+
+09:23.220 --> 09:29.100
+Now the machine was hoodwinked into deciding that this is a positive review because it has the word
+
+09:29.460 --> 09:30.440
+loved in it.
+
+09:30.630 --> 09:36.030
+But this one had loving it as well but that was correctly identified as being negative because if they
+
+09:36.040 --> 09:36.930
+did not.
+
+09:37.010 --> 09:41.660
+So the machine is having trouble with negatives which are spaced away from the positives.
+
+09:41.670 --> 09:41.890
+Right.
+
+09:41.900 --> 09:43.860
+So Canada is slightly away from love.
+
+09:44.160 --> 09:48.860
+So it's incorrectly being predicted but that's the whole point of this video.
+
+09:48.930 --> 09:54.210
+Once you understand your data once you understand how to look at the predictions made by the machine
+
+09:54.240 --> 09:55.950
+then you can understand what the problem is.
+
+09:55.950 --> 10:00.800
+Then you can go ahead and find out a model that can handle this problem much better.
+
+10:01.140 --> 10:04.770
+So we can come to different other models in one of the future videos.
+
+10:04.860 --> 10:10.830
+But for now what we have done is we have trained a machine which can now take any sentence that does
+
+10:10.830 --> 10:15.120
+not have to do anything at all with any movies MTV TV or anything else.
+
+10:15.120 --> 10:20.710
+And it can predict the sentiment because of the training that we have done and now we can take this
+
+10:20.710 --> 10:26.980
+model and use it to make predictions about the sentiments of any tax that we can throw at it.
+
+10:27.520 --> 10:33.400
+So essentially we have gone from just a theoretical understanding on an academic understanding of learning
+
+10:33.430 --> 10:37.430
+or sentiment analysis to doing sentiment analysis in the digital world.
+
+10:37.510 --> 10:41.350
+And that I think is a strength of this practical approach that we have followed in this course.

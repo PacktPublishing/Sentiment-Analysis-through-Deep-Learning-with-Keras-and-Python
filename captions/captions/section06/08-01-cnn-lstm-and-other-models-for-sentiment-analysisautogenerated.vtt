@@ -1,0 +1,268 @@
+WEBVTT
+
+00:00.300 --> 00:05.850
+Now that we've seen how the CNN model works we can go ahead and finish up the original case study of
+
+00:05.850 --> 00:10.170
+sentiment analysis that we started in the very first with you of this course you would recall that we
+
+00:10.170 --> 00:14.910
+left out the model portion and said that after the embedding we had some layers which we would discuss
+
+00:14.910 --> 00:15.450
+later.
+
+00:15.450 --> 00:16.800
+And this is one that later has come.
+
+00:17.370 --> 00:22.920
+So immediately after our embedding there we add a dropout layer and that is going to do some regularization
+
+00:22.920 --> 00:26.820
+for us and ensure that learning is not just rote memorization.
+
+00:26.820 --> 00:28.680
+Then we have a on one Delia.
+
+00:29.010 --> 00:34.410
+So instead of having to delay it we have gone one Delia because we have a one dimensional structure
+
+00:34.580 --> 00:35.180
+here.
+
+00:35.220 --> 00:40.830
+So the difference between a dual convolution and one convolution is as the name implies that in one
+
+00:40.830 --> 00:43.660
+day convolution the filter is not going to be a matrix.
+
+00:43.740 --> 00:48.150
+It's going to be a vector so instead of a 2D matrix we're going to have a one deflected and it's going
+
+00:48.150 --> 00:52.380
+to slide over the whole Bundy structure of the input that we give to it.
+
+00:52.410 --> 00:54.980
+So that's essentially one convolution.
+
+00:55.020 --> 01:00.660
+So we have a one evolution over here with decoded size filters and all the other things set over here
+
+01:00.690 --> 01:06.450
+according to the variables that we set in the top set about here.
+
+01:06.520 --> 01:07.180
+Right.
+
+01:07.340 --> 01:14.350
+So we have 250 filters and the of size of three and everything else is as it should be.
+
+01:14.360 --> 01:18.550
+After that we have a max pooling which is over the whole structure.
+
+01:18.560 --> 01:21.770
+So it's a global Max pooling instead of just a local pooling.
+
+01:21.770 --> 01:25.120
+Then we have a vanilla hidden layer dense layer.
+
+01:25.160 --> 01:31.250
+So in dimensions with the drop out and the activation of a loop then we add in a dense layer with just
+
+01:31.250 --> 01:31.920
+one node.
+
+01:31.940 --> 01:36.230
+So it's going to be predicting a value between 0 and 1 and it's going to have an activation of sigmoid.
+
+01:36.920 --> 01:41.360
+Finally we go ahead and compile the model using binary across entropy and the atom optimize it.
+
+01:41.380 --> 01:44.030
+We can change this obviously to other optimizer.
+
+01:44.090 --> 01:51.020
+And finally we go ahead and do the fitting using the training data and do the evaluation is well that
+
+01:51.020 --> 01:56.870
+is essentially all we've done so in embedding lower dropout cone Vandy with an optional rowboat than
+
+01:56.910 --> 02:01.760
+pulling then one dense layer with drop out and another dense data with the activation of sigmoid.
+
+02:02.120 --> 02:07.670
+So by now you should be able to understand how the model has been structured and the really good thing
+
+02:07.670 --> 02:15.050
+about this architecture is we have the brains of the whole machine separated from everything as so in
+
+02:15.050 --> 02:15.800
+this pipeline.
+
+02:15.800 --> 02:20.060
+This is what the brain of the machine is and we can go ahead and change this to another architecture
+
+02:20.390 --> 02:22.140
+and we'll get much better performance.
+
+02:22.160 --> 02:29.810
+So you would recall that over here we had an error because this guy was incorrectly labeled as a positive
+
+02:29.810 --> 02:33.080
+sentiment even though it's clearly negative for us humans.
+
+02:33.080 --> 02:36.320
+We can see that it's negative but the machine thought it was positive.
+
+02:36.320 --> 02:42.140
+So we can go ahead and look up another model which works really well for sentiment analysis which is
+
+02:42.140 --> 02:45.260
+based on the concept of recurrent neural networks.
+
+02:45.260 --> 02:47.680
+Now there is a lot of theory involved with recurrent neural networks.
+
+02:47.690 --> 02:50.650
+We don't want to go into the details of the actual beauty.
+
+02:50.910 --> 02:55.660
+For that I'm going to refer you to this excellent article by Andre.
+
+02:55.850 --> 02:57.570
+He's a Stanford professor.
+
+02:57.650 --> 03:01.030
+The article is the unreasonable effectiveness of neural networks.
+
+03:01.040 --> 03:06.710
+So essentially what has he got a neural network is is that it's an architecture of neural networks which
+
+03:06.710 --> 03:12.410
+instead of just taking the input and producing the output it can take in an input and keep track of
+
+03:12.410 --> 03:19.040
+each state over a period of time so you can think of these blocks as different timestamps as you keep
+
+03:19.040 --> 03:20.960
+inserting data into this model.
+
+03:20.960 --> 03:24.970
+It keeps learning according to the different sequence of information that you give it.
+
+03:25.010 --> 03:31.700
+That gives a lot of strength to the architecture so you can have a neural net exports sentiment analysis
+
+03:32.030 --> 03:38.450
+specifically LSD aims are really good and the way we do that is simply go ahead and change our model
+
+03:38.930 --> 03:41.080
+to an LSD model.
+
+03:41.090 --> 03:43.450
+This is 0 7 get us examples begin.
+
+03:43.730 --> 03:46.550
+And this is essentially the same notebook that we did earlier.
+
+03:46.940 --> 03:51.260
+So all of the things are exactly the same except for the model that we have here.
+
+03:52.460 --> 03:59.550
+So this model has been changed and it has been changed to golf instead of from corn Bundy to LSD.
+
+04:00.020 --> 04:03.420
+So we have the embedding and then instead of the con wouldn't you have Elysium.
+
+04:03.680 --> 04:06.990
+And then you have dense and essentially everything else is the same.
+
+04:07.410 --> 04:12.440
+But what this does is it's going to give us more board for the type of sentiment analysis that we can
+
+04:12.440 --> 04:13.110
+do.
+
+04:13.400 --> 04:18.620
+So just by joining these couple of lines we can have a model that does better in terms of the actual
+
+04:18.620 --> 04:19.560
+predictions.
+
+04:19.580 --> 04:24.770
+So this would have taken a lot of time so I've executed this beforehand and essentially it's the same
+
+04:24.770 --> 04:26.780
+idea the whole code is exactly the same.
+
+04:27.140 --> 04:28.900
+And we have these four guys over here.
+
+04:29.000 --> 04:34.250
+The fourth one was incorrectly labeled previously but now as you can see that this model has correctly
+
+04:34.250 --> 04:35.510
+labeled it as negative.
+
+04:35.540 --> 04:42.290
+So negative positive negative and negative and the only other change that we made was instead of zero
+
+04:42.290 --> 04:46.110
+point five we have zero point nine six or what he has to change the threshold just a little bit.
+
+04:46.220 --> 04:50.870
+But you can see that we are getting much better results even with the small number of examples that
+
+04:50.870 --> 04:52.160
+we have here.
+
+04:52.550 --> 04:54.480
+And that's the ball of this architecture.
+
+04:54.590 --> 04:59.030
+Now you can go ahead and change the brains of the machine and incorporate much more powerful models
+
+04:59.450 --> 05:05.630
+to have a better sentiment analysis engine by changing just a couple of lines you can go ahead and experiment
+
+05:05.630 --> 05:06.730
+with other models as well.
+
+05:07.100 --> 05:08.480
+I'll give you a hint of how to do that.
+
+05:08.510 --> 05:14.100
+So if you go to any search engine and search for examples GitHub you will get this link all ahead.
+
+05:14.120 --> 05:18.330
+And when you click on that you have all of these examples forgets that you've been following all the
+
+05:18.330 --> 05:21.980
+sentiment analysis examples are in this I'm DV underscored.
+
+05:22.100 --> 05:24.030
+So we have bi directional A.T.M..
+
+05:24.080 --> 05:26.250
+We have CNN which we've done.
+
+05:26.300 --> 05:29.770
+We have CNN LACMA which joins CNN with Elysium.
+
+05:29.810 --> 05:31.830
+We have foster X and Atlas team that we just did.
+
+05:32.240 --> 05:37.640
+So you can open up any of these and you would see that it has essentially the same code and all you
+
+05:37.640 --> 05:44.240
+need is to take this model Woodhead and inserted into your own pipeline that we've covered.
+
+05:44.570 --> 05:49.110
+So once you have this architecture you can go ahead and experiment with different losses.
+
+05:49.220 --> 05:54.050
+You can try different optimizes you can change a lot of the different parameters and see what works
+
+05:54.050 --> 05:57.500
+for your dataset and your problem domain that you're trying to solve.
